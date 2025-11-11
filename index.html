@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>XERODIRT - Professional Washroom Cleaning</title>
+
+<!-- Poppins font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+  :root {
+    --accent-color: #00a68d;
+    --accent-secondary: #008f7a;
+    --bg-color: #f7f7f7;
+    --primary-text: #1a1a1a;
+    --secondary-text: #757575;
+    --input-border: #e0e0e0;
+    --card-bg: #ffffff;
+    --white: #ffffff;
+    --radius: 8px;
+    --max-width: 1200px;
+    --shadow-subtle: 0 6px 20px rgba(0,0,0,0.06);
+    --shadow-elevated: 0 14px 40px rgba(0,0,0,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', system-ui, sans-serif; }
+  body { background: var(--bg-color); color: var(--primary-text); line-height: 1.6; }
+
+  header {
+    background: var(--white);
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-subtle);
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 90;
+  }
+  header .brand-logo {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--accent-color);
+    letter-spacing: -1px;
+    text-transform: uppercase;
+  }
+  .cta-primary {
+    background: var(--accent-color);
+    color: var(--white);
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: background 0.25s ease;
+  }
+  .cta-primary i { margin-right: 8px; }
+  .cta-primary:hover { background: var(--accent-secondary); }
+
+  .mobile-menu-btn { display: none; background: none; border: none; font-size: 22px; color: var(--accent-color); cursor: pointer; }
+
+  #overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 99; visibility: hidden; opacity: 0; transition: opacity .25s ease; }
+  #overlay.active { visibility: visible; opacity: 1; }
+  #mobile-menu { position: fixed; top:0; right:0; width:260px; height:100%; background:var(--primary-text); color:#fff; transform: translateX(100%); transition: transform .28s ease; z-index: 100; padding:18px; }
+  #mobile-menu.open { transform: translateX(0); }
+  #mobile-menu a { color:#fff; text-decoration:none; display:block; padding:10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  #menu-close { background:none;border:none;color:#fff;font-size:20px;cursor:pointer; }
+
+  .hero {
+    background: linear-gradient(180deg, rgba(0,0,0,0.48), rgba(0,0,0,0.56)),
+    url('https://techsquadteam.com/assets/profile/blogimages/19c7a67f84cce8f95e5b2271ec32ce8b.png') center/cover no-repeat;
+    height: 52vh;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; color: #fff;
+  }
+  .hero-content { max-width:900px; padding: 0 20px; }
+  .hero h1 { font-size:40px; font-weight:800; margin-bottom:10px; }
+  .hero p { font-size:18px; color:rgba(255,255,255,0.92); margin-bottom:18px; }
+
+  .content { max-width: var(--max-width); margin: 60px auto; padding: 0 20px; }
+  .section-title { text-align:center; font-size:30px; font-weight:700; margin-bottom:30px; }
+
+  .services-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:22px; }
+  .service-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: var(--shadow-subtle);
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .service-card i { font-size:36px; color:var(--accent-color); }
+  .service-card h3 { font-size:18px; }
+  .service-card p { color:var(--secondary-text); font-size:14px; flex:1; }
+  .service-card .price { font-weight:800; color:var(--accent-color); font-size:20px; }
+
+  .view-details {
+    display:inline-block; margin-top:6px;
+    padding:8px 12px; background:#222; color:#fff;
+    border-radius:8px; border:none; cursor:pointer; font-weight:600;
+  }
+  .view-details:hover { background:#000; }
+
+  form { max-width: 550px; margin: 0 auto; padding: 36px; background: var(--white); border-radius: 10px; box-shadow: var(--shadow-elevated); }
+  .input-group { position: relative; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--input-border); background:#fff; }
+  form input, form select, form textarea {
+    width:100%; padding:14px 12px; border:none; background:transparent; font-size:15px; border-radius:8px;
+  }
+  .input-group label {
+    position:absolute; left:12px; top:12px; color:var(--secondary-text); pointer-events:none; transition: all .18s ease;
+  }
+  .input-group input:focus + label, .input-group input:not(:placeholder-shown) + label,
+  .input-group textarea:focus + label, .input-group textarea:not(:placeholder-shown) + label {
+    top:-10px; font-size:12px; color:var(--accent-color); background:#fff; padding:0 6px;
+  }
+  form button {
+    width:100%; padding:14px; background:var(--accent-color); border:none;
+    color:#fff; border-radius:8px; font-weight:700; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+  }
+  form button:hover { background:var(--accent-secondary); }
+
+  .modal {
+    position: fixed; inset: 0;
+    display: none; align-items: center; justify-content: center;
+    background: rgba(12,12,12,0.55); z-index: 200; padding: 20px;
+  }
+  .modal.show { display:flex; }
+  .modal-card {
+    width: 100%; max-width: 560px; background: #fff; border-radius: 12px;
+    box-shadow: var(--shadow-elevated); padding: 22px; overflow:auto; max-height: 86vh;
+  }
+  .modal-card h3 { color:var(--accent-color); font-size:20px; margin-bottom:10px; }
+  .modal-card .subtitle { color:var(--secondary-text); margin-bottom:14px; font-size:14px;}
+  .modal-card ul { margin-left:18px; color:#333; line-height:1.5; }
+  .modal-card ul li { margin-bottom:8px; }
+  .modal-card .exclusions { color:#a12a2a; }
+  .modal-actions { display:flex; gap:10px; margin-top:18px; justify-content:flex-end; }
+  .modal-actions .btn { padding:10px 14px; border-radius:8px; border:1px solid rgba(0,0,0,0.06); cursor:pointer; font-weight:700; }
+  .modal-actions .btn.primary { background:var(--accent-color); color:#fff; border:none; }
+  .modal-actions .btn.ghost { background:transparent; color:#333; }
+
+  footer { background: var(--primary-text); color:#a0a0a0; padding:20px; text-align:center; margin-top:36px; }
+
+  @media (max-width:880px) {
+    .hero { height:40vh; }
+    .mobile-menu-btn { display:block; }
+    header .desktop-nav { display:none; }
+    .hero h1 { font-size:26px; }
+    form { padding:20px; }
+  }
+
+  .input-group select:focus + label,
+  .input-group select:not([value=""]) + label,
+  .input-group select:valid + label {
+    top: -10px;
+    font-size: 12px;
+    color: var(--accent-color);
+    background: #fff;
+    padding: 0 6px;
+  }
+/* === Fix: Make "Check Pricing & Book" responsive on mobile === */
+@media (max-width: 600px) {
+  #hero-cta.cta-primary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 280px;
+    font-size: 14px;
+    padding: 10px 16px;
+    white-space: normal;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .hero-content {
+    padding: 0 16px;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+}
+
+  select { color: #333; }
+  select:invalid { color: var(--secondary-text); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand-logo">XERODIRT</div>
+  <nav class="desktop-nav">
+    <a href="https://wa.me/917987788640?text=Hi%20I%20want%20to%20book%20XERODIRT%20service" target="_blank" class="cta-primary"><i class="fab fa-whatsapp"></i> Book an Appointment</a>
+  </nav>
+  <button id="menu-toggle" class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+</header>
+
+<div id="overlay"></div>
+<div id="mobile-menu" aria-hidden="true">
+  <button id="menu-close"><i class="fas fa-times"></i></button>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#book" onclick="closeMenu()">Book Now</a>
+</div>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Experience the Deep Clean You Deserve</h1>
+    <p>Professional, hygienic, and eco-friendly washroom cleaning services, guaranteed results in Pune.</p>
+    <a href="#book" class="cta-primary" id="hero-cta">Check Pricing & Book</a>
+  </div>
+</section>
+
+<div class="content">
+  <section id="services">
+    <h2 class="section-title">Our Premium Cleaning Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-soap"></i>
+        <h3>Basic Washroom Cleaning</h3>
+        <p>Essential cleaning of sink, toilet, and floor surface. Quick and effective maintenance.</p>
+        <div class="price">₹189 <span style="font-size:0.8rem;color:#777;margin-left:8px;text-decoration:line-through;">₹399</span></div>
+        <button class="view-details" data-service="basic">View Details</button>
+      </div>
+
+      <div class="service-card">
+        <i class="fas fa-bath"></i>
+        <h3>Deep Washroom Cleaning</h3>
+        <p>Comprehensive scrubbing of tiles, grout, toilet, and fixtures. Removes tough stains and grime.</p>
+        <div class="price">₹289 <span style="font-size:0.8rem;color:#777;margin-left:8px;text-decoration:line-through;">₹699</span></div>
+        <button class="view-details" data-service="deep">View Details</button>
+      </div>
+
+      <div class="service-card">
+        <i class="fas fa-building"></i>
+        <h3>2 BHK Deep Washroom Cleaning</h3>
+        <p>Specialized full washroom deep cleaning for 2 BHK homes — includes detailed scrubbing and buffing for all bathrooms.</p>
+        <div class="price">₹449 <span style="font-size:0.8rem;color:#777;margin-left:8px;text-decoration:line-through;">₹899</span></div>
+        <button class="view-details" data-service="intense2bhk">View Details</button>
+      </div>
+
+      <div class="service-card">
+        <i class="fas fa-city"></i>
+        <h3>3 BHK Deep Washroom Cleaning</h3>
+        <p>Comprehensive deep cleaning for 3 BHK bathrooms — removes stains, hard water marks, and ensures full sanitization.</p>
+        <div class="price">₹649 <span style="font-size:0.8rem;color:#777;margin-left:8px;text-decoration:line-through;">₹1299</span></div>
+        <button class="view-details" data-service="intense3bhk">View Details</button>
+      </div>
+
+      <div class="service-card">
+        <i class="fas fa-calendar-check"></i>
+        <h3>Scheduled Maintenance</h3>
+        <p>Weekly or bi-weekly cleaning plans for recurring hygiene maintenance at discounted rates.</p>
+        <div class="price">₹699/month <span style="font-size:0.8rem;color:#777;margin-left:8px;text-decoration:line-through;">₹1299/month</span></div>
+        <button class="view-details" data-service="scheduled">View Details</button>
+      </div>
+
+      <div class="service-card">
+        <i class="fas fa-truck-fast"></i>
+        <h3>Emergency Cleaning</h3>
+        <p>Quick response team for urgent sanitation needs.</p>
+        <div class="price">On-demand</div>
+        <button class="view-details" data-service="emergency">View Details</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="book" style="margin-top:40px;">
+    <h2 class="section-title">Schedule Your Service Now</h2>
+    <form onsubmit="return buildWhatsAppMessage(this)">
+      <div class="input-group">
+        <input type="text" name="name" id="name-input" placeholder=" " required>
+        <label for="name-input">Your Full Name</label>
+      </div>
+
+      <div class="input-group">
+        <input type="tel" name="phone" id="phone-input" pattern="[0-9]{10}" placeholder=" " required>
+        <label for="phone-input">Your 10-Digit Phone Number</label>
+      </div>
+
+      <div class="input-group">
+        <select name="service" id="service-select" required>
+          <option value="" disabled selected hidden>Select service</option>
+          <option value="Basic Washroom Cleaning">Basic Washroom Cleaning</option>
+          <option value="Deep Washroom Cleaning">Deep Washroom Cleaning</option>
+          <option value="2 BHK Deep Washroom Cleaning">2 BHK Deep Washroom Cleaning</option>
+          <option value="3 BHK Deep Washroom Cleaning">3 BHK Deep Washroom Cleaning</option>
+          <option value="Regular Maintenance">Regular Maintenance</option>
+          <option value="Emergency Cleaning">Emergency Cleaning</option>
+        </select>
+        <label for="service-select">Select Service Category</label>
+      </div>
+
+      <div class="input-group">
+        <textarea name="address" id="address-input" rows="3" placeholder=" " required></textarea>
+        <label for="address-input">Service Address (Flat No, Street, Landmark)</label>
+      </div>
+
+      <button type="submit"><i class="fab fa-whatsapp"></i> Confirm Booking on WhatsApp</button>
+    </form>
+  </section>
+</div>
+
+<footer>
+  &copy; 2025 XERODIRT. All rights reserved. | Bookings & Support: +91 79877 88640
+</footer>
+
+<div class="modal" id="serviceModal">
+  <div class="modal-card">
+    <h3 id="modalTitle"></h3>
+    <div class="subtitle" id="modalSub"></div>
+    <div class="list-block">
+      <div class="list-title">Inclusions:</div>
+      <ul id="modalInclusions"></ul>
+      <div class="list-title">Exclusions:</div>
+      <ul id="modalExclusions" class="exclusions"></ul>
+    </div>
+    <div class="modal-actions">
+      <button class="btn ghost" id="modalClose">Close</button>
+      <button class="btn primary" id="modalBook">Book This Service</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const SERVICES = {
+  basic: {
+  title: "Basic Washroom Cleaning",
+  subtitle: "Quick and essential cleaning without machines — ideal for daily upkeep and hygiene maintenance.",
+  inclusions: [
+    "Manual cleaning of toilet seat (inside and outside), washbasin, and floor using disinfectant.",
+    "Light removal of surface-level hard water stains from tiles and fittings.",
+    "Cleaning of taps, mirrors, and windows for a fresh, shiny look.",
+    "Wiping and sanitization of high-touch points such as handles and flush areas.",
+    "Basic cleaning of visible and reachable corners and surfaces."
+  ],
+  exclusions: [
+    "Use of buffing or mechanical cleaning machines",
+    "Deep stain or heavy scale removal",
+    "Exhaust fan or ceiling cleaning",
+    "Cleaning behind permanently fixed units"
+  ]
+},
+
+deep: {
+  title: "Deep Washroom Cleaning",
+  subtitle: "Comprehensive cleaning with buffing machine — removes hard stains, dirt, and grime from every corner.",
+  inclusions: [
+    "Full washroom cleaning including toilet seat (inside and outside), floor, sink, tiles, taps, mirrors, and windows.",
+    "Heavy stain and hard water deposit removal from tiles, fittings, and grout lines.",
+    "Buffing machine used for deep floor scrubbing and polishing.",
+    "Cleaning of hard-to-reach corners, walls, and areas behind fixtures.",
+    "Disinfection of all touchpoints — handles, taps, flush areas, and switchboards."
+  ],
+  exclusions: [
+    "Tile or fixture replacement work",
+    "Permanent mineral deposit removal requiring industrial restoration",
+    "Shower curtain or ceiling cleaning beyond safe reach"
+  ]
+},
+
+intense2bhk: {
+  title: "2 BHK Deep Washroom Cleaning",
+  subtitle: "Complete washroom deep cleaning for 2 BHK homes — detailed and professional using buffing machines.",
+  inclusions: [
+    "Full deep cleaning of all 2 BHK washrooms including toilet seats (inside and outside), floors, tiles, taps, mirrors, and windows.",
+    "Hard water and stain removal from tiles, fittings, and grout lines.",
+    "Buffing machine used for deep floor scrubbing and polishing.",
+    "Cleaning of corners, walls, and behind fixtures.",
+    "Disinfection of handles, flush areas, and switches."
+  ],
+  exclusions: [
+    "Fixture replacement or repair work",
+    "Ceiling or fan cleaning beyond safe reach",
+    "Hard mineral deposit restoration requiring heavy equipment"
+  ]
+},
+
+intense3bhk: {
+  title: "3 BHK Deep Washroom Cleaning",
+  subtitle: "Full-scale washroom deep cleaning for 3 BHK homes — industrial-grade cleaning with buffing and sanitization.",
+  inclusions: [
+    "All 3 BHK washrooms cleaned — toilets, basins, tiles, taps, mirrors, and windows.",
+    "Removal of hard water stains and grime from all surfaces.",
+    "Machine-based scrubbing for deep floor and tile shine.",
+    "Thorough disinfection of every touchpoint and fixture.",
+    "Cleaning of walls, corners, and behind attached accessories."
+  ],
+  exclusions: [
+    "Major repairs or tile replacement",
+    "Cleaning of ceiling fans or vents",
+    "Permanent mineral damage restoration"
+  ]
+},
+
+  scheduled: {
+    title: "Scheduled Maintenance",
+    subtitle: "Recurring visits for consistent hygiene.",
+    inclusions: [
+      "Weekly or bi-weekly visits.",
+      "Mix of deep and basic treatments.",
+      "Priority scheduling & discounts.",
+      "Regular disinfection of tiles and fixtures.",
+      "Monthly inspection & touch-ups."
+    ],
+    exclusions: [
+      "Emergency one-off deep restorations",
+      "Major repair works"
+    ]
+  },
+  emergency: {
+    title: "Emergency Cleaning",
+    subtitle: "Rapid-response cleaning for urgent needs.",
+    inclusions: [
+      "Immediate team deployment.",
+      "Quick disinfection & odor control.",
+      "Spot deep-clean for affected fixtures.",
+      "Follow-up recommendations."
+    ],
+    exclusions: [
+      "Long-term renovation or repairs"
+    ]
+  }
+};
+
+const modal = document.getElementById('serviceModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalSub = document.getElementById('modalSub');
+const modalInclusions = document.getElementById('modalInclusions');
+const modalExclusions = document.getElementById('modalExclusions');
+
+document.querySelectorAll('.view-details').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const s = SERVICES[btn.dataset.service];
+    modalTitle.textContent = s.title;
+    modalSub.textContent = s.subtitle;
+    modalInclusions.innerHTML = s.inclusions.map(i => `<li>${i}</li>`).join('');
+    modalExclusions.innerHTML = s.exclusions.map(e => `<li>${e}</li>`).join('');
+    modal.classList.add('show');
+
+    document.getElementById('modalBook').onclick = () => {
+      const encodedService = encodeURIComponent(s.title);
+      const url = `https://wa.me/917987788640?text=Hi,%20I%20want%20to%20book%20the%20${encodedService}%20service.`;
+      window.open(url, '_blank');
+    };
+  });
+});
+
+document.getElementById('modalClose').addEventListener('click', () => modal.classList.remove('show'));
+modal.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.classList.remove('show');
+  }
+});
+function closeMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('overlay').classList.remove('active');
+}
+
+document.getElementById('menu-toggle').onclick = function() {
+  document.getElementById('mobile-menu').classList.add('open');
+  document.getElementById('overlay').classList.add('active');
+};
+document.getElementById('menu-close').onclick = closeMenu;
+document.getElementById('overlay').onclick = closeMenu;
+
+function buildWhatsAppMessage(form) {
+  const name = form.name.value.trim();
+  const phone = form.phone.value.trim();
+  const service = form.service.value;
+  const address = form.address.value.trim();
+
+  const message = `Hi, I am ${name}. I want to book *${service}* service. My contact number is ${phone}. Address: ${address}.`;
+  const encoded = encodeURIComponent(message);
+  window.open(`https://wa.me/917987788640?text=${encoded}`, '_blank');
+  return false;
+}
+</script>
+
+</body>
+</html>
