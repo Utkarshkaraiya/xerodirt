@@ -201,7 +201,7 @@
 <header>
   <div class="brand-logo">XERODIRT</div>
   <nav class="desktop-nav">
-    <a href="https://wa.me/917987788640?text=Hi%20I%20want%20to%20book%20XERODIRT%20service" target="_blank" class="cta-primary"><i class="fab fa-whatsapp"></i> Book an Appointment</a>
+    <a href="https://wa.me/917559337336?text=Hi%20I%20want%20to%20book%20XERODIRT%20service" target="_blank" class="cta-primary"><i class="fab fa-whatsapp"></i> Book an Appointment</a>
   </nav>
   <button id="menu-toggle" class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
 </header>
@@ -450,7 +450,7 @@ document.querySelectorAll('.view-details').forEach(btn => {
 
     document.getElementById('modalBook').onclick = () => {
       const encodedService = encodeURIComponent(s.title);
-      const url = `https://wa.me/917987788640?text=Hi,%20I%20want%20to%20book%20the%20${encodedService}%20service.`;
+      const url = `https://wa.me/917559337336?text=Hi,%20I%20want%20to%20book%20the%20${encodedService}%20service.`;
       window.open(url, '_blank');
     };
   });
@@ -482,7 +482,7 @@ function buildWhatsAppMessage(form) {
 
   const message = `Hi, I am ${name}. I want to book *${service}* service. My contact number is ${phone}. Address: ${address}.`;
   const encoded = encodeURIComponent(message);
-  window.open(`https://wa.me/917987788640?text=${encoded}`, '_blank');
+  window.open(`https://wa.me/917559337336?text=${encoded}`, '_blank');
   return false;
 }
 </script>
