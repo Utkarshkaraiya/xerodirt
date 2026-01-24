@@ -81,12 +81,7 @@
   height: 90%;
   padding-bottom: 40px; /* adjust this value */
 }
-/* Make phone input smaller on desktop */
-@media (min-width: 768px) {
-  #phone-input {
-    max-width: 280px;   /* phone-like width */
-  }
-}
+
 
 
   .cta-primary i { margin-right: 8px; }
@@ -219,6 +214,17 @@
 
   .hero p {
     font-size: 14px;
+  }
+}
+/* Default: all inputs full width (mobile-first) */
+#phone-input {
+  width: 100%;
+}
+
+/* Desktop only: make phone input compact */
+@media (min-width: 992px) {
+  #phone-input {
+    max-width: 280px;   /* phone-like size */
   }
 }
 
