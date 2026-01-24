@@ -9,8 +9,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="logo.png">
 
-<style>
+
+
+<!-- <style>
+  
+#google-reviews {
+  max-width: 900px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+#google-reviews h2 {
+  margin-bottom: 20px;
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
   :root {
     --accent-color: #00a68d;
     --accent-secondary: #008f7a;
@@ -194,14 +227,14 @@
 
   select { color: #333; }
   select:invalid { color: var(--secondary-text); }
-</style>
+</style> -->
 </head>
 <body>
 
 <header>
   <div class="brand-logo">XERODIRT</div>
   <nav class="desktop-nav">
-    <a href="https://wa.me/917559337336?text=Hi%20I%20want%20to%20book%20XERODIRT%20service" target="_blank" class="cta-primary"><i class="fab fa-whatsapp"></i> Book an Appointment</a>
+    <a href="booknow.html"  class="cta-primary"><i class="fab fa-whatsapp"></i> Book an Appointment</a>
   </nav>
   <button id="menu-toggle" class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
 </header>
@@ -210,20 +243,20 @@
 <div id="mobile-menu" aria-hidden="true">
   <button id="menu-close"><i class="fas fa-times"></i></button>
   <a href="#services" onclick="closeMenu()">Services</a>
-  <a href="#book" onclick="closeMenu()">Book Now</a>
+  <a href="booknow.html"  onclick="closeMenu()">Book Now</a>
 </div>
 
 <section class="hero">
-  <div class="hero-content">
-    <h1>Experience the Deep Clean You Deserve</h1>
-    <p>Professional, hygienic, and eco-friendly washroom cleaning services, guaranteed results in Pune.</p>
-    <a href="#book" class="cta-primary" id="hero-cta">Check Pricing & Book</a>
+  <div class="hero-content hero-bottom">
+    <a href="#services" class="cta-primary" id="hero-cta">
+      Check Pricing & Book
+    </a>
   </div>
 </section>
 
 <div class="content">
   <section id="services">
-    <h2 class="section-title">Our Premium Cleaning Services</h2>
+    <h2 class="section-title">Our Services</h2>
     <div class="services-grid">
       <div class="service-card">
         <i class="fas fa-soap"></i>
@@ -257,9 +290,31 @@
         <button class="view-details" data-service="intense3bhk">View Details</button>
       </div>
 
+           <div class="service-card">
+        <i class="fas fa-city"></i>
+        <h3>Kitchen Cleaning</h3>
+        <p>Our kitchen cleaning service focuses on removing oil stains, dirt, and bacteria from all key surfaces, ensuring a fresh and safe cooking space..</p>
+        <div class="price">₹1199 <span style="font-size:0.8rem;color:#777;margin-left:8px;text-decoration:line-through;">₹1699</span></div>
+        <button class="view-details" data-service="intensekitchen">View Details</button>
+      </div>
+           <div class="service-card">
+        <i class="fas fa-city"></i>
+        <h3>1 BHK Flat Cleaning</h3>
+        <p>Covers essential cleaning of floors, kitchen, bathrooms, and balcony for empty or semi-empty 1 BHK flats..</p>
+        <div class="price">₹1499 <span style="font-size:0.8rem;color:#777;margin-left:8px;text-decoration:line-through;">₹3299</span></div>
+        <button class="view-details" data-service="flat1bhk">View Details</button>
+      </div>
+        <div class="service-card">
+        <i class="fas fa-city"></i>
+        <h3>2 BHK Flat Cleaning</h3>
+        <p>Covers essential cleaning of floors, kitchen, bathrooms, and balcony for empty or semi-empty 2 BHK flats.</p>
+        <div class="price">₹2499 <span style="font-size:0.8rem;color:#777;margin-left:8px;text-decoration:line-through;">₹3699</span></div>
+        <button class="view-details" data-service="flat2bhk">View Details</button>
+      </div>
+
       <div class="service-card">
         <i class="fas fa-calendar-check"></i>
-        <h3>Scheduled Maintenance</h3>
+        <h3>Monthly cleaning</h3>
         <p>Weekly or bi-weekly cleaning plans for recurring hygiene maintenance at discounted rates.</p>
         <div class="price">₹699/month <span style="font-size:0.8rem;color:#777;margin-left:8px;text-decoration:line-through;">₹1299/month</span></div>
         <button class="view-details" data-service="scheduled">View Details</button>
@@ -277,7 +332,7 @@
 
   <section id="book" style="margin-top:40px;">
     <h2 class="section-title">Schedule Your Service Now</h2>
-    <form onsubmit="return buildWhatsAppMessage(this)">
+    <!-- <form onsubmit="return buildWhatsAppMessage(this)">
       <div class="input-group">
         <input type="text" name="name" id="name-input" placeholder=" " required>
         <label for="name-input">Your Full Name</label>
@@ -307,9 +362,13 @@
       </div>
 
       <button type="submit"><i class="fab fa-whatsapp"></i> Confirm Booking on WhatsApp</button>
-    </form>
+    </form> -->
   </section>
 </div>
+<a href="booknow.html" class="cta-primary" style="justify-content:center;" >Book Now</a>
+
+
+
 
 <footer>
   &copy; 2025 XERODIRT. All rights reserved. | Bookings & Support: +91 755933 7336
@@ -331,8 +390,8 @@
     </div>
   </div>
 </div>
-
-<script>
+<script src="script.js"></script>
+<!-- <script>
 const SERVICES = {
   basic: {
   title: "Basic Washroom Cleaning",
@@ -394,10 +453,72 @@ intense3bhk: {
     "Thorough disinfection of every touchpoint and fixture.",
     "Deep floor clean, sink, tiles, taps, mirrors, Shower Glass Partition."
   ],
+  
   exclusions: [
     "Major repairs or tile replacement",
     "Cleaning of ceiling fans or vents",
     "Permanent mineral damage restoration"
+  ]
+},
+
+intensekitchen: {
+  title: "Kitchen Cleaning",
+  subtitle: "Deep cleaning for a hygienic, grease-free kitchen.",
+  inclusions: [
+    "Platform & slab deep cleaning.",
+    "Sink & drainage area cleaning.",
+    "Tiles / backsplash degreasing.",
+    "Stove, chimney exterior cleaning.",
+    "Cabinet & trolley cleaning (inside & outside).",
+    "If the kitchen trolley is removable, we will remove, clean, and refit it.",
+    "Floor cleaning."
+  ],
+  exclusions: [
+    "If a nut/bolt is fixed inside the trolley, it will not be removed",
+    "No dismantling of permanently fixed fittings",
+    "Heavy repairs or carpentry work not included",
+    "Appliance interior cleaning (oven, microwave, refrigerator, etc.)"
+  ]
+},
+flat1bhk: {
+  title: "1 BHK Full Flat Cleaning",
+  subtitle: "Comprehensive deep cleaning for unfurnished 1 BHK flats to ensure a fresh, hygienic living space.",
+  inclusions: [
+    "Deep cleaning of living room, bedroom, kitchen, bathroom & balcony",
+    "Floor sweeping, mopping & machine scrubbing where required",
+    "Dusting of ceilings, fans, switchboards & light fixtures",
+    "Kitchen slab, tiles, sink & stove exterior cleaning",
+    "Bathroom deep cleaning including toilet seat, washbasin, taps & tiles",
+    "Side walls, partition glass & stain removal"
+  ],
+  exclusions: [
+    "Furnished interiors and furniture cleaning",
+    "Glue, paint stain or sticker removal",
+    "Terrace cleaning or inaccessible areas",
+    "Wet wiping of walls & ceilings",
+    "Window & mirror cleaning",
+    "Major repairs or tile replacement"
+  ]
+}
+,
+flat2bhk:{
+  title: "2 BHK Full Flat Cleaning",
+  subtitle: "Thorough deep cleaning for unfurnished 2 BHK flats, covering all essential areas for a spotless and hygienic home.",
+  inclusions: [
+    "Deep cleaning of living room, bedrooms, kitchen, bathrooms & balcony",
+    "Floor sweeping, mopping & machine scrubbing where required",
+    "Dusting of ceilings, fans, switchboards & light fixtures",
+    "Kitchen slab, tiles, sink & stove exterior cleaning",
+    "Bathroom deep cleaning including toilet seat, washbasin, taps & tiles",
+    "Side walls, partition glass & stain removal"
+  ],
+  exclusions: [
+    "Furnished interiors and furniture cleaning",
+    "Glue, paint stain or sticker removal",
+    "Terrace cleaning or inaccessible areas",
+    "Wet wiping of walls & ceilings",
+    "Window & mirror cleaning",
+    "Major repairs or tile replacement"
   ]
 },
 
@@ -483,7 +604,7 @@ function buildWhatsAppMessage(form) {
   window.open(`https://wa.me/917559337336?text=${encoded}`, '_blank');
   return false;
 }
-</script>
+</script> -->
 
 </body>
 </html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book a Service</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+<section id="book" style="margin-top:60px;">
+  <h2 class="section-title">Schedule Your Service Now</h2>
+
+  <form onsubmit="return buildWhatsAppMessage(this)">
+
+  <!-- Brand Info -->
+  <div style="text-align:center; margin-bottom:20px;">
+    <h3 style="color:#00a68d; font-weight:800;">XeroDirt – Cleaning Service</h3>
+    <a href="https://xerodirt.com/" target="_blank" style="color:#008f7a; text-decoration:none;">
+      xerodirt.com
+    </a>
+  </div>
+
+  <!-- Name -->
+  <div class="input-group">
+    <input type="text" name="name" id="name-input" placeholder=" " required>
+    <label for="name-input">Full Name</label>
+  </div>
+
+  <!-- Phone -->
+  <div class="input-group">
+    <input type="tel" name="phone" id="phone-input" pattern="[0-9]{10}" placeholder=" " required>
+    <label for="phone-input">Phone / WhatsApp Number (+91)</label>
+  </div>
+
+  <!-- Address -->
+  <div class="input-group">
+    <textarea name="address" id="address-input" rows="2" placeholder=" " required></textarea>
+    <label for="address-input">Flat Number & Society Name</label>
+  </div>
+
+  <!-- Date -->
+  <div class="input-group">
+    <input type="date" name="date" id="date-input" required>
+    <label for="date-input">Choose a Date</label>
+  </div>
+
+  <!-- Preferred Slot -->
+  <div class="input-group">
+    <select name="slot" id="slot-select" required>
+      <option value="" disabled selected hidden>Select preferred slot</option>
+      <option value="Morning (8 AM – 11 AM)">Morning (8 AM – 11 AM)</option>
+      <option value="Afternoon (12 PM – 3 PM)">Afternoon (12 PM – 3 PM)</option>
+      <option value="Evening (4 PM – 7 PM)">Evening (4 PM – 7 PM)</option>
+    </select>
+    <label for="slot-select">Preferred Slot</label>
+  </div>
+
+  <!-- Service -->
+  <div class="input-group">
+  <select name="service" id="service-select" required>
+    <option value="" disabled selected hidden>Select service</option>
+
+    <option value="Basic Washroom Cleaning">Basic Washroom Cleaning</option>
+    <option value="Deep Washroom Cleaning">Deep Washroom Cleaning</option>
+    <option value="2 BHK Deep Washroom Cleaning">2 Washrooms Deep Cleaning</option>
+    <option value="3 BHK Deep Washroom Cleaning">3 Washrooms Deep Cleaning</option>
+
+    <option value="Kitchen Cleaning">Kitchen Cleaning</option>
+
+    <option value="1 BHK Flat Cleaning">1 BHK Flat Cleaning</option>
+    <option value="2 BHK Flat Cleaning">2 BHK Flat Cleaning</option>
+
+    <option value="Monthly Cleaning">Monthly Cleaning</option>
+    <option value="Emergency Cleaning">Emergency Cleaning</option>
+  </select>
+  <label for="service-select">Service</label>
+</div>
+
+
+  <!-- Submit -->
+  <button type="submit">
+    <i class="fab fa-whatsapp"></i> Confirm Booking on WhatsApp
+  </button>
+
+</form>
+
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
