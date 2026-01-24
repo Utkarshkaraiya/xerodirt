@@ -227,20 +227,6 @@
     max-width: 280px;   /* phone-like size */
   }
 }
-/* Booking page layout fix */
-.book-page {
-  min-height: calc(100vh - 80px); /* full screen minus header */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 40px;
-}
-
-/* Center the form nicely */
-.book-page form {
-  margin-top: 20px;
-}
 
 
   select { color: #333; }
