@@ -231,23 +231,22 @@ Please confirm availability.`;
   );
 
   /* ✅ 2️⃣ SEND TO GOOGLE SHEET (non-blocking) */
-function doPost(e) {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  const data = JSON.parse(e.postData.contents);
+setTimeout(() => {
+  fetch(SHEET_URL, {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify({
+      name: name,
+      phone: phone,
+      address: address,
+      date: date,
+      slot: slot,
+      service: service,
+      status: "Pending"   // ✅ FIXED
+    })
+  });
+}, 100);
 
-  sheet.appendRow([
-    data.name || "",
-    data.phone || "",
-    data.address || "",
-    data.date || "",
-    data.service || "",
-    new Date(),
-    data.status || "Pending" // ✅ AUTO-FILL STATUS
-  ]);
-
-  return ContentService
-    .createTextOutput(JSON.stringify({ result: "success" }))
-    .setMimeType(ContentService.MimeType.JSON);
+return false;
 }
 
-}
