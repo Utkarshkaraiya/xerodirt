@@ -157,6 +157,9 @@ flat2bhk:{
     ]
   }
 };
+  document.getElementById("modalBook").addEventListener("click", function () {
+    window.location.href = "booknow.html";
+  });
 
 const modal = document.getElementById('serviceModal');
 const modalTitle = document.getElementById('modalTitle');
