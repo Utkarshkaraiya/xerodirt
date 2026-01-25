@@ -231,3 +231,77 @@
 
   select { color: #333; }
   select:invalid { color: var(--secondary-text); }
+
+
+  /* ===============================
+   Professional Color Refinement
+   (Non-breaking overrides only)
+================================ */
+
+/* Refined brand palette */
+:root {
+  --accent-color: #2f9e8f;        /* calmer teal */
+  --accent-secondary: #238a7d;    /* deeper hover */
+  --bg-color: #f4f6f8;            /* neutral background */
+  --primary-text: #111827;        /* modern dark */
+  --secondary-text: #6b7280;      /* slate gray */
+  --input-border: #d1d5db;        /* soft border */
+  --card-bg: #ffffff;
+  --white: #ffffff;
+}
+
+/* Header polish */
+header {
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+}
+
+/* Cards feel more premium */
+.service-card {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* Buttons – smoother & richer */
+.cta-primary,
+form button,
+.modal-actions .btn.primary {
+  background: linear-gradient(
+    135deg,
+    var(--accent-color),
+    var(--accent-secondary)
+  );
+}
+
+.cta-primary:hover,
+form button:hover,
+.modal-actions .btn.primary:hover {
+  filter: brightness(1.05);
+}
+
+/* Inputs – cleaner */
+.input-group {
+  border-color: var(--input-border);
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+  color: var(--primary-text);
+}
+
+/* Floating labels sharper */
+.input-group label {
+  font-weight: 500;
+  color: var(--secondary-text);
+}
+
+/* Modal refinement */
+.modal-card {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+}
+
+/* Footer more subtle */
+footer {
+  background: #0f172a;
+  color: #9ca3af;
+}

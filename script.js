@@ -1,3 +1,4 @@
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbxEVlxtjdjmfRqUnRtm-xtwbesUQKcMjPAeUBzqx1foJvf48QEMQzSTGaqEujVteJHk/exec";
 const SERVICES = {
   basic: {
   title: "Basic Washroom Cleaning",
@@ -166,7 +167,6 @@ const modalTitle = document.getElementById('modalTitle');
 const modalSub = document.getElementById('modalSub');
 const modalInclusions = document.getElementById('modalInclusions');
 const modalExclusions = document.getElementById('modalExclusions');
-
 document.querySelectorAll('.view-details').forEach(btn => {
   btn.addEventListener('click', () => {
     const s = SERVICES[btn.dataset.service];
@@ -224,10 +224,30 @@ Service: ${service}
 
 Please confirm availability.`;
 
+  /* ✅ 1️⃣ OPEN WHATSAPP FIRST (critical) */
   window.open(
     "https://wa.me/917559337336?text=" + encodeURIComponent(message),
     "_blank"
   );
 
-  return false;
+  /* ✅ 2️⃣ SEND TO GOOGLE SHEET (non-blocking) */
+function doPost(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const data = JSON.parse(e.postData.contents);
+
+  sheet.appendRow([
+    data.name || "",
+    data.phone || "",
+    data.address || "",
+    data.date || "",
+    data.service || "",
+    new Date(),
+    data.status || "Pending" // ✅ AUTO-FILL STATUS
+  ]);
+
+  return ContentService
+    .createTextOutput(JSON.stringify({ result: "success" }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
 }
