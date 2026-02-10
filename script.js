@@ -2,6 +2,7 @@
  * CONFIG
  *********************************/
 const WHATSAPP_NUMBER = "917559337336";
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbxEVlxtjdjmfRqUnRtm-xtwbesUQKcMjPAeUBzqx1foJvf48QEMQzSTGaqEujVteJHk/exec";
 
 /*********************************
  * SERVICE DETAILS (DETAIL MODAL)
@@ -372,7 +373,7 @@ kitchen: {
       oldPrice: "₹1299",
       wa: "Kitchen Deep Cleaning"
     },   {
-      serviceKey: "Modular kitchen",
+      serviceKey: "kitchen",
       icon: "fas fa-kitchen-set",
       name: "Modular Kitchen Deep Cleaning",
       desc: "Intensive removal of oil, grease, and food residue from all key modular kitchen surfaces for a hygienic cooking space.",
@@ -674,3 +675,49 @@ document.querySelectorAll(".service-bg").forEach(card => {
     card.style.backgroundImage = `url('${bg}')`;
   }
 });
+function buildWhatsAppMessage(form) {
+  const payload = {
+    name: form.name.value.trim(),
+    phone: form.phone.value.trim(),
+    address: form.address.value.trim(),
+    status: "Pending",
+    date: form.date.value,
+    slot: form.slot.value,
+    service: form.service.value,
+    
+  };
+
+  if (!payload.name || !payload.phone || !payload.address || !payload.date || !payload.slot || !payload.service) {
+    alert("Please fill all details");
+    return false;
+  }
+
+  // 1️⃣ SEND TO GOOGLE SHEET
+  fetch("https://script.google.com/macros/s/AKfycbxUvFQ4MDdPgHqLYCKjrFJslB5QjS45--R6lA0Urg09CBbDY2QCGZuNoTztuqFoBnMM/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload)
+  });
+
+  // 2️⃣ OPEN WHATSAPP
+  const message =
+`Hi, I am ${payload.name}.
+I want to book *${payload.service}*.
+
+Phone: ${payload.phone}
+Address: ${payload.address}
+Date: ${payload.date}
+Slot: ${payload.slot}`;
+
+  window.open(
+    "https://wa.me/917559337336?text=" + encodeURIComponent(message),
+    "_blank"
+  );
+
+  return false;
+}
+
+

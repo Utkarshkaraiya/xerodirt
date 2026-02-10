@@ -62,18 +62,21 @@
   <select name="service" id="service-select" required>
     <option value="" disabled selected hidden>Select service</option>
 
-    <option value="Basic Washroom Cleaning">Basic Washroom Cleaning</option>
-    <option value="Deep Washroom Cleaning">1 Washroom Deep Cleaning</option>
-    <option value="2 BHK Deep Washroom Cleaning">2 Washrooms Deep Cleaning</option>
-    <option value="3 BHK Deep Washroom Cleaning">3 Washrooms Deep Cleaning</option>
+    <option value="Basic Washroom Cleaning">Basic Washroom Cleaning - ₹189</option>
+    <option value="Deep Washroom Cleaning">1 Washroom Deep Cleaning - ₹289</option>
+    <option value="2 BHK Deep Washroom Cleaning">2 Washrooms Deep Cleaning - ₹449</option>
+    <option value="3 BHK Deep Washroom Cleaning">3 Washrooms Deep Cleaning - ₹749</option>
 
-    <option value="Kitchen Cleaning">Kitchen Cleaning</option>
-    <option value="Modular Kitchen Cleaning">Modular Kitchen Cleaning</option>
-    <option value="1 BHK Flat Cleaning">1 BHK Flat Cleaning</option>
-    <option value="2 BHK Flat Cleaning">2 BHK Flat Cleaning</option>
-    <option value="3 BHK Flat Cleaning">3 BHK Flat Cleaning</option>
-    <option value="Monthly Cleaning">Monthly Cleaning</option>
+    <option value="Kitchen Deep Cleaning">Kitchen Deep Cleaning - ₹499</option>
+    <option value="Modular Kitchen Deep Cleaning">Modular Kitchen Deep Cleaning - ₹1099</option>
+    <option value="1 BHK Flat Cleaning">1 BHK Flat Cleaning - ₹1499</option> 
+    <option value="2 BHK Flat Cleaning">2 BHK Flat Cleaning - ₹2499</option>
+    <option value="3 BHK Flat Cleaning">3 BHK Flat Cleaning - ₹3499</option>
     <option value="Mini Service">Mini Service</option>
+    <option value="1 Washroom – Monthly Plan">1 Washroom – Monthly Plan - ₹599</option>
+    <option value="2 Washrooms – Monthly Plan">2 Washrooms – Monthly Plan - ₹999</option>
+    <option value="3 Washrooms – Monthly Plan">3 Washrooms – Monthly Plan - ₹1399</option>
+    
 
   </select>
   <label for="service-select">Service</label>
@@ -88,9 +91,6 @@
 </form>
 
 </section>
-
-<script src="script.js"></script>
-</body>
 <script>
   // Auto-select service from URL (?service=...)
   window.addEventListener("DOMContentLoaded", () => {
@@ -116,5 +116,8 @@
     serviceSelect.dispatchEvent(new Event("change"));
   });
 </script>
+<script src="script.js"></script>
+</body>
+
 
 </html>
