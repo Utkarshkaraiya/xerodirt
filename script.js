@@ -1,252 +1,629 @@
-const SHEET_URL = "https://script.google.com/macros/s/AKfycbxEVlxtjdjmfRqUnRtm-xtwbesUQKcMjPAeUBzqx1foJvf48QEMQzSTGaqEujVteJHk/exec";
+/*********************************
+ * CONFIG
+ *********************************/
+const WHATSAPP_NUMBER = "917559337336";
+
+/*********************************
+ * SERVICE DETAILS (DETAIL MODAL)
+ *********************************/
 const SERVICES = {
   basic: {
-  title: "Basic Washroom Cleaning",
-  subtitle: "Quick and essential cleaning without machines — ideal for daily upkeep and hygiene maintenance.",
-  inclusions: [
-    "Manual cleaning of toilet seat (inside and outside), washbasin, and floor wipe.",
+    title: "Basic Washroom Cleaning",
+    subtitle: "Quick and essential cleaning without machines.",
+    inclusions: [
+      "Toilet seat cleaning (inside & outside)",
+      "Washbasin cleaning",
+    ],
+    exclusions: [
+      "Machine cleaning",
+      "Hard stain removal",
+      "Shower glass cleaning",
+      "Tile scrubbing,floor scrubbing", "Acid damage, permanent stains, or etched surfaces",
+    ]
+  },
 
-  ],
-  exclusions: [
-    "Use of buffing or mechanical cleaning machines",
-    "Deep stain or heavy scale removal",
-    "Cleaning of Shower Glass Partition.",
-    "Cleaning behind permanently fixed units"
-  ]
-},
-
-deep: {
-  title: "Deep Washroom Cleaning",
-  subtitle: "Comprehensive cleaning with buffing machine — removes hard stains, dirt, and grime from every corner.",
-  inclusions: [
-    "Full washroom cleaning including toilet seat (inside and outside).",
-    "Deep floor clean, sink, tiles, taps, mirrors, Shower Glass Partition.",
+  deep: {
+    title: "Deep Washroom Cleaning",
+    subtitle: "Machine-based deep cleaning.",
+    inclusions: [
+     "Full washroom cleaning including toilet seat (inside and outside).",
+    "Deep floor clean, sink, tiles, taps, mirrors.",
     "Heavy stain and hard water deposit removal from tiles, fittings, and grout lines.",
     "Buffing machine used for deep floor scrubbing.",
-    "Cleaning of hard-to-reach corners, walls, and areas behind fixtures.",
     "Disinfection of all touchpoints — handles, taps, andflush areas."
-  ],
-  exclusions: [
-    "Tile or fixture replacement work",
-    "Permanent mineral deposit removal requiring industrial restoration",
-    "Shower curtain or ceiling cleaning beyond safe reach"
-  ]
-},
+      
+    ],
+    exclusions: [ "Acid damage, permanent stains, or etched surfaces", "Ceiling cleaning","Shower glass cleaning","Heavy mineral restoration"]
+  },
 
-intense2bhk: {
+  intense2bhk: {
   title: "2 BHK Deep Washroom Cleaning",
-  subtitle: "Complete washroom deep cleaning for 2 BHK homes — detailed and professional using buffing machines.",
+  subtitle: "Complete deep cleaning for all washrooms in 2 BHK.",
   inclusions: [
-    "Full deep cleaning of all 2 BHK washrooms including toilet seats (inside and outside), floors, tiles, taps, mirrors, and windows.",
-    "Hard water and stain removal from tiles, fittings, and grout lines.",
-    "Buffing machine used for deep floor scrubbing and polishing.",
-    "Cleaning of corners, walls, and behind fixtures.",
-    "Disinfection of handles, flush areas, and switches."
+    "All washrooms deep cleaned",
+    "Hard water & stain removal",
+    "Machine scrubbing & polishing",
+    "Disinfection of fixtures"
   ],
   exclusions: [
-    "Fixture replacement or repair work",
-    "Ceiling or fan cleaning beyond safe reach",
-    "Hard mineral deposit restoration requiring heavy equipment"
+    "Fixture replacement",
+    "Ceiling or fan cleaning",
+    "Heavy mineral restoration",
+     "Acid damage, permanent stains, or etched surfaces",
   ]
 },
 
-intense3bhk: {
+flat3bhk: {
   title: "3 BHK Deep Washroom Cleaning",
-  subtitle: "Full-scale washroom deep cleaning for 3 BHK homes — industrial-grade cleaning with buffing and sanitization.",
+  subtitle: "Deep cleaning for all washrooms in 3 BHK.",
   inclusions: [
-    "All 3 BHK washrooms cleaned — toilets, basins, tiles, taps, mirrors, and windows.",
+   "All 3 BHK washrooms cleaned — toilets, basins, tiles, taps, mirrors, and windows.",
     "Removal of hard water stains and grime from all surfaces.",
     "Machine-based scrubbing for deep floor and tile shine.",
     "Thorough disinfection of every touchpoint and fixture.",
     "Deep floor clean, sink, tiles, taps, mirrors, Shower Glass Partition."
   ],
-  
   exclusions: [
-    "Major repairs or tile replacement",
-    "Cleaning of ceiling fans or vents",
-    "Permanent mineral damage restoration"
+   "Furnished interiors and furniture cleaning",
+    "Glue, paint stain or sticker removal",
+    "Terrace cleaning or inaccessible areas",
+    "Wet wiping of walls & ceilings",
+    "Window,tracks & mirror cleaning",
+  "Acid damage, permanent stains, or etched surfaces",
   ]
 },
 
-intensekitchen: {
-  title: "Kitchen Cleaning",
-  subtitle: "Deep cleaning for a hygienic, grease-free kitchen.",
+flat1bhk: {
+  title: "1 BHK Flat Cleaning",
+  subtitle: "Unfurnished flat deep cleaning.",
   inclusions: [
-    "Platform & slab deep cleaning.",
-    "Sink & drainage area cleaning.",
-    "Tiles / backsplash degreasing.",
-    "Stove, chimney exterior cleaning.",
-    "Cabinet & trolley cleaning (inside & outside).",
-    "If the kitchen trolley is removable, we will remove, clean, and refit it.",
-    "Floor cleaning."
+     "Deep cleaning of living room, bedroom, kitchen, bathroom & balcony",
+    "Floor sweeping, mopping & machine scrubbing where required",
+    "Dusting of ceilings, fans, switchboards & light fixtures",
+    "Kitchen slab, tiles, sink ",
+    "Bathroom deep cleaning including toilet seat, washbasin, taps & tiles",
+    "Side walls, partition glass & stain removal"
   ],
   exclusions: [
-    "If a nut/bolt is fixed inside the trolley, it will not be removed",
-    "No dismantling of permanently fixed fittings",
-    "Heavy repairs or carpentry work not included",
-    "Appliance interior cleaning (oven, microwave, refrigerator, etc.)"
+  "Furnished interiors and furniture cleaning",
+    "Glue, paint stain or sticker removal",
+    "Terrace cleaning or inaccessible areas",
+    "Wet wiping of walls & ceilings",
+    "Window,tracks & mirror cleaning",
+  "Acid damage, permanent stains, or etched surfaces",
   ]
 },
-flat1bhk: {
-  title: "1 BHK Full Flat Cleaning",
-  subtitle: "Comprehensive deep cleaning for unfurnished 1 BHK flats to ensure a fresh, hygienic living space.",
+
+flat2bhk: {
+  title: "2 BHK Flat Cleaning",
+  subtitle: "Unfurnished flat deep cleaning.",
   inclusions: [
-    "Deep cleaning of living room, bedroom, kitchen, bathroom & balcony",
+   "Deep cleaning of living room, bedrooms, kitchen, bathrooms & balcony",
     "Floor sweeping, mopping & machine scrubbing where required",
     "Dusting of ceilings, fans, switchboards & light fixtures",
     "Kitchen slab, tiles, sink & stove exterior cleaning",
     "Bathroom deep cleaning including toilet seat, washbasin, taps & tiles",
     "Side walls, partition glass & stain removal"
+    
   ],
   exclusions: [
-    "Furnished interiors and furniture cleaning",
+   "Furnished interiors and furniture cleaning",
     "Glue, paint stain or sticker removal",
     "Terrace cleaning or inaccessible areas",
     "Wet wiping of walls & ceilings",
-    "Window & mirror cleaning",
-    "Major repairs or tile replacement"
+    "Window,tracks & mirror cleaning",
+  "Acid damage, permanent stains, or etched surfaces",
+  ]
+},
+
+  kitchen: {
+    title: "Kitchen Deep Cleaning",
+    subtitle: "Oil & grease removal.",
+    inclusions: [ "Platform & slab deep cleaning.",
+    "Sink & drainage area cleaning.",
+    "Tiles / backsplash degreasing.",
+    "Cabinet & trolley cleaning (inside & outside).",
+    "If the kitchen trolley is removable, we will remove, clean, and refit it.",
+    "Floor cleaning."],
+    exclusions: ["Appliance interior", "Stove, chimney exterior cleaning.", "Acid damage, permanent stains, or etched surfaces",]
+  },
+monthly1: {
+  title: "1 Washroom – Monthly Cleaning Plan",
+  subtitle: "Hygiene maintenance with 3 scheduled visits per month.",
+  inclusions: [
+    "3 scheduled cleaning visits per month",
+    "Cleaning of toilet seat, washbasin & floor",
+    "Basic fittings & touchpoint cleaning",
+    "Regular hygiene maintenance"
+  ],
+  exclusions: [
+    "Deep cleaning with machines",
+    "Hard water stain removal",
+    "Tile restoration or repairs", "Acid damage, permanent stains, or etched surfaces",
+  ]
+},
+
+monthly2: {
+  title: "2 Washrooms – Monthly Cleaning Plan",
+  subtitle: "Professional hygiene maintenance for 2 washrooms with 3 monthly visits.",
+  inclusions: [
+    "3 scheduled cleaning visits per month",
+    "Cleaning of both washrooms – toilets, basins & floors",
+    "Basic fittings & touchpoint cleaning",
+    "Consistent service by trained staff", "Acid damage, permanent stains, or etched surfaces",
+  ],
+  exclusions: [
+    "Deep cleaning with machines",
+    "Hard water stain removal",
+    "Tile restoration or repairs", "Acid damage, permanent stains, or etched surfaces",
+  ]
+},
+
+monthly3: {
+  title: "3 Washrooms – Monthly Cleaning Plan",
+  subtitle: "Comprehensive hygiene maintenance for 3 washrooms with 3 visits per month.",
+  inclusions: [
+    "3 scheduled cleaning visits per month",
+    "Cleaning of all 3 washrooms – toilets, basins & floors",
+    "Basic fittings & touchpoint cleaning",
+    "Routine hygiene maintenance"
+  ],
+  exclusions: [
+    "Deep cleaning with machines",
+    "Hard water stain removal",
+    "Tile restoration or repairs", "Acid damage, permanent stains, or etched surfaces",
+  ]
+},
+fan: {
+  title: "Ceiling Fan Cleaning",
+  subtitle: "Dust-free professional ceiling fan cleaning.",
+  inclusions: [
+    "Blade dust removal",
+    "Motor housing cleaning",
+    "Light fixture cleaning (if applicable)",
+    "Dry & wet wiping"
+  ],
+  exclusions: [
+    "Electrical repair",
+    "Fan dismantling"
+  ]
+},
+
+window: {
+  title: "Window Cleaning",
+  subtitle: "Crystal clear glass & frame cleaning.",
+  inclusions: [
+    "Glass cleaning",
+    "Frame wiping",
+    "Corner dust removal",
+    "Streak-free finish"
+  ],
+  exclusions: [
+    "High-rise exterior glass",
+    "Broken glass repair"
+  ]
+},
+
+wall: {
+  title: "Wall Wet Wiping (Per Room)",
+  subtitle: "Professional wall cleaning to remove dust & stains.",
+  inclusions: [
+    "Wet wiping of all walls",
+    "Dust & dirt removal",
+    "Mild stain cleaning"
+  ],
+  exclusions: [
+    "Paint damage correction",
+    "Permanent or acid marks"
+  ]
+},
+
+sofa: {
+  title: "Sofa & Chair Cleaning",
+  subtitle: "Deep fabric cleaning per seat.",
+  inclusions: [
+    "Vacuum cleaning",
+    "Stain treatment",
+    "Odor removal",
+    "Fabric-safe products"
+  ],
+  exclusions: [
+    "Leather repair",
+    "Color restoration"
+  ]
+},
+
+"fridge-single": {
+  title: "Single Door Fridge Cleaning",
+  subtitle: "Complete hygienic fridge cleaning.",
+  inclusions: [
+    "Interior deep cleaning",
+    "Exterior wiping",
+    "Tray & compartment sanitization",
+    "Odor removal"
+  ],
+  exclusions: [
+    "Gas refilling",
+    "Electrical repairs"
+  ]
+},
+
+"fridge-double": {
+  title: "Double Door Fridge Cleaning",
+  subtitle: "Deep cleaning including freezer section.",
+  inclusions: [
+    "Interior & freezer cleaning",
+    "Exterior polishing",
+    "Compartment sanitization",
+    "Odor removal"
+  ],
+  exclusions: [
+    "Gas refilling",
+    "Cooling issue repair"
+  ]
+},
+
+chimney: {
+  title: "Chimney Deep Cleaning",
+  subtitle: "Grease-free kitchen chimney service.",
+  inclusions: [
+    "Filter cleaning",
+    "Grease removal",
+    "Motor surface cleaning",
+    "Exterior polishing"
+  ],
+  exclusions: [
+    "Motor replacement",
+    "Electrical repairs"
+  ]
+}
+
+
+
+};
+
+/*********************************
+ * CATEGORY SERVICES
+ *********************************/
+const CATEGORY_SERVICES = {
+ washroom: {
+  title: "Professional Washroom Cleaning Services",
+  services: [
+    {
+      serviceKey: "basic",
+      icon: "fas fa-soap",
+      name: "Basic Washroom Cleaning",
+      desc: "Essential hygiene-focused cleaning of toilet seat, washbasin, and floor surfaces.",
+      price: "₹189",
+      oldPrice: "₹399",
+      wa: "Basic Washroom Cleaning"
+    },
+    {
+      serviceKey: "deep",
+      icon: "fas fa-bath",
+      name: "Deep Washroom Cleaning",
+      desc: "Machine-assisted deep cleaning to remove stains, grime, and bacteria for complete sanitation.",
+      price: "₹289",
+      oldPrice: "₹699",
+      wa: "Deep Washroom Cleaning"
+    }
+  ]
+},
+  flat: {
+  title: "Professional Flat Cleaning Services",
+  services: [
+    {
+      serviceKey: "flat1bhk",
+      icon: "fas fa-city",
+      name: "1 BHK Flat Deep Cleaning",
+      desc: "Thorough deep cleaning for unfurnished 1 BHK flats, covering all essential living areas.",
+      price: "₹1499",
+      oldPrice: "₹3299",
+      wa: "1 BHK Flat Deep Cleaning"
+    },
+    {
+      serviceKey: "flat2bhk",
+      icon: "fas fa-city",
+      name: "2 BHK Flat Deep Cleaning",
+      desc: "Comprehensive deep cleaning for unfurnished 2 BHK flats, ensuring complete hygiene and freshness.",
+      price: "₹2499",
+      oldPrice: "₹3299",
+      wa: "2 BHK Flat Deep Cleaning"
+    },
+    {
+      serviceKey: "flat3bhk",
+      icon: "fas fa-city",
+      name: "3 BHK Flat Deep Cleaning",
+      desc: "End-to-end deep cleaning for unfurnished 3 BHK flats with detailed attention to every room.",
+      price: "₹3499",
+      oldPrice: "₹4299",
+      wa: "3 BHK Flat Deep Cleaning"
+    }
+  ]
+},
+kitchen: {
+  title: "Professional Kitchen Cleaning Services",
+  services: [
+    {
+      serviceKey: "kitchen",
+      icon: "fas fa-kitchen-set",
+      name: "Kitchen Deep Cleaning",
+      desc: "Intensive removal of oil, grease, and food residue from all key kitchen surfaces for a hygienic cooking space.",
+      price: "₹1199",
+      oldPrice: "₹1699",
+      wa: "Kitchen Deep Cleaning"
+    }
   ]
 }
 ,
-flat2bhk:{
-  title: "2 BHK Full Flat Cleaning",
-  subtitle: "Thorough deep cleaning for unfurnished 2 BHK flats, covering all essential areas for a spotless and hygienic home.",
-  inclusions: [
-    "Deep cleaning of living room, bedrooms, kitchen, bathrooms & balcony",
-    "Floor sweeping, mopping & machine scrubbing where required",
-    "Dusting of ceilings, fans, switchboards & light fixtures",
-    "Kitchen slab, tiles, sink & stove exterior cleaning",
-    "Bathroom deep cleaning including toilet seat, washbasin, taps & tiles",
-    "Side walls, partition glass & stain removal"
-  ],
-  exclusions: [
-    "Furnished interiors and furniture cleaning",
-    "Glue, paint stain or sticker removal",
-    "Terrace cleaning or inaccessible areas",
-    "Wet wiping of walls & ceilings",
-    "Window & mirror cleaning",
-    "Major repairs or tile replacement"
+monthly: {
+  title: "Monthly Washroom Cleaning Plans",
+  services: [
+    {
+      serviceKey: "monthly1",
+      icon: "fas fa-calendar-check",
+      name: "1 Washroom – Monthly Plan",
+      desc: "3 scheduled hygiene cleaning visits per month for 1 washroom.",
+      price: "₹599/month",
+      oldPrice: "₹999/month",
+      wa: "1 Washroom Monthly Cleaning"
+    },
+    {
+      serviceKey: "monthly2",
+      icon: "fas fa-calendar-check",
+      name: "2 Washrooms – Monthly Plan",
+      desc: "Professional cleaning with 3 scheduled visits per month for 2 washrooms.",
+      price: "₹999/month",
+      oldPrice: "₹1499/month",
+      wa: "2 Washrooms Monthly Cleaning"
+    },
+    {
+      serviceKey: "monthly3",
+      icon: "fas fa-calendar-check",
+      name: "3 Washrooms – Monthly Plan",
+      desc: "Complete monthly hygiene maintenance with 3 visits for 3 washrooms.",
+      price: "₹1399/month",
+      oldPrice: "₹1999/month",
+      wa: "3 Washrooms Monthly Cleaning"
+    }
   ]
-},
+},mini: {
+  title: "💎 Mini Cleaning Services",
+  services: [
+    {   
+      serviceKey: "fan",
+      icon: "fas fa-fan",
+      name: "Ceiling Fan Cleaning",
+      desc: "Professional dust and grease removal for ceiling fans.",
+      price: "₹49",
+      oldPrice: "₹120",
+      wa: "Ceiling Fan Cleaning"
+    },
+    {
+      serviceKey: "window",
+      icon: "fas fa-border-all",
+      name: "Window Cleaning",
+      desc: "Streak-free glass and frame cleaning per window.",
+      price: "₹199",
+      oldPrice: "₹500",
+      wa: "Window Cleaning"
+    },
+    {
+      serviceKey: "wall",
+      icon: "fas fa-paint-roller",
+      name: "Wall Wet Wiping (Per Room)",
+      desc: "Wet wiping of walls to remove dust, stains, and marks.",
+      price: "₹499",
+      oldPrice: "₹800",
+      wa: "Wall Wet Wiping"
+    },
+    {
+      serviceKey: "sofa",
+      icon: "fas fa-couch",
+      name: "Sofa & Chair Cleaning",
+      desc: "Deep vacuum and stain treatment per seat.",
+      price: "₹150",
+      oldPrice: "₹250",
+      wa: "Sofa Cleaning"
+    },
+    {
+      serviceKey: "fridge-single",
+      icon: "fas fa-snowflake",
+      name: "Single Door Fridge Cleaning",
+      desc: "Interior & exterior fridge cleaning with odor removal.",
+      price: "₹199",
+      oldPrice: "₹500",
+      wa: "Single Door Fridge Cleaning"
+    },
+    {
+      serviceKey: "fridge-double",
+      icon: "fas fa-snowflake",
+      name: "Double Door Fridge Cleaning",
+      desc: "Complete fridge & freezer deep cleaning.",
+      price: "₹299",
+      oldPrice: "₹650",
+      wa: "Double Door Fridge Cleaning"
+    },
+    {
+      serviceKey: "chimney",
+      icon: "fas fa-fire-burner",
+      name: "Chimney Deep Cleaning",
+      desc: "Grease removal, filter cleaning & exterior polishing.",
+      price: "₹399",
+      oldPrice: "₹700",
+      wa: "Chimney Deep Cleaning"
+    }
+  ]
+}
 
-  scheduled: {
-    title: "Scheduled Maintenance",
-    subtitle: "Recurring visits for consistent hygiene.",
-    inclusions: [
-      "Weekly or bi-weekly visits.",
-      "Mix of deep and basic treatments.",
-      "Priority scheduling & discounts.",
-      "Regular disinfection of tiles and fixtures.",
-      "Monthly inspection & touch-ups."
-    ],
-    exclusions: [
-      "Emergency one-off deep restorations",
-      "Major repair works"
-    ]
-  },
-  emergency: {
-    title: "Emergency Cleaning",
-    subtitle: "Rapid-response cleaning for urgent needs.",
-    inclusions: [
-      "Immediate team deployment.",
-      "Quick disinfection & odor control.",
-      "Spot deep-clean for affected fixtures.",
-      "Follow-up recommendations."
-    ],
-    exclusions: [
-      "Long-term renovation or repairs"
-    ]
-  }
 };
-  document.getElementById("modalBook").addEventListener("click", function () {
-    window.location.href = "booknow.html";
-  });
 
-const modal = document.getElementById('serviceModal');
-const modalTitle = document.getElementById('modalTitle');
-const modalSub = document.getElementById('modalSub');
-const modalInclusions = document.getElementById('modalInclusions');
-const modalExclusions = document.getElementById('modalExclusions');
-document.querySelectorAll('.view-details').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const s = SERVICES[btn.dataset.service];
-    modalTitle.textContent = s.title;
-    modalSub.textContent = s.subtitle;
-    modalInclusions.innerHTML = s.inclusions.map(i => `<li>${i}</li>`).join('');
-    modalExclusions.innerHTML = s.exclusions.map(e => `<li>${e}</li>`).join('');
-    modal.classList.add('show');
+/*********************************
+ * CATEGORY MODAL OPEN
+ *********************************/
+document.querySelectorAll(".view-services").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const cat = CATEGORY_SERVICES[btn.dataset.category];
+    if (!cat) return;
 
-    document.getElementById('modalBook').onclick = () => {
-      const encodedService = encodeURIComponent(s.title);
-      const url = `https://wa.me/917559337336?text=Hi,%20I%20want%20to%20book%20the%20${encodedService}%20service.`;
-      window.open(url, '_blank');
-    };
+    document.getElementById("categoryTitle").textContent = cat.title;
+
+    const box = document.getElementById("categoryServices");
+    box.innerHTML = "";
+
+    cat.services.forEach(s => {
+      box.innerHTML += `
+        <div class="service-card">
+          <i class="${s.icon}"></i>
+          <h3>${s.name}</h3>
+          <p>${s.desc}</p>
+          <div class="price">${s.price}
+            <span style="text-decoration:line-through;font-size:12px;color:#777;">
+              ${s.oldPrice}
+            </span>
+          </div>
+          <div class="action-row">
+            <button class="book-btn" data-wa="${s.wa}">Book Now</button>
+            <button class="details-btn" data-service="${s.serviceKey}">
+              View Details
+            </button>
+          </div>
+        </div>
+      `;
+    });
+
+    openModal("categoryModal");
   });
 });
 
-document.getElementById('modalClose').addEventListener('click', () => modal.classList.remove('show'));
-modal.addEventListener('click', (event) => {
-  if (event.target === modal) {
-    modal.classList.remove('show');
+/*********************************
+ * SERVICE DETAILS MODAL
+ *********************************/
+document.addEventListener("click", e => {
+  const btn = e.target.closest(".details-btn");
+  if (!btn) return;
+
+  const s = SERVICES[btn.dataset.service];
+  if (!s) return;
+
+  document.getElementById("modalTitle").textContent = s.title;
+  document.getElementById("modalSub").textContent = s.subtitle;
+  document.getElementById("modalInclusions").innerHTML =
+    s.inclusions.map(i => `<li>${i}</li>`).join("");
+  document.getElementById("modalExclusions").innerHTML =
+    s.exclusions.map(i => `<li>${i}</li>`).join("");
+
+  document.getElementById("modalBook").onclick = () => {
+    const msg = encodeURIComponent(`Hi, I want to book ${s.title}`);
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+  };
+
+  openModal("serviceModal");
+});
+
+/*********************************
+ * MODAL HELPERS
+ *********************************/
+function openModal(id) {
+  document.getElementById(id).classList.add("show");
+  document.body.classList.add("modal-open");
+}
+
+function closeAllModals() {
+  document.querySelectorAll(".modal").forEach(m => m.classList.remove("show"));
+  document.body.classList.remove("modal-open");
+}
+function closeCurrentModal(element) {
+  const modal = element.closest(".modal");
+  if (!modal) return;
+
+  modal.classList.remove("show");
+
+  // unlock scroll only if no modal is open
+  if (!document.querySelector(".modal.show")) {
+    document.body.classList.remove("modal-open");
   }
+}
+
+
+/*********************************
+ * MODAL BACKDROP CLICK
+ *********************************/
+// document.querySelectorAll(".modal").forEach(modal => {
+//   modal.addEventListener("click", e => {
+//     if (e.target === modal) closeAllModals();
+//   });
+// });
+
+/*********************************
+ * CLOSE BUTTON
+ *********************************/
+// document.getElementById("modalClose")?.addEventListener("click", closeAllModals);
+
+/*********************************
+ * MOBILE MENU
+ *********************************/
+const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
+const overlay = document.getElementById("overlay");
+const menuClose = document.getElementById("menu-close");
+
+menuToggle.addEventListener("click", () => {
+  mobileMenu.classList.add("open");
+  overlay.classList.add("active");
 });
+
+menuClose.addEventListener("click", closeMenu);
+overlay.addEventListener("click", closeMenu);
+
 function closeMenu() {
-  document.getElementById('mobile-menu').classList.remove('open');
-  document.getElementById('overlay').classList.remove('active');
+  mobileMenu.classList.remove("open");
+  overlay.classList.remove("active");
 }
 
-document.getElementById('menu-toggle').onclick = function() {
-  document.getElementById('mobile-menu').classList.add('open');
-  document.getElementById('overlay').classList.add('active');
-};
-document.getElementById('menu-close').onclick = closeMenu;
-document.getElementById('overlay').onclick = closeMenu;
+/*********************************
+ * ESC KEY CLOSE
+ *********************************/
+// document.addEventListener("keydown", e => {
+//   if (e.key === "Escape") closeAllModals();
+// });
+function closeCategoryModal() {
+  const modal = document.getElementById("categoryModal");
+  if (modal) {
+    modal.classList.remove("show");
+    document.body.classList.remove("modal-open");
+  }
+}
+function closeCurrentModal(element) {
+  const modal = element.closest(".modal");
+  if (!modal) return;
 
-function buildWhatsAppMessage(form) {
-  const name = form.name.value.trim();
-  const phone = form.phone.value.trim();
-  const address = form.address.value.trim();
-  const date = form.date.value;
-  const slot = form.slot.value;
-  const service = form.service.value;
+  modal.classList.remove("show");
 
-  const message =
-`Hello XeroDirt Team,
+  // remove body lock ONLY if no other modal is open
+  if (!document.querySelector(".modal.show")) {
+    document.body.classList.remove("modal-open");
+  }
+}
 
-I would like to book a cleaning service.
+document.querySelectorAll(".modal").forEach(modal => {
+  modal.addEventListener("click", e => {
+    if (e.target === modal) {
+      modal.classList.remove("show");
 
-Name: ${name}
-Phone: +91${phone}
-Address: ${address}
-Date: ${date}
-Preferred Slot: ${slot}
-Service: ${service}
-
-Please confirm availability.`;
-
-  /* ✅ 1️⃣ OPEN WHATSAPP FIRST (critical) */
-  window.open(
-    "https://wa.me/917559337336?text=" + encodeURIComponent(message),
-    "_blank"
-  );
-
-  /* ✅ 2️⃣ SEND TO GOOGLE SHEET (non-blocking) */
-setTimeout(() => {
-  fetch(SHEET_URL, {
-    method: "POST",
-    mode: "no-cors",
-    body: JSON.stringify({
-      name: name,
-      phone: phone,
-      address: address,
-      date: date,
-      slot: slot,
-      service: service,
-      status: "Pending"   // ✅ FIXED
-    })
+      if (!document.querySelector(".modal.show")) {
+        document.body.classList.remove("modal-open");
+      }
+    }
   });
-}, 100);
+});
 
-return false;
-}
-
+document.querySelectorAll(".modal-card").forEach(card => {
+  card.addEventListener("click", e => e.stopPropagation());
+});
+document.querySelectorAll(".service-bg").forEach(card => {
+  const bg = card.getAttribute("data-bg");
+  if (bg) {
+    card.style.backgroundImage = `url('${bg}')`;
+  }
+});
