@@ -117,7 +117,7 @@ flat2bhk: {
 },
 
   kitchen: {
-    title: "Kitchen Deep Cleaning",
+    title: "Modular Kitchen Deep Cleaning",
     subtitle: "Oil & grease removal.",
     inclusions: [ "Platform & slab deep cleaning.",
     "Sink & drainage area cleaning.",
@@ -127,6 +127,25 @@ flat2bhk: {
     "Floor cleaning."],
     exclusions: ["Appliance interior", "Stove, chimney exterior cleaning.", "Acid damage, permanent stains, or etched surfaces",]
   },
+  kitchenuf: {
+  title: "Kitchen Deep Cleaning",
+  subtitle: "Thorough oil, grease & hygiene-focused cleaning for empty kitchens.",
+  inclusions: [
+    "Deep cleaning of kitchen platform & slab.",
+    "Sink & drainage area cleaning.",
+    "Tiles / backsplash degreasing and scrubbing.",
+    "Floor deep cleaning and mopping."
+  ],
+  exclusions: [
+    "kitchen trolleys and cabinets (inside & outside)",
+    "Appliance interior cleaning (oven, microwave, refrigerator, etc.)",
+    "Stove, chimney exterior or interior cleaning",
+    "Acid damage, permanent stains, or etched surfaces",
+    "Repair, polishing, or replacement work"
+  ]
+}
+,
+
 monthly1: {
   title: "1 Washroom – Monthly Cleaning Plan",
   subtitle: "Hygiene maintenance with 3 scheduled visits per month.",
@@ -345,13 +364,21 @@ kitchen: {
   title: "Professional Kitchen Cleaning Services",
   services: [
     {
-      serviceKey: "kitchen",
+      serviceKey: "kitchenuf",
       icon: "fas fa-kitchen-set",
       name: "Kitchen Deep Cleaning",
-      desc: "Intensive removal of oil, grease, and food residue from all key kitchen surfaces for a hygienic cooking space.",
-      price: "₹1199",
-      oldPrice: "₹1699",
+      desc: "Complete cleaning of kitchen surfaces to remove oil, grease, and dirt, ensuring a clean and hygienic cooking space.",
+      price: "₹499",
+      oldPrice: "₹1299",
       wa: "Kitchen Deep Cleaning"
+    },   {
+      serviceKey: "Modular kitchen",
+      icon: "fas fa-kitchen-set",
+      name: "Modular Kitchen Deep Cleaning",
+      desc: "Intensive removal of oil, grease, and food residue from all key modular kitchen surfaces for a hygienic cooking space.",
+      price: "₹1199",
+      oldPrice: "₹1999",
+      wa: "Modular Kitchen Deep Cleaning"
     }
   ]
 }
@@ -404,7 +431,7 @@ monthly: {
       icon: "fas fa-border-all",
       name: "Window Cleaning",
       desc: "Streak-free glass and frame cleaning per window.",
-      price: "₹199",
+      price: "₹149",
       oldPrice: "₹500",
       wa: "Window Cleaning"
     },
@@ -413,7 +440,7 @@ monthly: {
       icon: "fas fa-paint-roller",
       name: "Wall Wet Wiping (Per Room)",
       desc: "Wet wiping of walls to remove dust, stains, and marks.",
-      price: "₹499",
+      price: "₹399",
       oldPrice: "₹800",
       wa: "Wall Wet Wiping"
     },
@@ -422,7 +449,7 @@ monthly: {
       icon: "fas fa-couch",
       name: "Sofa & Chair Cleaning",
       desc: "Deep vacuum and stain treatment per seat.",
-      price: "₹150",
+      price: "₹129",
       oldPrice: "₹250",
       wa: "Sofa Cleaning"
     },
@@ -449,7 +476,7 @@ monthly: {
       icon: "fas fa-fire-burner",
       name: "Chimney Deep Cleaning",
       desc: "Grease removal, filter cleaning & exterior polishing.",
-      price: "₹399",
+      price: "₹299",
       oldPrice: "₹700",
       wa: "Chimney Deep Cleaning"
     }
@@ -495,6 +522,20 @@ document.querySelectorAll(".view-services").forEach(btn => {
     openModal("categoryModal");
   });
 });
+document.addEventListener("click", function (e) {
+  const btn = e.target.closest(".book-btn");
+  if (!btn) return;
+
+  const serviceName = btn.dataset.wa;
+  const message = `Hi, I want to book *${serviceName}* service.`;
+  const encoded = encodeURIComponent(message);
+
+  window.open(
+    `https://wa.me/917559337336?text=${encoded}`,
+    "_blank"
+  );
+});
+
 
 /*********************************
  * SERVICE DETAILS MODAL

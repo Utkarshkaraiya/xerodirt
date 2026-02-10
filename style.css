@@ -722,3 +722,7 @@ body.modal-open {
     background-position: center top;
   }
 }
+.price-highlight {
+  font-weight: 800;
+  font-size: 1.05em; /* optional, slightly bigger */
+}
