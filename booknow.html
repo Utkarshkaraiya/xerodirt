@@ -68,7 +68,7 @@
     <option value="3 BHK Deep Washroom Cleaning">3 Washrooms Deep Cleaning</option>
 
     <option value="Kitchen Cleaning">Kitchen Cleaning</option>
-
+    <option value="Modular Kitchen Cleaning">Modular Kitchen Cleaning</option>
     <option value="1 BHK Flat Cleaning">1 BHK Flat Cleaning</option>
     <option value="2 BHK Flat Cleaning">2 BHK Flat Cleaning</option>
     <option value="3 BHK Flat Cleaning">3 BHK Flat Cleaning</option>
@@ -91,4 +91,30 @@
 
 <script src="script.js"></script>
 </body>
+<script>
+  // Auto-select service from URL (?service=...)
+  window.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const serviceFromUrl = params.get("service");
+
+    if (!serviceFromUrl) return;
+
+    const serviceSelect = document.getElementById("service-select");
+    if (!serviceSelect) return;
+
+    // Match option text or value
+    Array.from(serviceSelect.options).forEach(option => {
+      if (
+        option.value.toLowerCase() === serviceFromUrl.toLowerCase() ||
+        option.text.toLowerCase() === serviceFromUrl.toLowerCase()
+      ) {
+        option.selected = true;
+      }
+    });
+
+    // Trigger floating label
+    serviceSelect.dispatchEvent(new Event("change"));
+  });
+</script>
+
 </html>

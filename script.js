@@ -334,7 +334,7 @@ const CATEGORY_SERVICES = {
     {
       serviceKey: "flat1bhk",
       icon: "fas fa-city",
-      name: "1 BHK Flat Deep Cleaning",
+      name: "1 BHK Flat Cleaning",
       desc: "Thorough deep cleaning for unfurnished 1 BHK flats, covering all essential living areas.",
       price: "₹1499",
       oldPrice: "₹3299",
@@ -343,7 +343,7 @@ const CATEGORY_SERVICES = {
     {
       serviceKey: "flat2bhk",
       icon: "fas fa-city",
-      name: "2 BHK Flat Deep Cleaning",
+      name: "2 BHK Flat Cleaning",
       desc: "Comprehensive deep cleaning for unfurnished 2 BHK flats, ensuring complete hygiene and freshness.",
       price: "₹2499",
       oldPrice: "₹3299",
@@ -352,7 +352,7 @@ const CATEGORY_SERVICES = {
     {
       serviceKey: "flat3bhk",
       icon: "fas fa-city",
-      name: "3 BHK Flat Deep Cleaning",
+      name: "3 BHK Flat Cleaning",
       desc: "End-to-end deep cleaning for unfurnished 3 BHK flats with detailed attention to every room.",
       price: "₹3499",
       oldPrice: "₹4299",
@@ -510,7 +510,14 @@ document.querySelectorAll(".view-services").forEach(btn => {
             </span>
           </div>
           <div class="action-row">
-            <button class="book-btn" data-wa="${s.wa}">Book Now</button>
+            <button
+  type="button"
+  class="book-btn"
+  data-service="${s.name}"
+>
+  Book Now
+</button>
+
             <button class="details-btn" data-service="${s.serviceKey}">
               View Details
             </button>
@@ -526,15 +533,14 @@ document.addEventListener("click", function (e) {
   const btn = e.target.closest(".book-btn");
   if (!btn) return;
 
-  const serviceName = btn.dataset.wa;
-  const message = `Hi, I want to book *${serviceName}* service.`;
-  const encoded = encodeURIComponent(message);
+  const serviceName = btn.dataset.service;
+  if (!serviceName) return;
 
-  window.open(
-    `https://wa.me/917559337336?text=${encoded}`,
-    "_blank"
-  );
+  // Redirect to booking page with auto-selected service
+  window.location.href =
+    `booknow.html?service=${encodeURIComponent(serviceName)}`;
 });
+
 
 
 /*********************************
@@ -555,8 +561,8 @@ document.addEventListener("click", e => {
     s.exclusions.map(i => `<li>${i}</li>`).join("");
 
   document.getElementById("modalBook").onclick = () => {
-    const msg = encodeURIComponent(`Hi, I want to book ${s.title}`);
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+     window.location.href =
+    `booknow.html?service=${encodeURIComponent(s.title)}`;
   };
 
   openModal("serviceModal");
