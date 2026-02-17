@@ -55,17 +55,18 @@ const SERVICES = {
 },
 
 flat3bhk: {
-  title: "3 BHK Deep Washroom Cleaning",
-  subtitle: "Deep cleaning for all washrooms in 3 BHK.",
+  title: "3 BHK Flat Cleaning",
+  subtitle: "Unfurnished flat deep cleaning.",
   inclusions: [
    "All 3 BHK washrooms cleaned — toilets, basins, tiles, taps, mirrors, and windows.",
-    "Removal of hard water stains and grime from all surfaces.",
-    "Machine-based scrubbing for deep floor and tile shine.",
-    "Thorough disinfection of every touchpoint and fixture.",
-    "Deep floor clean, sink, tiles, taps, mirrors, Shower Glass Partition."
+     "Floor sweeping, mopping & machine scrubbing where required",
+    "Dusting of ceilings, fans, switchboards & light fixtures",
+    "Kitchen slab, tiles, sink ",
+    "Bathroom deep cleaning including toilet seat, washbasin, taps & tiles",
+    "Side walls, partition glass & stain removal"
   ],
   exclusions: [
-   "Furnished interiors and furniture cleaning",
+  "Furnished interiors and furniture cleaning",
     "Glue, paint stain or sticker removal",
     "Terrace cleaning or inaccessible areas",
     "Wet wiping of walls & ceilings",
