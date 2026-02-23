@@ -2,7 +2,7 @@
  * CONFIG
  *********************************/
 const WHATSAPP_NUMBER = "917559337336";
-const SHEET_URL = "https://script.google.com/macros/s/AKfycbxEVlxtjdjmfRqUnRtm-xtwbesUQKcMjPAeUBzqx1foJvf48QEMQzSTGaqEujVteJHk/exec";
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbwccUYPsE8jyQ1APaivl3FtFTp0i2kr6wH5diSYk6pc5xhDYNKql2oseyaE99BxF_kG/exec";
 
 /*********************************
  * SERVICE DETAILS (DETAIL MODAL)
@@ -680,8 +680,8 @@ function buildWhatsAppMessage(form) {
   const payload = {
     name: form.name.value.trim(),
     phone: form.phone.value.trim(),
+       status: "Pending",
     address: form.address.value.trim(),
-    status: "Pending",
     date: form.date.value,
     slot: form.slot.value,
     service: form.service.value,
