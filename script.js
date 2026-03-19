@@ -390,7 +390,7 @@ Electric: {
     {
       serviceKey: "electric1",
       icon: "fas fa-bolt",
-      name: "Basic Electrical Installation",
+      name: "Electrical Services",
       desc: "Professional installation of basic electrical fixtures and wiring.",
       price: "₹99",
       oldPrice: "₹199",
@@ -418,7 +418,7 @@ Electric: {
     {
       serviceKey: "plumbing1",
       icon: "fas fa-faucet",
-      name: "Basic Plumbing Installation",
+      name: "Plumbing Installation",
       desc: "Professional installation of basic plumbing fixtures and wiring.",
       price: "₹99",
       oldPrice: "₹199",
