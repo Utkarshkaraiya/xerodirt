@@ -383,6 +383,61 @@ kitchen: {
       wa: "Modular Kitchen Deep Cleaning"
     }
   ]
+},
+Electric: {
+  title: "Professional Electrical Services",
+  services: [
+    {
+      serviceKey: "electric1",
+      icon: "fas fa-bolt",
+      name: "Basic Electrical Installation",
+      desc: "Professional installation of basic electrical fixtures and wiring.",
+      price: "₹99",
+      oldPrice: "₹199",
+      wa: "Basic Electrical Installation"
+    }
+  ]
+
+}
+,paint: {
+  title: "Professional Painting Services",
+  services: [
+    {
+      serviceKey: "paint1",
+      icon: "fas fa-paint-roller",
+      name: "Painting Services",
+      desc: "Professional wall painting services for a fresh and vibrant look, using high-quality paints and expert techniques to transform your space.",
+      price: "₹499",
+      oldPrice: "₹1299",
+      wa: "Kitchen Deep Cleaning"
+    },
+  ]
+},plumbing: {
+  title: "Professional Plumbing Services",
+  services: [
+    {
+      serviceKey: "plumbing1",
+      icon: "fas fa-faucet",
+      name: "Basic Plumbing Installation",
+      desc: "Professional installation of basic plumbing fixtures and wiring.",
+      price: "₹99",
+      oldPrice: "₹199",
+      wa: "Basic Plumbing Installation"
+    }
+  ]
+},other: {
+  title: "Other Professional Services",
+  services: [
+    {
+      serviceKey: "other1",
+      icon: "fas fa-tools",
+      name: "Kitchen Deep Cleaning",
+      desc: "Complete cleaning of kitchen surfaces to remove oil, grease, and dirt, ensuring a clean and hygienic cooking space.",
+      price: "₹499",
+      oldPrice: "₹1299",
+      wa: "Kitchen Deep Cleaning"
+    },
+  ]
 }
 ,
 monthly: {
