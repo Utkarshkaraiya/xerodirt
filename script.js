@@ -407,7 +407,7 @@ Electric: {
       icon: "fas fa-paint-roller",
       name: "Painting Services",
       desc: "Professional wall painting services for a fresh and vibrant look, using high-quality paints and expert techniques to transform your space.",
-      price: "₹499",
+      price: "₹599",
       oldPrice: "₹1299",
       wa: "Kitchen Deep Cleaning"
     },
@@ -418,7 +418,7 @@ Electric: {
     {
       serviceKey: "plumbing1",
       icon: "fas fa-faucet",
-      name: "Plumbing Installation",
+      name: "Plumbing Services",
       desc: "Professional installation of basic plumbing fixtures and wiring.",
       price: "₹99",
       oldPrice: "₹199",
