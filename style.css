@@ -761,3 +761,96 @@ body.modal-open {
   position: relative;
   padding-top: 60px;  /* THIS fixes overlap */
 }
+
+.stats-section {
+  padding: 60px 20px;
+  background: #f4f6f8;
+}
+
+.stats-container {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Card style */
+.stat-box {
+  background: #f8fafc;
+  border: 1px solid #dbe3ea;
+  border-radius: 22px;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dotted pattern (top fade effect) */
+.stat-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+
+  background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+  background-size: 10px 10px;
+  opacity: 0.5;
+
+  mask-image: linear-gradient(to bottom, black, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+/* Number */
+.stat-box h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #2b2b2b;
+  margin-bottom: 10px;
+}
+
+/* Text */
+.stat-box p {
+  font-size: 16px;
+  color: #444;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  border: 1px solid #dbe3ea;
+  border-radius: 999px;
+
+  background: #f1f5f9;
+  color: #374151;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  margin: 0 auto 16px;
+}
+
+/* Center it */
+.section-badge-wrapper {
+  text-align: center;
+}
+
+.section-badge {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.many-more {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+
+  color: #d1d5db; /* light grey */
+
+  margin: 60px 0;
+}

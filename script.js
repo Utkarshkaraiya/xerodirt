@@ -777,3 +777,32 @@ Slot: ${payload.slot}`;
 }
 
 
+function animateCounter(id, target, suffix = "+") {
+  let element = document.getElementById(id);
+  let count = 0;
+  let speed = target / 100;
+
+  let interval = setInterval(() => {
+    count += speed;
+
+    if (count >= target) {
+      element.innerText = target.toLocaleString() + suffix;
+      clearInterval(interval);
+    } else {
+      element.innerText = Math.floor(count).toLocaleString();
+    }
+  }, 20);
+}
+
+let started = false;
+
+window.addEventListener("scroll", () => {
+  const section = document.querySelector(".stats-section");
+
+  if (!started && section.getBoundingClientRect().top < window.innerHeight) {
+    animateCounter("families", 1300);
+    animateCounter("washrooms", 2100);
+    animateCounter("flats", 398);
+    started = true;
+  }
+});
