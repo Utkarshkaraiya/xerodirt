@@ -124,10 +124,10 @@ flat2bhk: {
     inclusions: [ "Platform & slab deep cleaning.",
     "Sink & drainage area cleaning.",
     "Tiles / backsplash degreasing.",
-    "Cabinet & trolley cleaning (inside & outside).",
+    "EMPTY Cabinet & trolley cleaning (inside & outside).",
     "If the kitchen trolley is removable, we will remove, clean, and refit it.",
     "Floor cleaning."],
-    exclusions: ["Appliance interior", "Stove, chimney exterior cleaning.", "Acid damage, permanent stains, or etched surfaces",]
+    exclusions: ["Removal of Kitchen Appliances","Appliance interior", "Stove, chimney exterior cleaning.", "Acid damage, permanent stains, or etched surfaces",]
   },
   kitchenuf: {
   title: "Kitchen Deep Cleaning",
