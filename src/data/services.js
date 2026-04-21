@@ -374,7 +374,7 @@ export const services = [
     shortDesc: 'Expert plumbing repairs and installations.',
     startingPrice: 99,
     unit: '',
-    image: '/images/plumb.webp',
+    image: '/images/plumb.jpg',
     heroImage: '/images/plumb.jpg',
     icon: '🔧',
     tiers: [

@@ -18,14 +18,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4>Services</h4>
+            {/*<h4>Services</h4>
             <div className="footer-links">
-              <Link href="/services#washroom-cleaning">Washroom Cleaning</Link>
-              <Link href="/services#flat-cleaning">Flat Cleaning</Link>
-              <Link href="/services#kitchen-cleaning">Kitchen Cleaning</Link>
-              <Link href="/services#mini-services">Mini Services</Link>
-              <Link href="/services#monthly-cleaning">Monthly Cleaning</Link>
-            </div>
+              <Link href="./category/washroom">Washroom Cleaning</Link>
+              <Link href="/category/flat">Flat Cleaning</Link>
+              <Link href="/category/kitchen">Kitchen Cleaning</Link>
+              <Link href="/category/mini">Mini Services</Link>
+              <Link href="/category/monthly">Monthly Cleaning</Link>
+            </div>*/}
           </div>
 
           <div>

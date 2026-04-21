@@ -1677,6 +1677,7 @@ ol {
 }
 
 /* Left Sidebar */
+
 .cat-sidebar {
   background: var(--bg-white);
   border-radius: var(--radius-lg);
@@ -2450,12 +2451,8 @@ ol {
   }
 
   .cat-right-sidebar {
-    display: none;
-  }
-
-  /* Floating cart bar on mobile for categories with items */
-  .cat-mobile-cart-bar {
-    display: flex;
+    position: static;
+    grid-column: 1 / -1;
   }
 }
 
