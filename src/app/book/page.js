@@ -405,7 +405,7 @@ export default function BookPage() {
                   </div>
 
                   <div className="checkout-nav-buttons">
-                    <button className="checkout-back-btn" onClick={() => setStep(2)}>
+                    <button className="checkout-back-btn" onClick={() => setStep(1)}>
                       ← Back
                     </button>
                     <button
