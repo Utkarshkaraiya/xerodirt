@@ -131,7 +131,7 @@ export default function BookPage() {
           <div className="checkout-layout">
             {/* Step Indicator */}
             <div className="checkout-stepper">
-              {[1, 2, 3].map((s) => (
+              {[1, 3].map((s) => (
                 <div
                   key={s}
                   className={`checkout-step-dot ${step === s ? 'active' : ''} ${step > s ? 'done' : ''}`}
@@ -189,8 +189,8 @@ export default function BookPage() {
                         <Link href="/#services" className="checkout-back-btn" style={{ textAlign: 'center' }}>
                           ← Continue Shopping
                         </Link>
-                        <button className="checkout-next-btn" onClick={() => setStep(2)}>
-                          Proceed to Login →
+                        <button className="checkout-next-btn" onClick={() => setStep(3)}>
+                          Proceed to Booking →
                         </button>
                       </div>
                     </>
