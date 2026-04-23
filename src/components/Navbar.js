@@ -37,7 +37,7 @@ export default function Navbar() {
 
         <div className={`navbar-mobile-menu ${mobileOpen ? 'open' : ''}`}>
           <Link href="/" onClick={() => setMobileOpen(false)}>Home</Link>
-          <Link href="/services" onClick={() => setMobileOpen(false)}>Services</Link>
+          {/*<Link href="/services" onClick={() => setMobileOpen(false)}>Services</Link>*/}
           <Link href="/about" onClick={() => setMobileOpen(false)}>About</Link>
           <Link href="/contact" onClick={() => setMobileOpen(false)}>Contact</Link>
           <Link href="/book" onClick={() => setMobileOpen(false)}>Book Now</Link>
