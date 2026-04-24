@@ -1,6 +1,6 @@
 'use client';
 import { db } from "lib/firebase.js";
-import { collection, addDoc, doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { collection, addDoc, doc, setDoc, serverTimestamp, Timestamp } from "firebase/firestore";
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
@@ -118,7 +118,7 @@ export default function BookPage() {
         servicePrice: cartTotal,
         totalPrice: cartTotal,
 
-        scheduledDate: new Date(formData.date).toISOString(),
+        scheduledDate: Timestamp.fromDate(new Date(formData.date)),
         preferredSlot: formData.time,
         /*slot: formData.time,*/
 
@@ -126,7 +126,7 @@ export default function BookPage() {
         statusHistory: [
           {
             status: 'pending',
-            timestamp: now.toISOString(),
+            timestamp: Timestamp.fromDate(now),
             updatedBy: 'customer',
           }
         ],
