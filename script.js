@@ -751,7 +751,7 @@ function buildWhatsAppMessage(form) {
   // 1️⃣ SEND TO GOOGLE SHEET
   fetch("https://script.google.com/macros/s/AKfycbwccUYPsE8jyQ1APaivl3FtFTp0i2kr6wH5diSYk6pc5xhDYNKql2oseyaE99BxF_kG/exec", {
     method: "POST",
-    mode: "no-cors",
+    
     headers: {
       "Content-Type": "application/json"
     },
