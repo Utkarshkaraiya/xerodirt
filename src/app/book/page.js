@@ -120,7 +120,7 @@ export default function BookPage() {
 
         scheduledDate: new Date(formData.date).toISOString(),
         preferredSlot: formData.time,
-        slot: formData.time,
+        /*slot: formData.time,*/
 
         status: 'pending',
         statusHistory: [
