@@ -86,6 +86,17 @@ export default function BookPage() {
     setSubmitting(true);
 
     try {
+
+      const sheetData = {
+        name: formData.name,
+        phone: phone,
+        address: formData.address,
+        status: 'Pending',
+        date: formData.date,       // YYYY-MM-DD from <input type="date">
+        slot: formData.time,
+        service: cartItems.map(i => `${i.service.name}`).join(', ')
+      };
+
       const customerId = generateCustomerId();
       const now = new Date();
 
@@ -141,11 +152,29 @@ export default function BookPage() {
         updatedAt: serverTimestamp(),
       };
 
+
+
       const orderRef = await addDoc(
         collection(db, "orders"),
         orderData
       );
       console.log("Order ID:", orderRef.id);
+
+
+      // Send to Google Sheets
+
+
+      const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwS3cD35Wf2F0S7Bnr2PubVZ6kbWVLsEJE2UiLm2S9nw2DQGvKiUdWkBJfeDuBiVIDF/exec';
+
+      fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors", // Use no-cors to avoid CORS issues with Apps Script
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(sheetData),
+      });
+
 
       setOrderPlaced(true);
 
