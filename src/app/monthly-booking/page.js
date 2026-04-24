@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const monthlyPlans = [
@@ -61,6 +61,20 @@ export default function MonthlyBookingPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+
+
+  useEffect(() => {
+    if (submitted) {
+      // A 0ms timeout pushes the scroll to the end of the execution queue
+      setTimeout(() => {
+        window.scrollTo({
+          top: 100,
+          left: 0,
+          behavior: 'instant' // Using 'instant' is more reliable than 'smooth' for debugging
+        });
+      }, 0);
+    }
+  }, [submitted]);
 
   const validate = () => {
     const newErrors = {};
@@ -157,6 +171,9 @@ export default function MonthlyBookingPage() {
                 </span>
               </div>
             </div>
+
+
+
 
             <div className="mb-success-actions">
               <button className="mb-btn mb-btn-primary" onClick={handleReset}>

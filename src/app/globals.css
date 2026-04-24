@@ -2115,7 +2115,8 @@ ol {
 }
 
 .cat-cart-view-btn:hover {
-  background: var(--primary-bg);
+  /* background: var(--primary-bg);*/
+  cursor: pointer;
 }
 
 /* ============ NEW CHECKOUT PAGE ============ */
@@ -2457,6 +2458,11 @@ ol {
 }
 
 @media (max-width: 768px) {
+
+  .hide-cart-on-mobile {
+    display: none !important;
+  }
+
   .cat-layout {
     grid-template-columns: 1fr;
   }
@@ -3306,7 +3312,7 @@ ol {
   font-size: 0.88rem;
 }
 
-.mb-success-row + .mb-success-row {
+.mb-success-row+.mb-success-row {
   border-top: 1px solid var(--border-light);
 }
 
@@ -3468,5 +3474,76 @@ ol {
 
   .mb-section-title {
     font-size: 1.2rem;
+  }
+}
+
+
+/* =========================================
+   Mobile Floating Cart Styles
+   ========================================= */
+
+.mobile-floating-cart {
+  display: none;
+  /* Hidden by default on larger screens */
+}
+
+@media (max-width: 768px) {
+  .mobile-floating-cart {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-white, #ffffff);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    /* Stronger shadow to stand out */
+    padding: 16px 24px;
+    z-index: 9999;
+    /* Ensures it stays on top of everything else */
+    align-items: center;
+    justify-content: space-between;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  .hide-cart-on-mobile {
+    display: none !important;
+  }
+
+  .floating-cart-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .floating-cart-count {
+    font-size: 0.85rem;
+    color: var(--text-secondary, #64748b);
+    margin-bottom: 2px;
+  }
+
+  .floating-cart-total {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-primary, #1e293b);
+  }
+
+  .floating-view-cart-btn {
+    background-color: var(--primary, #2f9e8f);
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .floating-view-cart-btn:active {
+    background-color: var(--primary-dark, #247d72);
+  }
+
+  /* Important: Add padding to the bottom of your main layout on mobile 
+     so the last service card doesn't get hidden behind the floating cart */
+  body {
+    padding-bottom: 90px;
   }
 }

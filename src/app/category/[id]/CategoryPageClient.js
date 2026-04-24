@@ -78,31 +78,7 @@ export default function CategoryPageClient({ category, subCategories }) {
             <main className="cat-main">
               <h2 className="cat-main-title">{activeSub?.name}</h2>
 
-              {/* Cart Summary */}
-              {cartItemCount > 0 && (
-                <div className="cat-cart-card">
-                  <h4 className="cat-cart-title">Cart</h4>
-                  <div className="cat-cart-items">
-                    {cartItems.map((item) => (
-                      <div key={item.id} className="cat-cart-item">
-                        <div className="cat-cart-item-info">
-                          <span className="cat-cart-item-name">{item.tier.name}</span>
-                          <span className="cat-cart-item-qty">× {item.quantity}</span>
-                        </div>
-                        <span className="cat-cart-item-price">₹{item.tier.price * item.quantity}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="cat-cart-footer">
-                    <div className="cat-cart-total">
-                      <span>₹{cartTotal}</span>
-                    </div>
-                    <Link href="/book" className="cat-cart-view-btn">
-                      View Cart
-                    </Link>
-                  </div>
-                </div>
-              )}
+
 
               <div className="cat-tier-list">
                 {activeSub?.tiers.map((tier, i) => {
@@ -213,11 +189,37 @@ export default function CategoryPageClient({ category, subCategories }) {
               </div>
 
               {/* Cart Summary option was present here before */}
-
+              {/* Cart Summary */}
+              <aside className="hide-cart-on-mobile">
+                {cartItemCount > 0 && (
+                  <div className="cat-cart-card">
+                    <h4 className="cat-cart-title">Cart</h4>
+                    <div className="cat-cart-items">
+                      {cartItems.map((item) => (
+                        <div key={item.id} className="cat-cart-item">
+                          <div className="cat-cart-item-info">
+                            <span className="cat-cart-item-name">{item.tier.name}</span>
+                            <span className="cat-cart-item-qty">× {item.quantity}</span>
+                          </div>
+                          <span className="cat-cart-item-price">₹{item.tier.price * item.quantity}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="cat-cart-footer">
+                      <div className="cat-cart-total">
+                        <span>₹{cartTotal}</span>
+                      </div>
+                      <Link href="/book" className="cat-cart-view-btn">
+                        View Cart
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </aside>
             </aside>
           </div>
         </div>
-      </section>
+      </section >
 
       {selectedTier && (
         <div className="cat-modal-overlay" onClick={() => setSelectedTier(null)}>
@@ -258,7 +260,27 @@ export default function CategoryPageClient({ category, subCategories }) {
 
           </div>
         </div>
-      )}
+      )
+      }
+
+      {/* Mobile Floating Cart - Only shows if there are items */}
+      {
+        cartItemCount > 0 && (
+          <div className="mobile-floating-cart">
+            <div className="floating-cart-info">
+              <span className="floating-cart-count">
+                {cartItemCount} {cartItemCount === 1 ? 'Item' : 'Items'} in cart
+              </span>
+              <span className="floating-cart-total">Total: ₹{cartTotal}</span>
+            </div>
+            <Link href="/book" className="floating-view-cart-btn">
+              View Cart
+            </Link>
+          </div>
+        )
+      }
+
+
 
     </>
   );

@@ -1,10 +1,12 @@
 'use client';
+import { db } from "lib/firebase.js";
+import { collection, addDoc, doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 
 export default function BookPage() {
-  const { cartItems, cartTotal, cartItemCount, clearCart } = useCart();
+  const { cartItems, cartTotal, cartItemCount, clearCart, updateQuantity, removeFromCart } = useCart();
 
   // Steps: 1=Cart, 2=Login(OTP), 3=Details, 4=Confirm/Success
   const [step, setStep] = useState(1);
@@ -17,7 +19,8 @@ export default function BookPage() {
     address: '',
     date: '',
     time: '',
-    notes: ''
+    notes: '',
+    couponCode: ''
   });
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -25,6 +28,15 @@ export default function BookPage() {
   const otpRefs = useRef([]);
 
   const totalSteps = 3;
+
+  // ⬇️ ADD THIS USEEFFECT HERE ⬇️
+  useEffect(() => {
+    window.scrollTo({
+      top: 350,
+      behavior: 'smooth' // Adds a nice smooth scroll effect
+    });
+  }, [step]); // This tells React to run this code whenever 'step' changes
+  // ⬆️ ----------------------- ⬆️
 
   const handleSendOtp = () => {
     if (phone.length >= 10) {
@@ -60,43 +72,89 @@ export default function BookPage() {
     }
   };
 
+  // Generate a random alphanumeric customerId
+  const generateCustomerId = () => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < 28; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+  };
+
   const handlePlaceOrder = async () => {
     setSubmitting(true);
 
-    const itemsSummary = cartItems.map(item =>
-      `${item.tier.name} (×${item.quantity}) - ₹${item.tier.price * item.quantity}`
-    ).join('\n');
-
-    const payload = {
-      service: cartItems.map(i => i.service.name).join(', '),
-      plan: cartItems.map(i => `${i.tier.name} ×${i.quantity}`).join(', '),
-      price: cartTotal,
-      name: formData.name,
-      phone: phone,
-      address: formData.address,
-      date: formData.date,
-      time: formData.time,
-      notes: formData.notes || 'None'
-    };
-
     try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbwccUYPsE8jyQ1APaivl3FtFTp0i2kr6wH5diSYk6pc5xhDYNKql2oseyaE99BxF_kG/exec",
-        {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
-        }
-      );
-    } catch (error) {
-      console.error("Error submitting to Google Sheets:", error);
-    }
+      const customerId = generateCustomerId();
+      const now = new Date();
 
-    setSubmitting(false);
-    setOrderPlaced(true);
+      // All fields in a single orders document (matches Firebase schema)
+      const orderData = {
+        // Customer fields
+        customerId: customerId,
+        customerName: formData.name,
+        customerPhone: phone,
+        customerAddress: formData.address,
+        //address: formData.address,
+
+        // Order details
+        orderId: customerId,
+        //phone: phone,
+        notes: formData.notes || '',
+        //date: formData.date,
+
+        //service: cartItems.map(i => i.service.name).join(', '),
+        //plan: cartItems.map(i => `${i.tier.name} ×${i.quantity}`).join(', '),
+        //price: cartTotal,
+
+        services: cartItems.map(item => ({
+          name: item.service.name,
+          price: item.tier.price,
+          quantity: item.quantity
+        })),
+
+        serviceType: cartItems.map(i => i.service.name).join(', '),
+        servicePrice: cartTotal,
+        totalPrice: cartTotal,
+
+        scheduledDate: new Date(formData.date).toISOString(),
+        preferredSlot: formData.time,
+        slot: formData.time,
+
+        status: 'pending',
+        statusHistory: [
+          {
+            status: 'pending',
+            timestamp: now.toISOString(),
+            updatedBy: 'customer',
+          }
+        ],
+
+        couponCode: formData.couponCode || null,
+        discountAmount: 0,
+        assignedWorkerId: null,
+        assignedWorkerName: null,
+        cancellationReason: null,
+
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+      };
+
+      const orderRef = await addDoc(
+        collection(db, "orders"),
+        orderData
+      );
+      console.log("Order ID:", orderRef.id);
+
+      setOrderPlaced(true);
+
+    } catch (error) {
+      console.error('Order placement failed:', error);
+      alert('Something went wrong. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleCloseSuccess = () => {
@@ -107,7 +165,7 @@ export default function BookPage() {
     setOtpSent(false);
     setOtp(['', '', '', '', '', '']);
     setOtpVerified(false);
-    setFormData({ name: '', address: '', date: '', time: '', notes: '' });
+    setFormData({ name: '', address: '', date: '', time: '', notes: '', couponCode: '' });
   };
 
   const canProceedStep3 = formData.name && formData.address && formData.date && formData.time;
@@ -131,7 +189,7 @@ export default function BookPage() {
           <div className="checkout-layout">
             {/* Step Indicator */}
             <div className="checkout-stepper">
-              {[1, 2, 3].map((s) => (
+              {[1, 3].map((s) => (
                 <div
                   key={s}
                   className={`checkout-step-dot ${step === s ? 'active' : ''} ${step > s ? 'done' : ''}`}
@@ -168,9 +226,46 @@ export default function BookPage() {
                                 <div className="checkout-cart-row-service">{item.service.name}</div>
                               </div>
                             </div>
-                            <div className="checkout-cart-row-right">
-                              <div className="checkout-cart-row-qty">Qty: {item.quantity}</div>
-                              <div className="checkout-cart-row-price">₹{item.tier.price * item.quantity}</div>
+                            <div className="checkout-cart-row-right" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '8px' }}>
+                              <div className="checkout-cart-row-price" style={{ fontWeight: 'bold', fontSize: '1.1rem', color: 'var(--primary)' }}>
+                                ₹{item.tier.price * item.quantity}
+                              </div>
+
+                              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                {/* Quantity Controls */}
+                                <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-light)', borderRadius: '6px', border: '1px solid var(--border)', padding: '2px 4px' }}>
+                                  <button
+                                    onClick={() => {
+                                      if (item.quantity > 1) {
+                                        updateQuantity(item.id, item.quantity - 1);
+                                      } else {
+                                        removeFromCart(item.id);
+                                      }
+                                    }}
+                                    style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.2rem', padding: '0 8px', color: 'var(--text-secondary)' }}
+                                  >
+                                    −
+                                  </button>
+                                  <span style={{ fontWeight: '600', fontSize: '0.9rem', minWidth: '20px', textAlign: 'center' }}>
+                                    {item.quantity}
+                                  </span>
+                                  <button
+                                    onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                    style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.2rem', padding: '0 8px', color: 'var(--text-secondary)' }}
+                                  >
+                                    +
+                                  </button>
+                                </div>
+
+                                {/* Remove Button */}
+                                <button
+                                  onClick={() => removeFromCart(item.id)}
+                                  style={{ background: 'none', border: 'none', color: '#ef4444', cursor: 'pointer', padding: '4px', fontSize: '1.1rem' }}
+                                  title="Remove item"
+                                >
+                                  🗑️
+                                </button>
+                              </div>
                             </div>
                           </div>
                         ))}
@@ -187,10 +282,10 @@ export default function BookPage() {
 
                       <div className="checkout-nav-buttons">
                         <Link href="/#services" className="checkout-back-btn" style={{ textAlign: 'center' }}>
-                          ← Continue Shopping
+                          ← Back
                         </Link>
-                        <button className="checkout-next-btn" onClick={() => setStep(2)}>
-                          Proceed to Login →
+                        <button className="checkout-next-btn" onClick={() => setStep(3)}>
+                          Proceed to Booking →
                         </button>
                       </div>
                     </>
@@ -317,13 +412,40 @@ export default function BookPage() {
                     </div>
 
                     <div className="form-group">
-                      <label>Phone Number</label>
-                      <input
-                        type="tel"
-                        value={`+91 ${phone}`}
-                        disabled
-                        style={{ background: 'var(--bg-light)', color: 'var(--text-muted)' }}
-                      />
+                      <label>Phone Number *</label>
+
+                      <div style={{ display: 'flex', width: '100%' }}>
+                        <span
+                          style={{
+                            padding: '14px 16px',
+                            background: 'var(--bg-light)',
+                            border: '1px solid var(--border)',
+                            borderRight: 'none',
+                            borderRadius: '12px 0 0 12px',
+                            display: 'flex',
+                            alignItems: 'center'
+                          }}
+                        >
+                          +91
+                        </span>
+
+                        <input
+                          type="tel"
+                          value={phone}
+                          onChange={(e) => {
+                            const onlyNums = e.target.value.replace(/\D/g, '').slice(0, 10);
+                            setPhone(onlyNums);
+                          }}
+                          maxLength={10}
+                          placeholder="Enter 10 digit phone number"
+                          style={{
+                            width: '100%',
+                            padding: '14px 16px',
+                            border: '1px solid var(--border)',
+                            borderRadius: '0 12px 12px 0'
+                          }}
+                        />
+                      </div>
                     </div>
 
                     <div className="form-group">
@@ -379,6 +501,17 @@ export default function BookPage() {
                     </div>
 
                     <div className="form-group">
+                      <label>Coupon Code</label>
+                      <input
+                        type="text"
+                        placeholder="Enter coupon code (optional)"
+                        value={formData.couponCode}
+                        onChange={(e) => setFormData({ ...formData, couponCode: e.target.value.toUpperCase() })}
+                        style={{ textTransform: 'uppercase' }}
+                      />
+                    </div>
+
+                    <div className="form-group">
                       <label>Additional Notes</label>
                       <input
                         type="text"
@@ -405,7 +538,7 @@ export default function BookPage() {
                   </div>
 
                   <div className="checkout-nav-buttons">
-                    <button className="checkout-back-btn" onClick={() => setStep(2)}>
+                    <button className="checkout-back-btn" onClick={() => setStep(1)}>
                       ← Back
                     </button>
                     <button
