@@ -5,7 +5,7 @@ export const services = [
     shortDesc: 'Sparkling clean washrooms with professional deep cleaning.',
     startingPrice: 189,
     unit: '',
-    image: '/images/toilet.jpg',
+    image: '/images/toilet1.jpg',
     heroImage: '/images/ws1.png',
     icon: '🚿',
     tiers: [
