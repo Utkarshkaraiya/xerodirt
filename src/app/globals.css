@@ -89,7 +89,7 @@ ol {
 }
 
 .section {
-  padding: 100px 0;
+  padding: 60px 0;
 }
 
 .section-light {
@@ -1464,7 +1464,7 @@ ol {
 
 /* ============ PAGE HEADERS ============ */
 .page-hero {
-  padding: 160px 0 80px;
+  padding: 100px 0 50px;
   background: linear-gradient(135deg, var(--dark), #162033);
   text-align: center;
   position: relative;
