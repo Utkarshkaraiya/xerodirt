@@ -507,7 +507,7 @@ export const majorCategories = [
       },
       {
         id: 'combos',
-        name: 'Combos',
+        name: 'Monthly Cleaning',
         originalRef: 'monthly-cleaning',
         icon: '📅'
       }

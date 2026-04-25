@@ -3547,3 +3547,38 @@ ol {
     padding-bottom: 90px;
   }
 }
+
+
+/* Unique styling for the Order History Hero */
+.page-hero.history-hero {
+  padding: 100px 0 50px;
+  background: linear-gradient(135deg, var(--dark), #162033);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Specific styling for the label in this section */
+.page-hero.history-hero .section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--primary);
+  margin-bottom: 16px;
+  padding: 6px 16px;
+  background: var(--primary-bg);
+  border-radius: var(--radius-full);
+}
+
+/* Specific styling for the heading */
+.page-hero.history-hero h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}

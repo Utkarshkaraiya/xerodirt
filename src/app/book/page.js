@@ -126,6 +126,9 @@ export default function BookPage() {
       const now = new Date();
 
 
+
+
+
       const sheetData = {
         name: formData.name,
         phone: phone,
@@ -195,6 +198,23 @@ export default function BookPage() {
         orderData
       );
       console.log("Order ID:", orderRef.id);
+
+      // 2. Get existing history or start new array
+      const existingHistory = JSON.parse(localStorage.getItem('xerodirt_order_history')) || [];
+
+      // 3. Define the new history item FIRST
+      const historyItem = {
+        id: orderRef.id || customerId,
+        date: formData.date,
+        time: formData.time,
+        services: cartItems.map(i => `${i.service.name} (${i.tier.name})`),
+        total: cartTotal,
+        status: 'pending',
+        createdAt: new Date().toISOString()
+      };
+
+      // 4. THEN save the updated history
+      localStorage.setItem('xerodirt_order_history', JSON.stringify([historyItem, ...existingHistory]));
 
 
       // Send to Google Sheets
