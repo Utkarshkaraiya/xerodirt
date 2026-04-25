@@ -42,6 +42,7 @@ export default function Navbar() {
           <Link href="/about" onClick={() => setMobileOpen(false)}>About</Link>
           <Link href="/contact" onClick={() => setMobileOpen(false)}>Contact</Link>
           <Link href="/book" onClick={() => setMobileOpen(false)}>Book Now</Link>
+          <Link href="/myorders" onClick={() => setMobileOpen(false)}>My Orders</Link>
         </div>
       </div>
     </nav>
