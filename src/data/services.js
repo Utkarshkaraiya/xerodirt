@@ -487,7 +487,7 @@ export const majorCategories = [
 
       {
         id: 'washroom-cleaning',
-        name: 'Bathroom cleaning',
+        name: 'Bathroom Cleaning',
         originalRef: 'washroom-cleaning',
         icon: '🚿'
       },
@@ -495,13 +495,13 @@ export const majorCategories = [
 
       {
         id: 'kitchen-cleaning',
-        name: 'Kitchen cleaning',
+        name: 'Kitchen Cleaning',
         originalRef: 'kitchen-cleaning',
         icon: '🍳'
       },
       {
         id: 'flat-cleaning',
-        name: 'Home cleaning',
+        name: 'Home Cleaning',
         originalRef: 'flat-cleaning',
         icon: '🏠'
       },
