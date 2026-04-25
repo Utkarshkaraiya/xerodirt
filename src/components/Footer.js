@@ -14,6 +14,7 @@ export default function Footer() {
               <a href="https://wa.me/917559337336" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
               <a href="https://maps.app.goo.gl/ANGcThTrtfmNNYrm9" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">📍</a>
               <a href="tel:7987788640" aria-label="Phone">📞</a>
+              <a href="https://www.instagram.com/goxerodirt" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸</a>
             </div>
           </div>
 

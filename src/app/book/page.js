@@ -1,6 +1,6 @@
 'use client';
 import { db } from "lib/firebase.js";
-import { collection, addDoc, doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { collection, addDoc, doc, setDoc, serverTimestamp, Timestamp } from "firebase/firestore";
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
@@ -25,7 +25,9 @@ export default function BookPage() {
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
-  const otpRefs = useRef([]);
+  //const otpRefs = useRef([]);
+
+  const isMounted = useRef(false);
 
   const totalSteps = 3;
 
@@ -37,6 +39,39 @@ export default function BookPage() {
     });
   }, [step]); // This tells React to run this code whenever 'step' changes
   // ⬆️ ----------------------- ⬆️
+
+
+  // ⬇️ 1. LOAD DATA WHEN THEY RETURN ⬇️
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedPhone = localStorage.getItem('xerodirt_phone');
+      const savedFormData = localStorage.getItem('xerodirt_formData');
+
+      if (savedPhone) setPhone(savedPhone);
+
+      if (savedFormData) {
+        try {
+          // Parses the saved string back into the formData object
+          setFormData(JSON.parse(savedFormData));
+        } catch (error) {
+          console.error("Failed to parse saved data");
+        }
+      }
+    }
+  }, []);
+
+  // ⬇️ 2. AUTO-SAVE AS THEY TYPE ⬇️
+  useEffect(() => {
+    if (isMounted.current && typeof window !== 'undefined') {
+      // Saves the phone and the entire formData object (name, address, date, time, etc.)
+      localStorage.setItem('xerodirt_phone', phone);
+      localStorage.setItem('xerodirt_formData', JSON.stringify(formData));
+    } else {
+      isMounted.current = true;
+    }
+  }, [phone, formData]); // Runs every time phone or formData changes
+  // ⬆️ ---------------------------------------- ⬆️
+
 
   const handleSendOtp = () => {
     if (phone.length >= 10) {
@@ -86,6 +121,17 @@ export default function BookPage() {
     setSubmitting(true);
 
     try {
+
+      const sheetData = {
+        name: formData.name,
+        phone: phone,
+        address: formData.address,
+        status: 'Pending',
+        date: formData.date,       // YYYY-MM-DD from <input type="date">
+        slot: formData.time,
+        service: cartItems.map(i => `${i.tier.name}`).join(', ')
+      };
+
       const customerId = generateCustomerId();
       const now = new Date();
 
@@ -118,15 +164,15 @@ export default function BookPage() {
         servicePrice: cartTotal,
         totalPrice: cartTotal,
 
-        scheduledDate: new Date(formData.date).toISOString(),
+        scheduledDate: Timestamp.fromDate(new Date(formData.date)),
         preferredSlot: formData.time,
-        slot: formData.time,
+        /*slot: formData.time,*/
 
         status: 'pending',
         statusHistory: [
           {
             status: 'pending',
-            timestamp: now.toISOString(),
+            timestamp: Timestamp.fromDate(now),
             updatedBy: 'customer',
           }
         ],
@@ -141,11 +187,36 @@ export default function BookPage() {
         updatedAt: serverTimestamp(),
       };
 
+
+
       const orderRef = await addDoc(
         collection(db, "orders"),
         orderData
       );
       console.log("Order ID:", orderRef.id);
+
+
+      // Send to Google Sheets
+
+
+      const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwS3cD35Wf2F0S7Bnr2PubVZ6kbWVLsEJE2UiLm2S9nw2DQGvKiUdWkBJfeDuBiVIDF/exec';
+
+      fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors", // Use no-cors to avoid CORS issues with Apps Script
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(sheetData),
+      });
+
+      // ⬇️ ADD THESE LINES TO SAVE DATA ⬇️
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('xerodirt_phone', phone);
+        localStorage.setItem('xerodirt_name', formData.name);
+        localStorage.setItem('xerodirt_address', formData.address);
+      }
+      // ⬆️ ----------------------------- ⬆️
 
       setOrderPlaced(true);
 
@@ -165,7 +236,7 @@ export default function BookPage() {
     setOtpSent(false);
     setOtp(['', '', '', '', '', '']);
     setOtpVerified(false);
-    setFormData({ name: '', address: '', date: '', time: '', notes: '', couponCode: '' });
+    setFormData({ name: formData.name, address: formData.address, date: '', time: '', notes: '', couponCode: '' });
   };
 
   const canProceedStep3 = formData.name && formData.address && formData.date && formData.time;
