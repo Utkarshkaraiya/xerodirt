@@ -123,6 +123,8 @@ export default function BookPage() {
 
     try {
       const customerId = generateCustomerId();
+      const orderRef = doc(collection(db, "orders")); // generate firestore doc ref
+      const orderId = orderRef.id; // unique order id
       const now = new Date();
 
 
@@ -149,7 +151,7 @@ export default function BookPage() {
         //address: formData.address,
 
         // Order details
-        orderId: customerId,
+        orderId: orderId,
         //phone: phone,
         notes: formData.notes || '',
         //date: formData.date,
@@ -193,11 +195,9 @@ export default function BookPage() {
 
 
 
-      const orderRef = await addDoc(
-        collection(db, "orders"),
-        orderData
-      );
-      console.log("Order ID:", orderRef.id);
+      await setDoc(orderRef, orderData);
+      console.log("Order ID:", orderId);
+      //console.log("Order ID:", orderRef.id);
 
       // 2. Get existing history or start new array
       const existingHistory = JSON.parse(localStorage.getItem('xerodirt_order_history')) || [];
