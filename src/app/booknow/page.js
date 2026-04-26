@@ -23,6 +23,25 @@ const washroomServices = [
   },
 ];
 
+const kitchenServices = [
+  {
+    id: 'kitchen-deep',
+    name: 'Kitchen Deep Cleaning',
+    price: 499,
+    description: 'Complete cleaning of kitchen surfaces to remove oil, grease, and dirt, ensuring a clean and hygienic cooking space.',
+    subdescription: 'Kitchen deep cleaning without machines.',
+    icon: '🔪',
+  },
+  {
+    id: 'modular-kitchen-deep',
+    name: 'Modular Kitchen Deep Cleaning',
+    price: 1199,
+    description: 'Intensive removal of oil, grease, and food residue from all key modular kitchen surfaces for a hygienic cooking space.',
+    subdescription: 'Intensive cleaning of all modular kitchen surfaces.',
+    icon: '🗄️',
+  },
+];
+
 const flatServices = [
   {
     id: '1bhk-flat',
@@ -50,7 +69,7 @@ const flatServices = [
   },
 ];
 
-const allServices = [...washroomServices, ...flatServices];
+const allServices = [...washroomServices, ...kitchenServices, ...flatServices];
 
 export default function WashroomFlatBookingPage() {
   const [quantities, setQuantities] = useState({});
@@ -390,10 +409,26 @@ export default function WashroomFlatBookingPage() {
                 </div>
               </div>
 
-              {/* Flat Cleaning Section */}
+              {/* Kitchen Cleaning Section */}
               <div className="wf-category-section">
                 <div className="mb-section-header">
                   <span className="mb-section-number">2</span>
+                  <div>
+                    <h2 className="mb-section-title">Kitchen Cleaning</h2>
+                    <p className="mb-section-subtitle">
+                      Choose your kitchen cleaning service
+                    </p>
+                  </div>
+                </div>
+                <div className="wf-service-list">
+                  {kitchenServices.map(renderServiceCard)}
+                </div>
+              </div>
+
+              {/* Flat   Cleaning Section */}
+              <div className="wf-category-section">
+                <div className="mb-section-header">
+                  <span className="mb-section-number">3</span>
                   <div>
                     <h2 className="mb-section-title">Flat Cleaning</h2>
                     <p className="mb-section-subtitle">
