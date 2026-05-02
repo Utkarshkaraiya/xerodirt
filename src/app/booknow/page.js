@@ -46,7 +46,7 @@ const flatServices = [
   {
     id: '1bhk-flat',
     name: '1 BHK Flat Cleaning',
-    price: '--',
+    price: 1499,
     description: 'Thorough deep cleaning for unfurnished 1 BHK flats',
     subdescription: 'Unfurnished flat deep cleaning.',
     icon: '🏠',
@@ -54,7 +54,7 @@ const flatServices = [
   {
     id: '2bhk-flat',
     name: '2 BHK Flat Cleaning',
-    price: '--',
+    price: 2499,
     description: 'Comprehensive deep cleaning for unfurnished 2 BHK flats',
     subdescription: 'Unfurnished flat deep cleaning.',
     icon: '🏡',
@@ -62,7 +62,7 @@ const flatServices = [
   {
     id: '3bhk-flat',
     name: '3 BHK Flat Cleaning',
-    price: '--',
+    price: 3499,
     description: 'End-to-end deep cleaning for unfurnished 3 BHK flats',
     subdescription: 'Unfurnished flat deep cleaning.',
     icon: '🏢',
