@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://xerodirt.com
+
+# Sitemaps
+Sitemap: https://xerodirt.com/sitemap.xml
