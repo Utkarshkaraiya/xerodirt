@@ -158,7 +158,7 @@ export const services = [
         }
       },
       {
-        name: 'Modular Kitchen Deep Cleaning', price: 1199, description: 'Intensive removal of oil, grease, and food residue from all key modular kitchen surfaces for a hygienic cooking space.',
+        name: 'Modular Kitchen Deep Cleaning', price: 1199, description: 'Intensive removal of oil, grease, and food residue from all key modular kitchen surfaces for a hygienic cooking space. Upto 7 cabinets.',
         subdescription: 'Oil & grease removal.',
         details: {
           pros: [
@@ -173,6 +173,25 @@ export const services = [
             'Appliance interior',
             'Stove, chimney exterior cleaning.',
             'Acid damage, permanent stains, or etched surfaces'
+          ]
+        }
+      },
+      {
+        name: 'Large Kitchen Deep Cleaning', price: 1699, description: 'Comprehensive deep cleaning for large kitchens, removing heavy oil, grease, and dirt buildup from all major surfaces to restore hygiene and shine. More than 7 cabinets.',
+        subdescription: 'Intensive degreasing & deep cleaning solution designed for spacious kitchens.',
+        details: {
+          pros: [
+            'Deep cleaning of kitchen platform & slab.',
+            'Sink & drainage area cleaning.',
+            'Tiles / backsplash degreasing and scrubbing.',
+            'Floor deep cleaning and mopping.'
+          ],
+          cons: [
+            'kitchen trolleys and cabinets (inside & outside)',
+            'Appliance interior cleaning (oven, microwave, refrigerator, etc.)',
+            'Stove, chimney exterior or interior cleaning',
+            'Acid damage, permanent stains, or etched surfaces',
+            'Repair, polishing, or replacement work'
           ]
         }
       },

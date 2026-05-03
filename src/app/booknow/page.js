@@ -37,8 +37,16 @@ const kitchenServices = [
     name: 'Modular Kitchen Deep Cleaning',
     price: 1199,
     description: 'Intensive removal of oil, grease, and food residue from all key modular kitchen surfaces for a hygienic cooking space.',
-    subdescription: 'Intensive cleaning of all modular kitchen surfaces.',
+    subdescription: 'Intensive cleaning of all modular kitchen surfaces. Upto 7 cabinets.',
     icon: '🗄️',
+  },
+  {
+    id: 'large-kitchen-deep',
+    name: 'Large Kitchen Deep Cleaning',
+    price: 1699,
+    description: 'Complete cleaning of kitchen surfaces to remove oil, grease, and dirt, ensuring a clean and hygienic cooking space.',
+    subdescription: 'Large Kitchen deep cleaning service. More than 7 cabinets.',
+    icon: '🔪',
   },
 ];
 
