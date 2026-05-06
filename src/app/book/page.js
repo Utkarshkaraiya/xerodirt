@@ -138,7 +138,8 @@ export default function BookPage() {
         status: 'Pending',
         date: formData.date,       // YYYY-MM-DD from <input type="date">
         slot: formData.time,
-        service: cartItems.map(i => `${i.service.name} - ${i.tier.name} ×${i.quantity}`).join(', ')
+        service: cartItems.map(i => `${i.service.name} - ${i.tier.name} ×${i.quantity}`).join(', '),
+        notes: formData.notes
       };
 
       // All fields in a single orders document (matches Firebase schema)
