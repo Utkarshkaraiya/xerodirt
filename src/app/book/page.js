@@ -572,7 +572,34 @@ export default function BookPage() {
                           type="date"
                           value={formData.date}
                           onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                          min={
+                            (() => {
+                              const today = new Date();
+                              // If current hour is after 9 PM, block today and only allow tomorrow onwards
+                              if (today.getHours() >= 21) {
+                                today.setDate(today.getDate() + 1);
+                              }
+
+                              const year = today.getFullYear();
+                              const month = String(today.getMonth() + 1).padStart(2, '0');
+                              const day = String(today.getDate()).padStart(2, '0');
+
+                              return `${year}-${month}-${day}`;
+                            })()
+                          }
+                          disabled={
+                            (() => {
+                              const today = new Date();
+
+                              // Disable today if current hour is after 9 PM (21:00)
+                              if (today.getHours() >= 21) {
+                                return true;
+                              }
+                              return false;
+                            })()
+                          }
                         />
+
                       </div>
 
                       <div className="form-group">

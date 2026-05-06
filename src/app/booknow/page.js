@@ -215,7 +215,7 @@ export default function WashroomFlatBookingPage() {
         cancellationReason: null,
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
-        source: 'booknow-direct',
+        //source: 'booknow-direct',
       };
 
       await addDoc(collection(db, "orders"), orderData);
