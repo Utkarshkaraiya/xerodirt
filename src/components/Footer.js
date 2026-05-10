@@ -52,7 +52,7 @@ export default function Footer() {
             </div>
             <div className="footer-contact-item">
               <span className="footer-contact-icon">📧</span>
-              <span>info@xerodirt.com</span>
+              <span><a href="mailto:xerodirt06@gmail.com">xerodirt06@gmail.com</a></span>
             </div>
             <div className="footer-contact-item">
               <span className="footer-contact-icon">📍</span>
