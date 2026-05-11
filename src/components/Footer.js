@@ -5,6 +5,7 @@ import {
   FaInstagram,
   FaYoutube,
   FaEnvelope,
+  FaFacebook,
   FaMapMarkerAlt
 } from "react-icons/fa";
 
@@ -70,6 +71,13 @@ export default function Footer() {
                 aria-label="X"
               >
                 <FaXTwitter />
+              </a>
+
+              <a href="https://www.facebook.com/profile.php?id=61586138220359"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook">
+                <FaFacebook />
               </a>
             </div>
           </div>
