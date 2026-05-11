@@ -4151,3 +4151,20 @@ ol {
   margin-bottom: 16px;
   letter-spacing: -0.02em;
 }
+
+.footer-social {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.footer-social a {
+  color: white;
+  font-size: 24px;
+  transition: 0.3s ease;
+}
+
+.footer-social a:hover {
+  transform: translateY(-3px);
+  opacity: 0.8;
+}
