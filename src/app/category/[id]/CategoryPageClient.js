@@ -161,8 +161,8 @@ export default function CategoryPageClient({ category, subCategories }) {
               <div className="cat-coupon-card">
                 <div className="cat-coupon-icon">%</div>
                 <div>
-                  <div className="cat-coupon-title">Get ₹50 coupon</div>
-                  <div className="cat-coupon-sub">After first service delivery</div>
+                  <div className="cat-coupon-title">Get Exclusive Offers</div>
+                  <div className="cat-coupon-sub">Only on our Mobile App!</div>
                 </div>
               </div>
 

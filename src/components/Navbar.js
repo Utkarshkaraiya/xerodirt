@@ -22,6 +22,7 @@ export default function Navbar() {
             <Link href="/">Home</Link>
 
             <Link href="/about">About</Link>
+            <Link href="/blog">Blog</Link>
             <Link href="/contact">Contact</Link>
             <Link href="/book" className="navbar-cta">Book Now</Link>
             {/* Download App Button */}
@@ -42,6 +43,7 @@ export default function Navbar() {
           <Link href="/" onClick={() => setMobileOpen(false)}>Home</Link>
           {/*<Link href="/services" onClick={() => setMobileOpen(false)}>Services</Link>*/}
           <Link href="/about" onClick={() => setMobileOpen(false)}>About</Link>
+          <Link href="/blog" onClick={() => setMobileOpen(false)}>Blog</Link>
           <Link href="/contact" onClick={() => setMobileOpen(false)}>Contact</Link>
           <Link href="/book" onClick={() => setMobileOpen(false)}>Book Now</Link>
           <Link href="/myorders" onClick={() => setMobileOpen(false)}>My Orders</Link>

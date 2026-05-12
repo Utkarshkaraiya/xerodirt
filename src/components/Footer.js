@@ -98,6 +98,7 @@ export default function Footer() {
             <div className="footer-links">
               <Link href="/about">About Us</Link>
               <Link href="/contact">Contact</Link>
+              <Link href="/blog">Blog</Link>
               <Link href="/book">Book Now</Link>
               <Link href="/myorders">My Orders</Link>
             </div>
