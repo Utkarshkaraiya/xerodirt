@@ -25,8 +25,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-
+        <link rel="icon" href="/xerodirt-favicon.ico" />
       </head>
+
       <body>
         <CartProvider>
           <Navbar />
