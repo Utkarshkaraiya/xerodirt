@@ -23,10 +23,47 @@ export default function HomePage() {
               <p className="hero-description animate-fade-in-up delay-2">
                 On-demand washroom &amp; home cleaning to empower urban households. Affordable pricing, trained professionals, and 100% satisfaction guaranteed.
               </p>
-              <div className="hero-buttons animate-fade-in-up delay-3">
+              {/*<div className="hero-buttons animate-fade-in-up delay-3">
                 <Link href="/book" className="btn btn-primary btn-lg">
                   Book Now →
                 </Link>
+
+              </div>*/}
+              <div className="hero-app-buttons">
+
+                {/* Android */}
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.xerodirt.xerodirt_app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-store-btn android"
+                >
+                  <img src="/playstore.svg" alt="Play Store" />
+
+                  <div>
+                    <small>GET IT ON</small>
+                    <span>Google Play</span>
+                  </div>
+
+                  <div className="btn-glow"></div>
+                </a>
+
+                {/* iOS */}
+                <a
+                  href="https://apps.apple.com/in/app/xerodirt/id6764423738"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-store-btn ios"
+                >
+                  <img src="/apple.svg" alt="Apple Store" />
+
+                  <div>
+                    <small>Download on the</small>
+                    <span>App Store</span>
+                  </div>
+
+                  <div className="btn-glow"></div>
+                </a>
 
               </div>
               <div className="hero-stats-row animate-fade-in-up delay-4">

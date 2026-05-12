@@ -24,7 +24,9 @@ export default function Navbar() {
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
             <Link href="/book" className="navbar-cta">Book Now</Link>
-            <Link href="/myorders">My Orders</Link>
+            {/* Download App Button */}
+
+            {/*<Link href="/myorders">My Orders</Link>*/}
           </div>
 
           <button
