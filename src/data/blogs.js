@@ -17,7 +17,7 @@ export const blogPosts = [
     title: '5 Tips to Keep Your Washroom Sparkling Clean Between Professional Cleans',
     excerpt:
       'Maintaining a spotless washroom doesn\'t have to be a chore. Discover 5 simple daily habits that professional cleaners swear by to keep your bathroom fresh, hygienic, and sparkling all week long.',
-    coverImage: '/images/toilet1.jpg',
+    coverImage: '/images/5-tips-to-keep-your-washroom-sparkling-clean.jpg',
     author: blogAuthors.xerodirt,
     date: '2026-05-10',
     readingTime: 6,
@@ -66,7 +66,7 @@ export const blogPosts = [
     title: 'Preparing Your Home for Monsoon Season in Pune: A Complete Cleaning Guide',
     excerpt:
       'Monsoon in Pune brings relief from the heat but also mold, dampness, and pests. Here\'s your complete pre-monsoon cleaning checklist to protect your home and keep your family healthy.',
-    coverImage: '/images/flatcleaning.webp',
+    coverImage: '/images/preparing-your-home-for-monsoon-season-in-pune.jpg',
     author: blogAuthors.xerodirt,
     date: '2026-05-05',
     readingTime: 8,
