@@ -1,8 +1,8 @@
 export const services = [
   {
-    id: 'washroom-cleaning',
-    name: 'Washroom Cleaning',
-    shortDesc: 'Sparkling clean washrooms with professional deep cleaning.',
+    id: 'bathroom-cleaning',
+    name: 'Bathroom Cleaning',
+    shortDesc: 'Sparkling clean bathrooms with professional deep cleaning.',
     startingPrice: 189,
     unit: '',
     image: '/images/toilet1.jpg',
@@ -11,7 +11,7 @@ export const services = [
     tiers: [
 
       {
-        name: 'Deep Washroom Cleaning', price: 289, description: 'Machine-assisted deep cleaning to remove stains, grime, and bacteria for complete sanitation.',
+        name: 'Deep Bathroom Cleaning', price: 289, description: 'Machine-assisted deep cleaning to remove stains, grime, and bacteria for complete sanitation.',
         subdescription: 'Machine-based deep cleaning.',
 
         details: {
@@ -31,7 +31,7 @@ export const services = [
         }
       },
       {
-        name: 'Basic Washroom Cleaning', price: 189, description: 'Surface cleaning, mopping, mirror cleaning, fixture polishing',
+        name: 'Basic Bathroom Cleaning', price: 189, description: 'Surface cleaning, mopping, mirror cleaning, fixture polishing',
         subdescription: 'Quick and essential cleaning without machines.',
         details: {
           pros: [
@@ -129,6 +129,75 @@ export const services = [
     ],
   },
   {
+    id: 'subscription',
+    name: 'Subscription Plans',
+    shortDesc: 'Keep your home sparkling all month long with our convenient subscription plans.',
+    startingPrice: 499,
+    unit: '',
+    image: '/images/subscription.jpg',
+    heroImage: '/images/subscription.jpg',
+    icon: '📅',
+    tiers: [
+      {
+        name: '1 Washroom Subscription', price: 599, description: '3 scheduled hygiene cleaning visits per month for 1 washroom.',
+        subdescription: '3 scheduled hygiene cleaning visits per month for 1 washroom.',
+        details: {
+          pros: [
+            '3 scheduled hygiene cleaning visits per month',
+            'Cleaning of toilet seat, washbasin & floor',
+            'Basic fittings & touchpoint cleaning',
+            'Regular hygiene maintenance'
+
+          ],
+          cons: [
+            'Deep cleaning with machines',
+            'Hard water stain removal',
+            'Tile restoration or repairs',
+            'Acid damage, permanent stains, or etched surfaces'
+          ]
+        }
+      },
+      {
+        name: '2 Washroom Subscription', price: 999, description: '3 scheduled hygiene cleaning visits per month for 2 washrooms.',
+        subdescription: '3 scheduled hygiene cleaning visits per month for 2 washrooms.',
+        details: {
+          pros: [
+            '3 scheduled hygiene cleaning visits per month',
+            'Cleaning of both washrooms – toilets, basins & floors',
+            'Basic fittings & touchpoint cleaning',
+            'Consistent service by trained staff',
+            'Acid damage, permanent stains, or etched surfaces'
+          ],
+          cons: [
+            'Deep cleaning with machines',
+            'Hard water stain removal',
+            'Tile restoration or repairs',
+            'Acid damage, permanent stains, or etched surfaces'
+          ]
+        }
+      },
+      {
+        name: '3 Washroom Subscription', price: 1399, description: 'Complete monthly hygiene maintenance with 3 visits for 3 washrooms.',
+        subdescription: 'Complete monthly hygiene maintenance with 3 visits for 3 washrooms.',
+        details: {
+          pros: [
+            '3 scheduled hygiene cleaning visits per month',
+            'Cleaning of all 3 washrooms – toilets, basins & floors',
+            'Basic fittings & touchpoint cleaning',
+            'Regular hygiene maintenance'
+
+          ],
+          cons: [
+            'Deep cleaning with machines',
+            'Hard water stain removal',
+            'Tile restoration or repairs',
+            'Acid damage, permanent stains, or etched surfaces'
+          ]
+        }
+      }
+    ],
+  },
+  {
     id: 'kitchen-cleaning',
     name: 'Kitchen Cleaning',
     shortDesc: 'Deep cleaning for a hygienic, grease-free kitchen.',
@@ -207,6 +276,53 @@ export const services = [
     heroImage: '/images/sofa.png',
     icon: '✨',
     tiers: [
+      {
+        name: 'Painting Services', price: 599, description: 'Professional wall painting services for a fresh and vibrant look, using high-quality paints and expert techniques to transform your space.',
+        subdescription: 'Professional wall painting services for a fresh and vibrant look, using high-quality paints and expert techniques to transform your space.',
+        details: {
+          pros: [
+            'Surface Preparation',
+            'Putty application',
+            'Two-coat premium paint application',
+          ],
+          cons: [
+            'Furniture painting',
+            'Ceiling painting',
+            'Major wall damage'
+          ]
+        }
+      },
+      {
+        name: 'Plumbing Services', price: 99, description: 'Professional installation of basic plumbing fixtures and wiring.',
+        subdescription: 'Professional installation of basic plumbing fixtures and wiring.',
+        details: {
+          pros: [
+            'Leaky tap repair',
+            'Pipe leakage repair',
+            'Water outlet installation and repair'
+          ],
+          cons: [
+            'Major pipeline replacement',
+            'Water tank cleaning'
+          ]
+        }
+      },
+      {
+        name: 'Electrical Services',
+        price: 99, description: 'Professional installation of basic electrical fixtures and wiring.',
+        subdescription: 'Professional installation of basic electrical fixtures and wiring.',
+        details: {
+          pros: [
+            'Light fixture installation and repair',
+            'Switchboard repair',
+            'Wiring and socket repair'
+          ],
+          cons: [
+            'Major electrical work',
+            'Water tank cleaning'
+          ]
+        }
+      },
       {
         name: 'Ceiling Fan Cleaning', price: 49, description: 'Professional dust and grease removal for ceiling fans.',
         subdescription: 'Dust-free professional ceiling fan cleaning.',
@@ -387,19 +503,7 @@ export const services = [
       },
     ],
   },
-  {
-    id: 'plumbing-services',
-    name: 'Plumbing Services',
-    shortDesc: 'Expert plumbing repairs and installations.',
-    startingPrice: 99,
-    unit: '',
-    image: '/images/plumb.jpg',
-    heroImage: '/images/plumb.jpg',
-    icon: '🔧',
-    tiers: [
-      { name: 'Plumbing Services', price: 99, description: 'Professional installation of basic plumbing fixtures and wiring.' }
-    ],
-  },
+
   {
     id: 'electrical-services',
     name: 'Electrical Services',
@@ -413,19 +517,7 @@ export const services = [
       { name: 'Electrical Services', price: 99, description: 'Professional installation of basic electrical fixtures and wiring.' }
     ],
   },
-  {
-    id: 'painting-services',
-    name: 'Painting Services',
-    shortDesc: 'Professional painting to refresh your space.',
-    startingPrice: 599,
-    unit: '',
-    image: '/images/mm.jpg',
-    heroImage: '/images/mm.jpg',
-    icon: '🎨',
-    tiers: [
-      { name: 'Painting Services', price: 599, description: 'Professional wall painting services for a fresh and vibrant look, using high-quality paints and expert techniques to transform your space.' }
-    ],
-  },
+
 ];
 
 export const testimonials = [
@@ -496,87 +588,68 @@ export const faqs = [
 
 export const majorCategories = [
   {
-    id: 'cleaning',
-    name: 'Cleaning',
-    shortDesc: 'Washroom, Flat, Kitchen, and Monthly cleaning services.',
-    image: '/images/toilet.jpg',
+    id: 'bathroom-cleaning',
+    name: 'Bathroom Cleaning',
+    shortDesc: 'Professional bathroom cleaning.',
+    image: '/images/toilet1.jpg',
     icon: '🚿',
-
     subCategories: [
-
       {
-        id: 'washroom-cleaning',
+        id: 'bathroom-cleaning',
         name: 'Bathroom Cleaning',
-        originalRef: 'washroom-cleaning',
+        originalRef: 'bathroom-cleaning',
         icon: '🚿'
-      },
-
-
+      }
+    ]
+  },
+  {
+    id: 'kitchen-cleaning',
+    name: 'Kitchen Cleaning',
+    shortDesc: 'Professional kitchen cleaning.',
+    image: '/images/kitchen.jpg',
+    icon: '🍳',
+    subCategories: [
       {
         id: 'kitchen-cleaning',
         name: 'Kitchen Cleaning',
         originalRef: 'kitchen-cleaning',
         icon: '🍳'
-      },
+      }
+    ]
+  },
+  {
+    id: 'flat-cleaning',
+    name: 'Flat Cleaning',
+    shortDesc: 'Professional flat cleaning.',
+    image: '/images/flat.jpg',
+    icon: '🏠',
+    subCategories: [
       {
         id: 'flat-cleaning',
-        name: 'Home Cleaning',
+        name: 'Flat Cleaning',
         originalRef: 'flat-cleaning',
         icon: '🏠'
-      },
+      }
+    ]
+  },
+
+  {
+    id: 'subscription',
+    name: 'Subscription Plans',
+    shortDesc: 'Hassle-Free Bathroom Cleaning, Without Rebooking Every Time.',
+    image: '/images/subscription.jpg',
+    icon: '📅',
+    subCategories: [
       {
-        id: 'combos',
-        name: 'Monthly Cleaning',
-        originalRef: 'monthly-cleaning',
+        id: 'subscription',
+        name: 'Subscription Plans',
+        originalRef: 'subscription',
         icon: '📅'
       }
     ]
   },
-  {
-    id: 'plumbing-services',
-    name: 'Plumbing Services',
-    shortDesc: 'Expert plumbing repairs and installations.',
-    image: '/images/plumb.jpg',
-    icon: '🔧',
-    subCategories: [
-      {
-        id: 'plumbing-services',
-        name: 'Plumbing Services',
-        originalRef: 'plumbing-services',
-        icon: '🔧'
-      }
-    ]
-  },
-  {
-    id: 'electrical-services',
-    name: 'Electrical Services',
-    shortDesc: 'Safe and reliable electrical repair services.',
-    image: '/images/electric1.jpg',
-    icon: '⚡',
-    subCategories: [
-      {
-        id: 'electrical-services',
-        name: 'Electrical Services',
-        originalRef: 'electrical-services',
-        icon: '⚡'
-      }
-    ]
-  },
-  {
-    id: 'painting-services',
-    name: 'Painting Services',
-    shortDesc: 'Professional painting to refresh your space.',
-    image: '/images/paint.avif',
-    icon: '🎨',
-    subCategories: [
-      {
-        id: 'painting-services',
-        name: 'Painting Services',
-        originalRef: 'painting-services',
-        icon: '🎨'
-      }
-    ]
-  },
+
+
   {
     id: 'mini-services',
     name: 'Mini Services',
