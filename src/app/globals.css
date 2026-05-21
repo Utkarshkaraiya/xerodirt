@@ -5039,4 +5039,527 @@ ol {
     white-space: nowrap;
     flex-shrink: 0;
   }
+<<<<<<< HEAD
+=======
+}
+
+/* ============================================================
+   LANDING PAGES — Programmatic SEO (City × Service)
+   ============================================================ */
+
+/* ---- Hero ---- */
+.landing-hero {
+  padding: 120px 0 60px;
+  background: linear-gradient(135deg, var(--dark) 0%, #162033 50%, #1a2a40 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(47, 158, 143, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* Breadcrumbs */
+.landing-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.landing-breadcrumbs a {
+  color: rgba(255, 255, 255, 0.5);
+  transition: color var(--transition-fast);
+}
+
+.landing-breadcrumbs a:hover {
+  color: var(--primary-light);
+}
+
+.landing-breadcrumb-sep {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.landing-breadcrumb-current {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.landing-hero-content {
+  max-width: 800px;
+}
+
+.landing-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: rgba(47, 158, 143, 0.12);
+  border: 1px solid rgba(47, 158, 143, 0.25);
+  color: var(--primary-light);
+  border-radius: var(--radius-full);
+  margin-bottom: 24px;
+}
+
+.landing-hero-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+
+.landing-hero-subtext {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  max-width: 680px;
+}
+
+.landing-hero-stats {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.landing-hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.landing-stat-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+}
+
+.landing-stat-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.landing-hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ---- Highlight Bar ---- */
+.landing-highlight-bar {
+  background: var(--primary);
+  padding: 14px 0;
+  text-align: center;
+}
+
+.landing-highlight-bar p {
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+/* ---- Intro Section ---- */
+.landing-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 48px;
+  align-items: start;
+}
+
+.landing-intro-content .section-title {
+  margin-bottom: 24px;
+}
+
+.landing-intro-para {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+/* Quick Info Sidebar Card */
+.landing-quick-info-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  position: sticky;
+  top: 100px;
+}
+
+.landing-quick-info-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.landing-quick-info-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.landing-quick-info-card li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.landing-qi-icon {
+  font-size: 1.3rem;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-bg);
+  border-radius: var(--radius-md);
+}
+
+.landing-quick-info-card li div {
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-quick-info-card li strong {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.landing-quick-info-card li span {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* ---- Why Choose Us ---- */
+.landing-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.landing-why-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  transition: all var(--transition);
+  text-align: center;
+}
+
+.landing-why-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+
+.landing-why-icon {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.landing-why-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.landing-why-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ---- Pricing Snapshot ---- */
+.landing-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.landing-pricing-card {
+  background: var(--bg-white);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  text-align: center;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.landing-pricing-card.bestseller {
+  border-color: var(--primary);
+  box-shadow: 0 8px 30px rgba(47, 158, 143, 0.15);
+}
+
+.landing-pricing-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--primary);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 6px 0;
+  text-transform: uppercase;
+}
+
+.landing-pricing-card.bestseller {
+  padding-top: 48px;
+}
+
+.landing-pricing-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.landing-pricing-price {
+  margin-bottom: 12px;
+}
+
+.landing-pricing-currency {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  vertical-align: top;
+  line-height: 1;
+}
+
+.landing-pricing-amount {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.landing-pricing-highlight {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.landing-pricing-cta {
+  text-align: center;
+  margin-top: 36px;
+}
+
+.landing-pricing-cta p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 14px;
+}
+
+/* ---- Related Services ---- */
+.landing-related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.landing-related-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.landing-related-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.landing-related-icon {
+  font-size: 1.8rem;
+  min-width: 36px;
+}
+
+.landing-related-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.landing-related-area {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: none;
+}
+
+.landing-related-arrow {
+  font-size: 1.1rem;
+  color: var(--primary);
+  font-weight: 700;
+  transition: transform var(--transition-fast);
+}
+
+.landing-related-card:hover .landing-related-arrow {
+  transform: translateX(4px);
+}
+
+/* ---- Nearby Area Pills ---- */
+.landing-nearby-pills {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.landing-nearby-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  background: var(--bg-white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-full);
+  color: var(--text-primary);
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.landing-nearby-pill:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(47, 158, 143, 0.15);
+}
+
+/* ---- Landing Page Responsive ---- */
+@media (max-width: 1024px) {
+  .landing-hero-title {
+    font-size: 2.4rem;
+  }
+
+  .landing-intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-quick-info-card {
+    position: static;
+  }
+
+  .landing-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-hero {
+    padding: 100px 0 44px;
+  }
+
+  .landing-hero-title {
+    font-size: 1.9rem;
+  }
+
+  .landing-hero-subtext {
+    font-size: 1rem;
+  }
+
+  .landing-hero-stats {
+    gap: 20px;
+  }
+
+  .landing-stat-value {
+    font-size: 1.2rem;
+  }
+
+  .landing-hero-actions {
+    flex-direction: column;
+  }
+
+  .landing-hero-actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .landing-why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-related-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-nearby-pills {
+    justify-content: flex-start;
+  }
+}
+
+//privacycontent
+
+.privacy-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.privacy-content h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.privacy-content p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.privacy-content {
+  grid-template-columns: 1fr;
+>>>>>>> 03f8de4 (added 36 landing pages for seo of different location of pune, and added privacy policy & terms of service)
 }
