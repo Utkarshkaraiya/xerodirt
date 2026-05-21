@@ -2,7 +2,7 @@
 
 const {
   landingPages,
-} = require('./src/data/landing-pages');
+} = require('./src/data/landing-pages.js');
 
 module.exports = {
   siteUrl: 'https://xerodirt.com',
