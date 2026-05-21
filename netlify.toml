@@ -1,0 +1,5 @@
+[[redirects]]
+from = "https://xerodirt.online/*"
+to = "https://xerodirt.com/:splat"
+status = 301
+force = true
