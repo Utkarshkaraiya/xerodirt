@@ -20,15 +20,12 @@ export default function Footer() {
             <div className="footer-brand-name">XERODIRT</div>
             <p className="footer-brand-desc">
               Professional washroom &amp; home cleaning services in Pune. On-demand cleaning to empower urban households with spotless living spaces.
-<<<<<<< HEAD
-            </p>
-=======
+            
               ⭐ 4.9 Rated Service ✅
               </p>
               
               
             
->>>>>>> 03f8de4 (added 36 landing pages for seo of different location of pune, and added privacy policy & terms of service)
             <div className="footer-social">
 
               <a href="tel:7987788640" aria-label="Phone">
@@ -108,12 +105,9 @@ export default function Footer() {
               <Link href="/contact">Contact</Link>
               <Link href="/blog">Blog</Link>
               <Link href="/book">Book Now</Link>
-<<<<<<< HEAD
               <Link href="/myorders">My Orders</Link>
-=======
               <Link href="/privacypolicy">Privacy Policy</Link>
               <Link href="/termsofservice">Terms of Service</Link>
->>>>>>> 03f8de4 (added 36 landing pages for seo of different location of pune, and added privacy policy & terms of service)
             </div>
           </div>
 

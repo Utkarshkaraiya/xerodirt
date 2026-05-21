@@ -5039,8 +5039,6 @@ ol {
     white-space: nowrap;
     flex-shrink: 0;
   }
-<<<<<<< HEAD
-=======
 }
 
 /* ============================================================
@@ -5561,5 +5559,4 @@ ol {
 
 .privacy-content {
   grid-template-columns: 1fr;
->>>>>>> 03f8de4 (added 36 landing pages for seo of different location of pune, and added privacy policy & terms of service)
 }
