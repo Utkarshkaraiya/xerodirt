@@ -206,8 +206,8 @@ const serviceContent = {
     ],
     pricingTiers: [
       { name: '1 Washroom Subscription', price: 599, highlight: '3 visits/month for 1 washroom' },
-      { name: '2 Washroom Subscription', price: 999, highlight: '3 visits/month for 2 washrooms', bestseller: true },
-      { name: '3 Washroom Subscription', price: 1399, highlight: '3 visits/month for 3 washrooms' },
+      { name: '2 Washroom Subscription', price: 1099, highlight: '3 visits/month for 2 washrooms', bestseller: true },
+      { name: '3 Washroom Subscription', price: 1599, highlight: '3 visits/month for 3 washrooms' },
     ],
     whyChoosePoints: (area) => [
       { icon: '📅', title: 'Set It & Forget It', desc: `No more remembering to book each time. Your ${area} washrooms get cleaned on a fixed schedule — 3 visits every month, automatically.` },
@@ -219,7 +219,7 @@ const serviceContent = {
       { q: `How does the subscription plan work in ${area}?`, a: `Once you subscribe, we schedule 3 cleaning visits per month for your washroom(s) in ${area}. Our team arrives on the scheduled dates with all supplies — you just need to provide access. You can reschedule visits with advance notice.` },
       { q: `What does each subscription visit include?`, a: `Each visit covers toilet seat cleaning (inside & outside), washbasin cleaning, floor cleaning, and basic fitting & touchpoint cleaning. It's hygiene maintenance cleaning — for deep cleaning with machines, you'd book our one-time deep cleaning service.` },
       { q: `Can I cancel or pause my subscription?`, a: `Yes, you can pause or cancel your subscription at any time. We believe in earning your business every month, not locking you into long contracts.` },
-      { q: `How much does a cleaning subscription cost in ${area}?`, a: `Monthly subscription plans in ${area} start at ₹599/month for 1 washroom, ₹999/month for 2 washrooms, and ₹1,399/month for 3 washrooms. That's 3 professional cleaning visits per month.` },
+      { q: `How much does a cleaning subscription cost in ${area}?`, a: `Monthly subscription plans in ${area} start at ₹599/month for 1 washroom, ₹1099/month for 2 washrooms, and ₹1,599/month for 3 washrooms. That's 3 professional cleaning visits per month.` },
       { q: `Is this different from deep bathroom cleaning?`, a: `Yes. Subscription visits are hygiene maintenance cleans — regular cleaning to keep things consistently clean. Deep cleaning (₹189-₹289) uses machines and heavy-duty products for thorough stain removal and restoration. We recommend a deep clean first, then subscription for ongoing maintenance.` },
     ],
   },

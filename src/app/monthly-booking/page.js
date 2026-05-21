@@ -21,7 +21,7 @@ const monthlyPlans = [
   {
     id: 'plan-2w',
     name: '2 Washrooms – Monthly Plan',
-    price: 999,
+    price: 1099,
     period: '/month',
     visits: '3 visits/month',
     icon: '🏠',
@@ -36,7 +36,7 @@ const monthlyPlans = [
   {
     id: 'plan-3w',
     name: '3 Washrooms – Monthly Plan',
-    price: 1399,
+    price: 1599,
     period: '/month',
     visits: '3 visits/month',
     icon: '🏢',

@@ -158,7 +158,7 @@ export const services = [
         }
       },
       {
-        name: '2 Washroom Subscription', price: 999, description: '3 scheduled hygiene cleaning visits per month for 2 washrooms.',
+        name: '2 Washroom Subscription', price: 1099, description: '3 scheduled hygiene cleaning visits per month for 2 washrooms.',
         subdescription: '3 scheduled hygiene cleaning visits per month for 2 washrooms.',
         details: {
           pros: [
@@ -177,7 +177,7 @@ export const services = [
         }
       },
       {
-        name: '3 Washroom Subscription', price: 1399, description: 'Complete monthly hygiene maintenance with 3 visits for 3 washrooms.',
+        name: '3 Washroom Subscription', price: 1599, description: 'Complete monthly hygiene maintenance with 3 visits for 3 washrooms.',
         subdescription: 'Complete monthly hygiene maintenance with 3 visits for 3 washrooms.',
         details: {
           pros: [
@@ -465,7 +465,7 @@ export const services = [
         }
       },
       {
-        name: '2 Washrooms – Monthly Plan', price: 999, description: 'Professional cleaning with 3 scheduled visits per month for 2 washrooms.',
+        name: '2 Washrooms – Monthly Plan', price: 1099, description: 'Professional cleaning with 3 scheduled visits per month for 2 washrooms.',
         subdescription: 'Professional hygiene maintenance for 2 washrooms with 3 monthly visits.',
         details: {
           pros: [
@@ -484,7 +484,7 @@ export const services = [
         }
       },
       {
-        name: '3 Washrooms – Monthly Plan', price: 1399, description: 'Complete monthly hygiene maintenance with 3 visits for 3 washrooms.',
+        name: '3 Washrooms – Monthly Plan', price: 1599, description: 'Complete monthly hygiene maintenance with 3 visits for 3 washrooms.',
         subdescription: 'Comprehensive hygiene maintenance for 3 washrooms with 3 visits per month.',
         details: {
           pros: [
