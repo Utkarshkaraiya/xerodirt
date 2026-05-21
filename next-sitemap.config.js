@@ -12,6 +12,8 @@ module.exports = {
   sitemapSize: 7000,
 
   additionalPaths: async (config) => {
+    const result = [];
+
     // Static Pages
     const staticPages = [
       '/',
@@ -26,21 +28,22 @@ module.exports = {
       '/termsofservice',
     ];
 
-    const staticPaths = staticPages.map((path) => ({
-      loc: path,
-      changefreq: 'weekly',
-      priority: 0.9,
-      lastmod: new Date().toISOString(),
-    }));
+    for (const page of staticPages) {
+      result.push(
+        await config.transform(config, page)
+      );
+    }
 
-    // Dynamic SEO Landing Pages
-    const dynamicPaths = landingPages.map((page) => ({
-      loc: `/${page.slug}`,
-      changefreq: 'weekly',
-      priority: 0.8,
-      lastmod: new Date().toISOString(),
-    }));
+    // Dynamic SEO Pages
+    for (const page of landingPages) {
+      result.push(
+        await config.transform(
+          config,
+          `/${page.slug}`
+        )
+      );
+    }
 
-    return [...staticPaths, ...dynamicPaths];
+    return result;
   },
 };
