@@ -28,9 +28,7 @@ export default function Footer() {
             
             <div className="footer-social">
 
-              <a href="tel:7987788640" aria-label="Phone">
-                <FaPhoneAlt />
-              </a>
+              
               <a
                 href="https://wa.me/917559337336"
                 target="_blank"
@@ -120,7 +118,7 @@ export default function Footer() {
               </span>
 
               <a href="tel:7987788640">
-                79877 88640
+                +91 79877 88640
               </a>
             </div>
 
