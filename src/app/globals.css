@@ -5605,6 +5605,27 @@ ol {
 }
 
 
+@media (max-width: 768px) {
+
+  .track-top {
+    animation: scrollLeft 900s linear infinite !important;
+    display: flex;
+    gap: 16px;
+  }
+
+  .track-bottom {
+    animation: scrollRight 900s linear infinite !important;
+    display: flex;
+    gap: 16px;
+  }
+
+  .testimonial-card {
+    width: 260px;
+  }
+
+}
+
+
 .testimonial-carousel-track:hover {
   animation-play-state: paused;
 }
