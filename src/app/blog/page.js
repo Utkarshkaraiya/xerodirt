@@ -19,7 +19,7 @@ export default function BlogPage() {
         <div className="page-hero-bg-dots" />
         <div className="container">
           <span className="section-label">📝 Our Blog</span>
-          <h1>Cleaning Tips, Guides &amp; News</h1>
+          <h1>Smart Cleaning Tips for Modern Indian Homes</h1>
           <p>Expert advice from Pune&apos;s trusted cleaning professionals. Stay informed, stay clean.</p>
         </div>
       </section>

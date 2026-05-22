@@ -1,10 +1,42 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { majorCategories, testimonials, faqs } from '@/data/services';
 
 export default function HomePage() {
+
+  const [googleReviews, setGoogleReviews] = useState([]);
   const [openFaq, setOpenFaq] = useState(null);
+
+  
+                useEffect(() => {
+
+            async function fetchReviews() {
+
+              try {
+
+                const res = await fetch('/api/google-reviews');
+
+                const data = await res.json();
+
+                setGoogleReviews(
+                  Array.isArray(data)
+                    ? data
+                    : data?.reviews || []
+                );
+
+              } catch (err) {
+
+                console.error(err);
+
+                setGoogleReviews([]);
+
+              }
+            }
+
+            fetchReviews();
+
+          }, []);
 
   return (
     <>
@@ -186,9 +218,32 @@ export default function HomePage() {
           <div className="section-header reveal">
             <span className="section-label">Testimonials</span>
             <h2 className="section-title">What Our Customers Say</h2>
-            <p className="section-subtitle">Real reviews from real customers who trust Xerodirt for their cleaning needs.</p>
+            <p className="section-subtitle">Trusted by homeowners across Pune.</p>
+          
+
+              <div className="google-rating-badge">
+
+              <img
+                src="/google-icon.svg"
+                alt="Google"
+              />
+
+              <div>
+                <strong>4.9/5 Google Rating</strong>
+                <span>300+ verified reviews</span>
+              </div>
+
+            </div>
+
+
           </div>
-          <div className="testimonials-grid">
+
+
+                        
+
+
+          
+          {/*<div className="testimonials-grid">
             {testimonials.map((t, i) => (
               <div key={i} className="testimonial-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
                 <div className="testimonial-stars">{'★'.repeat(t.rating)}</div>
@@ -202,7 +257,93 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
-          </div>
+          </div>*/}
+
+
+                        <div className="testimonial-carousel-wrapper">
+
+              <div className="fade-left"></div>
+              <div className="fade-right"></div>
+
+              <div className="testimonial-carousel-track track-top">
+
+                {[...(googleReviews || []), ...(googleReviews || [])].map((t, i) => (
+                  <div
+                    key={i}
+                    className="testimonial-card"
+                  >
+                    <div className="testimonial-stars">
+                      {'★'.repeat(t.rating)}
+                    </div>
+
+                    <p className="testimonial-text">
+                      &ldquo;{t.text?.text?.slice(0, 120) + "..."}&rdquo;
+                    </p>
+
+                    <div className="testimonial-author">
+                      <div className="testimonial-avatar">
+                        {t.authorAttribution?.displayName?.charAt(0) || "U"}
+                      </div>
+
+                      <div>
+                        <div className="testimonial-author-name">
+                          {t.authorAttribution?.displayName}
+                        </div>
+
+                        <div className="testimonial-author-date">
+                          {t.relativePublishTimeDescription}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+
+              </div>
+            </div>
+
+
+                                <div className="testimonial-carousel-wrapper">
+
+                <div className="fade-left"></div>
+                <div className="fade-right"></div>
+
+                <div className="testimonial-carousel-track track-bottom">
+
+                  {[...testimonials, ...testimonials].map((t, i) => (
+                    <div
+                      key={i}
+                      className="testimonial-card"
+                    >
+                      <div className="testimonial-stars">
+                        {'★'.repeat(t.rating)}
+                      </div>
+
+                      <p className="testimonial-text">
+                        &ldquo;{t.text}&rdquo;
+                      </p>
+
+                      <div className="testimonial-author">
+                        <div className="testimonial-avatar">
+                          {t.name.charAt(0)}
+                        </div>
+
+                        <div>
+                          <div className="testimonial-author-name">
+                            {t.name}
+                          </div>
+
+                          <div className="testimonial-author-date">
+                            {t.date}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+
+                </div>
+              </div>
+
+
           <div style={{ textAlign: 'center' }}>
             <a href="https://maps.app.goo.gl/ANGcThTrtfmNNYrm9" target="_blank" rel="noopener noreferrer" className="google-review-badge reveal">
               📍 See all reviews on Google Maps →

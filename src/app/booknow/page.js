@@ -1,6 +1,6 @@
 'use client';
-import { db } from "lib/firebase.js";
-import { collection, addDoc, serverTimestamp, Timestamp } from "firebase/firestore";
+//import { db } from "lib/firebase.js";
+//import { collection, addDoc, serverTimestamp, Timestamp } from "firebase/firestore";
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
@@ -80,6 +80,7 @@ const flatServices = [
 const allServices = [...washroomServices, ...kitchenServices, ...flatServices];
 
 export default function WashroomFlatBookingPage() {
+  const [showAppModal, setShowAppModal] = useState(false);
   const [quantities, setQuantities] = useState({});
   const [formData, setFormData] = useState({
     name: '',
@@ -93,6 +94,19 @@ export default function WashroomFlatBookingPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (showAppModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [showAppModal]);
+
+
 
   // Load saved user data from localStorage
   useEffect(() => {
@@ -218,7 +232,7 @@ export default function WashroomFlatBookingPage() {
         //source: 'booknow-direct',
       };
 
-      await addDoc(collection(db, "orders"), orderData);
+      //await addDoc(collection(db, "orders"), orderData);
 
       // Send to Google Sheets
       const sheetData = {
@@ -249,8 +263,9 @@ export default function WashroomFlatBookingPage() {
 
       setSubmitted(true);
     } catch (error) {
-      console.error('Order placement failed:', error);
-      alert('Something went wrong. Please try again.');
+      console.error('FULL ERROR:', error);
+
+      alert(error.message);
     } finally {
       setSubmitting(false);
     }
@@ -640,21 +655,15 @@ export default function WashroomFlatBookingPage() {
 
                 {/* Submit Button */}
                 <button
-                  type="submit"
-                  className="mb-btn mb-btn-primary mb-btn-submit"
-                  disabled={submitting}
-                >
-                  {submitting ? (
-                    <>
-                      <span className="mb-spinner"></span>
-                      Submitting...
-                    </>
-                  ) : (
-                    <>
+                      type="button"
+                      className="mb-btn mb-btn-primary mb-btn-submit"
+                      onClick={() => setShowAppModal(true)}
+                    >
+                  
                       Submit Booking
                       <span className="mb-btn-arrow">→</span>
-                    </>
-                  )}
+                    
+                  
                 </button>
               </div>
             </div>
@@ -662,6 +671,76 @@ export default function WashroomFlatBookingPage() {
           </form>
         </div>
       </section>
+
+      {/* ===== APP DOWNLOAD MODAL ===== */}
+      {showAppModal && (
+        <div className="app-download-overlay" onClick={(e) => { if (e.target === e.currentTarget) setShowAppModal(false); }}>
+          <div className="app-download-modal">
+            {/* Header */}
+            <div className="app-download-modal-header">
+              <button className="app-modal-close" onClick={() => setShowAppModal(false)}>✕</button>
+              <div className="app-modal-phone-icon">📱</div>
+              <h2>Book via the Xerodirt App</h2>
+              <p>For a seamless booking experience, download our app and place your order in seconds.</p>
+            </div>
+
+            {/* Body */}
+            <div className="app-download-modal-body">
+              {/* Benefits */}
+              <div className="app-modal-benefits">
+                <div className="app-modal-benefit">
+                  <div className="app-modal-benefit-icon">⚡</div>
+                  <span>Faster booking with saved details</span>
+                </div>
+                <div className="app-modal-benefit">
+                  <div className="app-modal-benefit-icon">🔔</div>
+                  <span>Real-time order tracking & notifications</span>
+                </div>
+                <div className="app-modal-benefit">
+                  <div className="app-modal-benefit-icon">🎁</div>
+                  <span>App-exclusive offers & discounts</span>
+                </div>
+              </div>
+
+              {/* Store Buttons */}
+              <div className="app-store-buttons">
+                <a href="https://play.google.com/store/apps/details?id=com.xerodirt.xerodirt_app" target="_blank" rel="noopener noreferrer" className="app-store-btn app-store-btn-playstore">
+                  <div className="app-store-btn-icon">
+                    <img width="96" height="96" src="https://img.icons8.com/fluency/96/google-play-store-new.png" alt="google-play-store-new" />
+                  </div>
+                  <div className="app-store-btn-text">
+                    <span className="app-store-btn-label">GET IT ON</span>
+                    <span className="app-store-btn-name">Google Play</span>
+                  </div>
+                  <span className="app-store-btn-arrow">→</span>
+                </a>
+
+                <a href="https://apps.apple.com/in/app/xerodirt/id6764423738" target="_blank" rel="noopener noreferrer" className="app-store-btn app-store-btn-appstore">
+                  <div className="app-store-btn-icon">
+                    <img
+                      width="96"
+                      height="96"
+                      src="https://img.icons8.com/fluency/96/apple-app-store.png"
+                      alt="apple-app-store"
+                      className="store-icon"
+                    />
+                  </div>
+                  <div className="app-store-btn-text">
+                    <span className="app-store-btn-label">DOWNLOAD ON THE</span>
+                    <span className="app-store-btn-name">App Store</span>
+                  </div>
+                  <span className="app-store-btn-arrow">→</span>
+                </a>
+              </div>
+
+              {/* Footer */}
+              <div className="app-modal-footer">
+                <button onClick={() => setShowAppModal(false)}>Continue browsing</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Trust Section */}
       <section className="mb-trust">
