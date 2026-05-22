@@ -21,6 +21,11 @@ export async function GET() {
 
     console.log(data);
 
+    console.log(
+     "GOOGLE KEY:",
+      process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY
+    );
+
     return Response.json(data.reviews || []);
 
   } catch (error) {
