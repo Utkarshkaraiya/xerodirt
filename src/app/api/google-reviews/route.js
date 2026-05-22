@@ -10,7 +10,7 @@ export async function GET() {
 
       headers: {
         "Content-Type": "application/json",
-        "X-Goog-Api-Key": process.env.GOOGLE_PLACES_API_KEY,
+        "X-Goog-Api-Key": process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY,
         "X-Goog-FieldMask":
           "displayName,rating,reviews"
       }
