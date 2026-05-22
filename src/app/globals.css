@@ -5570,12 +5570,12 @@ ol {
   margin-top: 40px;
 }
 
-/*.testimonial-carousel-track {
+.testimonial-carousel-track {
   display: flex;
   gap: 24px;
   width: max-content;
   animation: scrollTestimonials 35s linear infinite;
-}*/
+}
 
 
 
