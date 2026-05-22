@@ -19,12 +19,16 @@ export async function GET() {
 
     const data = await response.json();
 
-    console.log(data);
+    console.log("GOOGLE API RESPONSE:", data);
 
-    console.log(
-     "GOOGLE KEY:",
-      process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY
-    );
+      console.log(
+        "GOOGLE KEY:",
+        process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY
+      );
+
+    //console.log(data);
+
+    
 
     return Response.json(data.reviews || []);
 
