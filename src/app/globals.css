@@ -823,6 +823,12 @@ ol {
 }
 
 .testimonial-text {
+  flex: 1;
+  display: -webkit-box;
+  height: 120px;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   font-size: 0.95rem;
   color: var(--text-secondary);
   line-height: 1.7;
@@ -5567,14 +5573,15 @@ ol {
   position: relative;
   overflow: hidden;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 25px;
 }
 
 .testimonial-carousel-track {
   display: flex;
   gap: 24px;
   width: max-content;
-  animation: scrollTestimonials 35s linear infinite;
+  align-items: stretch;
+  animation: scrollTestimonials 500s linear infinite;
 }
 
 
@@ -5582,7 +5589,7 @@ ol {
 /* TOP ROW */
 
 .track-top {
-  animation: scrollLeft 45s linear infinite;
+  animation: scrollLeft 500s linear infinite;
   display: flex;
   gap: 24px;
   width: max-content;
@@ -5591,7 +5598,7 @@ ol {
 /* BOTTOM ROW */
 
 .track-bottom {
-  animation: scrollRight 45s linear infinite;
+  animation: scrollRight 500s linear infinite;
   display: flex;
   
   width: max-content;
@@ -5643,6 +5650,8 @@ ol {
 
 
 .testimonial-card {
+  display: flex;
+  flex-direction: column;
   min-width: 360px;
   max-width: 360px;
   background: white;

@@ -5,38 +5,10 @@ import { majorCategories, testimonials, faqs } from '@/data/services';
 
 export default function HomePage() {
 
-  const [googleReviews, setGoogleReviews] = useState([]);
+  
   const [openFaq, setOpenFaq] = useState(null);
 
   
-                useEffect(() => {
-
-            async function fetchReviews() {
-
-              try {
-
-                const res = await fetch('/api/google-reviews');
-
-                const data = await res.json();
-
-                setGoogleReviews(
-                  Array.isArray(data)
-                    ? data
-                    : data?.reviews || []
-                );
-
-              } catch (err) {
-
-                console.error(err);
-
-                setGoogleReviews([]);
-
-              }
-            }
-
-            fetchReviews();
-
-          }, []);
 
   return (
     <>
@@ -267,7 +239,7 @@ export default function HomePage() {
 
               <div className="testimonial-carousel-track track-top">
 
-                {[...(googleReviews || []), ...(googleReviews || [])].map((t, i) => (
+                {[...testimonials, ...testimonials].map((t, i) => (
                   <div
                     key={i}
                     className="testimonial-card"
@@ -277,21 +249,23 @@ export default function HomePage() {
                     </div>
 
                     <p className="testimonial-text">
-                      &ldquo;{t.text?.text?.slice(0, 120) + "..."}&rdquo;
+                      &ldquo;{t.text.length > 100
+                              ? t.text.slice(0, 110) + "..."
+                              : t.text}&rdquo;
                     </p>
 
                     <div className="testimonial-author">
                       <div className="testimonial-avatar">
-                        {t.authorAttribution?.displayName?.charAt(0) || "U"}
+                        {t.name.charAt(0)}
                       </div>
 
                       <div>
                         <div className="testimonial-author-name">
-                          {t.authorAttribution?.displayName}
+                          {t.name}
                         </div>
 
                         <div className="testimonial-author-date">
-                          {t.relativePublishTimeDescription}
+                          {t.date}
                         </div>
                       </div>
                     </div>
@@ -319,7 +293,9 @@ export default function HomePage() {
                       </div>
 
                       <p className="testimonial-text">
-                        &ldquo;{t.text}&rdquo;
+                        &ldquo;{t.text.length > 100
+                                ? t.text.slice(0, 110) + "..."
+                                : t.text}&rdquo;
                       </p>
 
                       <div className="testimonial-author">
