@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Terms Of Service — Xerodirt Professional Cleaning',
+  title: 'Terms and Conditions — Xerodirt Professional Cleaning',
   description: 'Learn about Xerodirt, Pune\'s trusted professional cleaning service provider. Our mission, values, and commitment to cleanliness.',
 };
 
