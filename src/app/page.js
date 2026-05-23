@@ -202,7 +202,7 @@ export default function HomePage() {
 
               <div>
                 <strong>4.9/5 Google Rating</strong>
-                <span>300+ verified reviews</span>
+                <span>380+ verified reviews</span>
               </div>
 
             </div>
