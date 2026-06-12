@@ -69,7 +69,7 @@ export default function PrivacyPolicyPage() {
                  </p>    
                 <p>
                     10. Contact:
-                    Email: xerodirt06@gmail.com
+                    Email: info@xerodirt.com
               </p>
             </div>
             
