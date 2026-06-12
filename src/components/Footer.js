@@ -141,8 +141,8 @@ export default function Footer() {
                 <FaEnvelope />
               </span>
 
-              <a href="mailto:xerodirt06@gmail.com">
-                xerodirt06@gmail.com
+              <a href="mailto:info@xerodirt.com">
+                info@xerodirt.com
               </a>
             </div>
 
