@@ -43,7 +43,7 @@ export default function ContactPage() {
                 <div className="contact-info-card">
                   <div className="contact-info-card-icon">📧</div>
                   <h4>Email</h4>
-                  <p><a href="mailto:xerodirt06@gmail.com">xerodirt06@gmail.com</a></p>
+                  <p><a href="mailto:info@xerodirt.com">info@xerodirt.com</a></p>
                 </div>
                 <div className="contact-info-card">
                   <div className="contact-info-card-icon">📍</div>
