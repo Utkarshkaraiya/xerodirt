@@ -155,7 +155,7 @@ export default function TermsOfServicePage() {
                         </p>
 
                         <p className="mt-3 font-medium text-white">
-                        xerodirt06@gmail.com
+                        info@xerodirt.com
                         </p>
                     </div>
 
