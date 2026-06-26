@@ -11,7 +11,7 @@ export const services = [
     tiers: [
 
       {
-        name: 'Deep Bathroom Cleaning', price: 289, description: 'Machine-assisted deep cleaning to remove stains, grime, and bacteria for complete sanitation.',
+        name: 'Deep Bathroom Cleaning', price: 389, description: 'Machine-assisted deep cleaning to remove stains, grime, and bacteria for complete sanitation.',
         subdescription: 'Machine-based deep cleaning.',
 
         details: {
