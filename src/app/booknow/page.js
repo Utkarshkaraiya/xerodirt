@@ -16,7 +16,7 @@ const washroomServices = [
   {
     id: 'deep-washroom',
     name: 'Deep Washroom Cleaning',
-    price: 289,
+    price: 389,
     description: 'Machine-assisted deep cleaning to remove stains, grime & bacteria',
     subdescription: 'Machine-based deep cleaning.',
     icon: '✨',
