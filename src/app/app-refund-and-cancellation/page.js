@@ -18,7 +18,7 @@ export default function TermsOfServicePage() {
         <div className="container">
           <div className="privacy-content reveal">
             <div>
-              <span className="section-label">Last updated: May 23, 2026</span>
+              <span className="section-label">Last updated: August 22, 2026</span>
               
               
                 
