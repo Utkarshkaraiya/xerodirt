@@ -1,0 +1,17 @@
+<svg width="500" height="400" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="q" x1="130" y1="30" x2="340" y2="280" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B7D8C8"/>
+      <stop offset="1" stop-color="#7EAF96"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="230" cy="340" rx="180" ry="28" fill="#DFE7E0"/>
+  <path d="M240 40C173 40 122 91 122 154C122 200 151 233 190 249L172 308H250L267 261C323 250 362 207 362 154C362 91 311 40 240 40Z" fill="url(#q)"/>
+  <circle cx="240" cy="333" r="18" fill="#9DC4B0"/>
+  <rect x="68" y="232" width="120" height="96" rx="18" fill="#F9FBF8" stroke="#D7E2DA"/>
+  <rect x="82" y="246" width="92" height="14" rx="7" fill="#DDEBE3"/>
+  <rect x="82" y="266" width="72" height="12" rx="6" fill="#E7F1EB"/>
+  <rect x="82" y="284" width="84" height="12" rx="6" fill="#E7F1EB"/>
+  <path d="M330 296C312 296 297 311 297 329H306C306 316 317 305 330 305C343 305 354 316 354 329H363C363 311 348 296 330 296Z" fill="#6EA985"/>
+  <path d="M330 278C316 278 305 290 305 304H313C313 294 321 286 330 286C339 286 347 294 347 304H355C355 290 344 278 330 278Z" fill="#8CBFA5"/>
+</svg>

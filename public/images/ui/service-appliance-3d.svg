@@ -1,0 +1,18 @@
+<svg width="560" height="360" viewBox="0 0 560 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="abg" x1="0" y1="0" x2="560" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6F7F5"/>
+      <stop offset="1" stop-color="#EBEEEA"/>
+    </linearGradient>
+  </defs>
+  <rect width="560" height="360" rx="28" fill="url(#abg)"/>
+  <rect x="66" y="70" width="428" height="236" rx="22" fill="#FBFCFA" stroke="#D9DED8"/>
+  <rect x="94" y="218" width="372" height="60" rx="16" fill="#E9EEE8"/>
+  <rect x="120" y="132" width="130" height="78" rx="14" fill="#F5F8F4" stroke="#D4DBD3"/>
+  <rect x="278" y="132" width="72" height="78" rx="14" fill="#F5F8F4" stroke="#D4DBD3"/>
+  <rect x="374" y="132" width="66" height="78" rx="14" fill="#F5F8F4" stroke="#D4DBD3"/>
+  <path d="M280 106L316 78H352L388 106H280Z" fill="#A9BDB1"/>
+  <path d="M292 106H376L356 188H312L292 106Z" fill="#D0D9D2"/>
+  <rect x="162" y="150" width="46" height="12" rx="6" fill="#8EB9A4"/>
+  <rect x="288" y="154" width="52" height="8" rx="4" fill="#9DC3B1"/>
+</svg>

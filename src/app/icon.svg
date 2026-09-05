@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 57 141">
+  <rect width="57" height="141" rx="8" fill="#0F172A"/>
+  <mask id="plus-mask" maskUnits="userSpaceOnUse" mask-type="alpha" x="0" y="0" width="57" height="141"><image href="/brand/xerodirt-plus-mask.png" width="57" height="141" /></mask>
+  <rect width="57" height="141" fill="#3DBFAD" mask="url(#plus-mask)" />
+</svg>

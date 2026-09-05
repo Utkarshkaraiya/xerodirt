@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 682 141" role="img" aria-label="Xerodirt">
+  <title>Xerodirt</title>
+  <mask id="wordmark-mask" maskUnits="userSpaceOnUse" mask-type="alpha" x="0" y="0" width="682" height="141"><image href="/brand/xerodirt-wordmark-mask.png" width="682" height="141" /></mask>
+  <rect width="682" height="141" fill="#FFFFFF" mask="url(#wordmark-mask)" />
+</svg>

@@ -15,12 +15,21 @@ export default function BlogPage() {
   return (
     <>
       {/* ====== HERO ====== */}
-      <section className="page-hero">
-        <div className="page-hero-bg-dots" />
+      <section className="cat-page-hero blog-service-hero">
         <div className="container">
-          <span className="section-label">📝 Our Blog</span>
+          <div className="cat-page-hero-inner blog-service-hero-inner">
+            <div className="cat-hero-text blog-service-hero-text">
+          <span className="cat-hero-label">OUR BLOG</span>
           <h1>Smart Cleaning Tips for Modern Indian Homes</h1>
           <p>Expert advice from Pune&apos;s trusted cleaning professionals. Stay informed, stay clean.</p>
+            </div>
+            <div className="cat-hero-image blog-service-hero-image">
+              <img
+                src="/images/5-tips-to-keep-your-washroom-sparkling-clean.jpg"
+                alt="Clean modern bathroom maintained by Xerodirt professionals"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -100,9 +109,11 @@ export default function BlogPage() {
       </section>
 
       {/* ====== CTA ====== */}
-      <section className="cta-section" id="blog-cta">
+      <section className="cta-section blog-service-cta" id="blog-cta">
         <div className="container">
-          <div className="cta-content reveal">
+          <div className="cta-content blog-service-cta-card reveal">
+            <div className="blog-service-cta-copy">
+              <span className="cat-hero-label">BOOK A SERVICE</span>
             <h2>Need Professional Cleaning?</h2>
             <p>Put these tips into practice — or let our experts handle it for you.</p>
             <div className="cta-buttons">
@@ -115,6 +126,13 @@ export default function BlogPage() {
               >
                 💬 WhatsApp Us
               </a>
+            </div>
+            </div>
+            <div className="blog-service-cta-visual">
+              <img
+                src="/images/ui/service-washroom-3d.svg"
+                alt="Xerodirt washroom cleaning service"
+              />
             </div>
           </div>
         </div>

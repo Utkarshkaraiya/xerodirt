@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Xerodirt floating cleaning kit</title>
+  <desc id="desc">A premium minimal cleaning kit with bottles, spray cleaner, bucket, cloth and a soft directional shadow.</desc>
+
+  <defs>
+    <linearGradient id="bucket" x1="246" y1="180" x2="391" y2="332" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FFFD"/>
+      <stop offset=".48" stop-color="#DDF8F1"/>
+      <stop offset="1" stop-color="#A7E3D6"/>
+    </linearGradient>
+    <linearGradient id="bucketRim" x1="238" y1="207" x2="400" y2="235" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#80D9CB"/>
+      <stop offset=".5" stop-color="#E9FCF7"/>
+      <stop offset="1" stop-color="#55C8B7"/>
+    </linearGradient>
+    <linearGradient id="tealBottle" x1="125" y1="134" x2="233" y2="292" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#76E0D1"/>
+      <stop offset=".55" stop-color="#3DBFAD"/>
+      <stop offset="1" stop-color="#249B8D"/>
+    </linearGradient>
+    <linearGradient id="mintBottle" x1="379" y1="103" x2="481" y2="286" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E6FAF5"/>
+      <stop offset=".54" stop-color="#B8E9DE"/>
+      <stop offset="1" stop-color="#73CDBE"/>
+    </linearGradient>
+    <linearGradient id="whiteBottle" x1="261" y1="77" x2="341" y2="244" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset=".55" stop-color="#E7F8F4"/>
+      <stop offset="1" stop-color="#B8E7DD"/>
+    </linearGradient>
+    <linearGradient id="cloth" x1="316" y1="285" x2="430" y2="361" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#75E3D3"/>
+      <stop offset=".52" stop-color="#3DBFAD"/>
+      <stop offset="1" stop-color="#188D81"/>
+    </linearGradient>
+    <linearGradient id="navy" x1="146" y1="101" x2="224" y2="194" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#24435A"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+    <radialGradient id="groundShadow" cx="0" cy="0" r="1" gradientTransform="translate(340 347) rotate(5) scale(210 45)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071C1A" stop-opacity=".46"/>
+      <stop offset=".44" stop-color="#0A2926" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#0A2926" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadowBlur" x="86" y="286" width="520" height="144" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+    <filter id="kitLift" x="62" y="37" width="518" height="365" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#082F2A" flood-opacity=".18"/>
+    </filter>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <clipPath id="bucketClip">
+      <path d="M241 217H401L389 329C387 346 373 359 356 359H286C269 359 255 346 253 329L241 217Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Soft, offset ground shadow for an elevated light source from upper-left. -->
+  <ellipse cx="349" cy="349" rx="221" ry="39" fill="url(#groundShadow)" filter="url(#shadowBlur)"/>
+
+  <g filter="url(#kitLift)">
+    <!-- Rear squeegee -->
+    <g transform="rotate(-8 445 142)">
+      <rect x="436" y="94" width="17" height="125" rx="8.5" fill="url(#navy)"/>
+      <rect x="402" y="85" width="84" height="17" rx="8.5" fill="#DDF7F1"/>
+      <rect x="410" y="90" width="68" height="5" rx="2.5" fill="#89D8CB"/>
+    </g>
+
+    <!-- Tall centre bottle -->
+    <g>
+      <rect x="285" y="92" width="70" height="159" rx="23" fill="url(#whiteBottle)"/>
+      <rect x="302" y="69" width="36" height="31" rx="10" fill="#B8E7DD"/>
+      <rect x="310" y="56" width="20" height="18" rx="7" fill="#7ACFC1"/>
+      <path d="M293 122C304 110 337 107 347 127V183C333 173 309 176 293 190V122Z" fill="#3DBFAD" fill-opacity=".82"/>
+      <path d="M304 111C312 104 327 101 337 108" stroke="#fff" stroke-opacity=".72" stroke-width="5" stroke-linecap="round"/>
+      <rect x="303" y="149" width="34" height="7" rx="3.5" fill="#E9FCF7" fill-opacity=".92"/>
+      <rect x="309" y="163" width="22" height="5" rx="2.5" fill="#E9FCF7" fill-opacity=".7"/>
+    </g>
+
+    <!-- Right pump bottle -->
+    <g>
+      <rect x="396" y="121" width="85" height="152" rx="27" fill="url(#mintBottle)"/>
+      <rect x="417" y="96" width="42" height="32" rx="11" fill="#A7DDD3"/>
+      <rect x="423" y="82" width="30" height="19" rx="7" fill="#DFF7F1"/>
+      <path d="M438 83V69H475" stroke="#DFF7F1" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M406 153C426 136 456 137 471 155" stroke="#F5FFFC" stroke-opacity=".5" stroke-width="6" stroke-linecap="round"/>
+      <rect x="414" y="185" width="49" height="39" rx="13" fill="#F1FFFC" fill-opacity=".58"/>
+      <path d="M429 205L438 213L450 195" stroke="#239E90" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Left spray bottle -->
+    <g>
+      <path d="M141 171C142 148 160 132 184 132H203C220 132 234 146 234 163V276C234 298 216 316 194 316H160C137 316 119 297 121 274L141 171Z" fill="url(#tealBottle)"/>
+      <path d="M158 137L165 111H204L212 143" fill="#C9F2E9"/>
+      <rect x="164" y="105" width="43" height="19" rx="8" fill="#A8E4D9"/>
+      <path d="M169 111H207L226 90H261C267 90 272 95 272 101V107H225L207 120H169V111Z" fill="url(#navy)"/>
+      <path d="M225 108L246 137C252 145 247 157 237 158L221 122L225 108Z" fill="#173449"/>
+      <path d="M132 208C151 188 204 188 225 207V249C200 235 156 238 128 258L132 208Z" fill="#F3FFFC" fill-opacity=".9"/>
+      <path d="M151 218H206" stroke="#2AAE9F" stroke-width="8" stroke-linecap="round"/>
+      <path d="M164 236H196" stroke="#87DACC" stroke-width="6" stroke-linecap="round"/>
+      <path d="M152 156C162 145 181 143 195 148" stroke="#CFFFF5" stroke-opacity=".72" stroke-width="6" stroke-linecap="round"/>
+    </g>
+
+    <!-- Bucket -->
+    <g>
+      <path d="M241 217H401L389 329C387 346 373 359 356 359H286C269 359 255 346 253 329L241 217Z" fill="url(#bucket)"/>
+      <g clip-path="url(#bucketClip)">
+        <path d="M225 314C279 276 354 282 419 324V374H225V314Z" fill="#3DBFAD" fill-opacity=".16"/>
+        <path d="M251 228C277 242 283 296 274 344" stroke="#fff" stroke-opacity=".72" stroke-width="8" stroke-linecap="round"/>
+      </g>
+      <ellipse cx="321" cy="218" rx="83" ry="22" fill="url(#bucketRim)"/>
+      <ellipse cx="321" cy="217" rx="69" ry="13" fill="#164E48"/>
+      <ellipse cx="321" cy="214" rx="63" ry="9" fill="#0F3733"/>
+      <path d="M260 215C263 161 288 139 321 139C354 139 379 161 382 215" stroke="#C9F2E9" stroke-width="13" stroke-linecap="round"/>
+      <path d="M267 207C272 166 291 149 321 149C350 149 370 166 375 207" stroke="#4BBFAE" stroke-width="5" stroke-linecap="round"/>
+      <path d="M281 282C304 264 340 263 364 281" stroke="#66CDBE" stroke-opacity=".7" stroke-width="8" stroke-linecap="round"/>
+    </g>
+
+    <!-- Folded microfiber cloth in front -->
+    <g transform="rotate(4 373 325)">
+      <path d="M323 291C324 281 333 274 344 275L441 283C453 284 461 295 458 307L446 353C443 363 433 370 422 368L324 355C313 353 307 343 310 332L323 291Z" fill="url(#cloth)"/>
+      <path d="M317 317L450 329L446 351C443 363 432 370 420 368L324 355C313 353 307 343 310 332L317 317Z" fill="#2FAF9F"/>
+      <path d="M332 291L439 300" stroke="#B9F3E9" stroke-opacity=".75" stroke-width="5" stroke-linecap="round"/>
+      <path d="M327 311L448 322M322 332L443 344" stroke="#126D65" stroke-opacity=".2" stroke-width="3" stroke-linecap="round"/>
+      <path d="M338 282C355 294 373 291 389 286C407 280 426 281 444 292" stroke="#EDFFFB" stroke-opacity=".52" stroke-width="4" stroke-linecap="round"/>
+    </g>
+
+    <!-- Minimal sparkle accents -->
+    <g>
+      <path d="M108 152C124 149 131 141 134 124C137 141 145 149 161 152C145 155 137 163 134 180C131 163 124 155 108 152Z" fill="#DFFFF8"/>
+      <path d="M487 190C499 188 504 182 507 170C509 182 515 188 527 190C515 192 509 198 507 210C504 198 499 192 487 190Z" fill="#72E2D2"/>
+      <circle cx="110" cy="201" r="7" fill="#73DCCE"/>
+      <circle cx="514" cy="238" r="5" fill="#E8FFFA"/>
+      <circle cx="134" cy="152" r="13" fill="#DFFFF8" fill-opacity=".2" filter="url(#softGlow)"/>
+    </g>
+  </g>
+</svg>

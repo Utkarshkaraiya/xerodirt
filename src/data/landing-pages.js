@@ -26,7 +26,7 @@ export const landingServices = [
     categoryRef: '/category/bathroom-cleaning',
     slugPrefix: 'bathroom-cleaning-services-in',
     icon: '🚿',
-    startingPrice: 189,
+    startingPrice: 289,
   },
   {
     id: 'flat-cleaning',
@@ -118,15 +118,15 @@ const areaContent = {
 
 const serviceContent = {
   'bathroom-cleaning': {
-    heroSubtext: (area) => `Sparkling clean bathrooms starting at just ₹189. Professional deep cleaning with machine-assisted stain removal, disinfection, and hard water deposit treatment in ${area}.`,
+    heroSubtext: (area) => `Sparkling clean bathrooms starting at just ₹289. Professional deep cleaning with machine-assisted stain removal, disinfection, and hard water deposit treatment in ${area}.`,
     introParas: (area) => [
       `Looking for professional bathroom cleaning services in ${area}? Xerodirt provides expert washroom deep cleaning that eliminates stubborn hard water stains, soap scum, mold, and bacteria — leaving your bathroom hygienically clean and smelling fresh.`,
       `Our trained professionals use commercial-grade equipment including buffing machines, eco-friendly cleaning solutions specifically formulated for Indian hard water conditions, and hospital-grade disinfectants. Every session covers your toilet, washbasin, tiles, taps, mirrors, and floor — inside and out.`,
       `Whether you need a one-time deep clean to restore your bathroom or regular maintenance to keep it spotless, our flexible plans fit every budget. Book in under 60 seconds and our verified team arrives fully equipped — you don't need to provide anything.`,
     ],
     pricingTiers: [
-      { name: 'Basic Bathroom Cleaning', price: 189, highlight: 'Quick surface cleaning without machines' },
-      { name: 'Deep Bathroom Cleaning', price: 289, highlight: 'Machine-assisted deep clean with stain removal', bestseller: true },
+      { name: 'Basic Bathroom Cleaning', price: 289, highlight: 'Quick surface cleaning without machines' },
+      { name: 'Deep Bathroom Cleaning', price: 389, highlight: 'Machine-assisted deep clean with stain removal', bestseller: true },
     ],
     whyChoosePoints: (area) => [
       { icon: '🧹', title: 'Machine-Assisted Deep Clean', desc: `Our buffing machines remove tough tile stains and hard water deposits that manual cleaning simply can't handle — common in ${area}'s water supply.` },
@@ -136,7 +136,7 @@ const serviceContent = {
     ],
     localFaqs: (area) => [
       { q: `What does bathroom cleaning service in ${area} include?`, a: `Our bathroom cleaning in ${area} covers deep cleaning of the toilet seat (inside & outside), washbasin, floor scrubbing, tile and grout cleaning, tap and mirror polishing, hard water stain removal, and full disinfection of all touchpoints. The deep clean option includes machine-assisted floor scrubbing.` },
-      { q: `How much does bathroom cleaning cost in ${area}?`, a: `Basic bathroom cleaning starts at ₹189 and deep bathroom cleaning with machine assistance starts at ₹289 in ${area}. No hidden charges — the price you see is the price you pay.` },
+      { q: `How much does bathroom cleaning cost in ${area}?`, a: `Basic bathroom cleaning starts at ₹289 and deep bathroom cleaning with machine assistance starts at ₹389 in ${area}. No hidden charges — the price you see is the price you pay.` },
       { q: `How long does a bathroom deep clean take in ${area}?`, a: `A professional bathroom deep clean typically takes 45-60 minutes depending on the size and condition of your washroom. Our team arrives fully equipped with all supplies and machines.` },
       { q: `Do I need to provide any cleaning supplies?`, a: `No! Our ${area} cleaning team brings all professional-grade cleaning supplies, machines, and equipment. You don't need to arrange anything.` },
       { q: `Can I book regular bathroom cleaning in ${area}?`, a: `Absolutely! We offer monthly subscription plans starting at ₹599/month for 3 scheduled cleaning visits. This is the most popular option among our ${area} customers for maintaining consistent washroom hygiene.` },
@@ -220,7 +220,7 @@ const serviceContent = {
       { q: `What does each subscription visit include?`, a: `Each visit covers toilet seat cleaning (inside & outside), washbasin cleaning, floor cleaning, and basic fitting & touchpoint cleaning. It's hygiene maintenance cleaning — for deep cleaning with machines, you'd book our one-time deep cleaning service.` },
       { q: `Can I cancel or pause my subscription?`, a: `Yes, you can pause or cancel your subscription at any time. We believe in earning your business every month, not locking you into long contracts.` },
       { q: `How much does a cleaning subscription cost in ${area}?`, a: `Monthly subscription plans in ${area} start at ₹599/month for 1 washroom, ₹1099/month for 2 washrooms, and ₹1,599/month for 3 washrooms. That's 3 professional cleaning visits per month.` },
-      { q: `Is this different from deep bathroom cleaning?`, a: `Yes. Subscription visits are hygiene maintenance cleans — regular cleaning to keep things consistently clean. Deep cleaning (₹189-₹289) uses machines and heavy-duty products for thorough stain removal and restoration. We recommend a deep clean first, then subscription for ongoing maintenance.` },
+      { q: `Is this different from deep bathroom cleaning?`, a: `Yes. Subscription visits are hygiene maintenance cleans — regular cleaning to keep things consistently clean. Deep cleaning (₹289-₹389) uses machines and heavy-duty products for thorough stain removal and restoration. We recommend a deep clean first, then subscription for ongoing maintenance.` },
     ],
   },
 };

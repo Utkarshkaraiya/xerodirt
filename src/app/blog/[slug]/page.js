@@ -92,7 +92,7 @@ export default async function BlogPostPage({ params }) {
       name: 'Xerodirt',
       logo: {
         '@type': 'ImageObject',
-        url: '/xerodirt-favicon.ico',
+        url: 'https://xerodirt.com/brand/xerodirt-logo-primary.svg',
       },
     },
     mainEntityOfPage: {

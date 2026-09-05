@@ -1,22 +1,30 @@
 import './globals.css';
 import Script from 'next/script';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import WhatsAppButton from '@/components/WhatsAppButton';
 import RevealOnScroll from '@/components/RevealOnScroll';
 import { CartProvider } from '@/context/CartContext';
 
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-plus-jakarta',
+});
+
 export const metadata = {
+  metadataBase: new URL('https://xerodirt.com'),
   title: 'Xerodirt — Professional Cleaning Services in Pune',
   description: 'On-demand washroom, kitchen, flat, and home cleaning services in Pune. Affordable, professional, and reliable. Book now starting at ₹49!',
   icons: {
-    icon: '/xerodirt-favicon.ico',
+    icon: '/brand/xerodirt-logo-icon.svg',
   },
   keywords: 'cleaning services pune, washroom cleaning, flat cleaning, kitchen cleaning, home cleaning pune, xerodirt',
   openGraph: {
     title: 'Xerodirt — Professional Cleaning Services in Pune',
     description: 'On-demand washroom, kitchen, flat, and home cleaning services in Pune.',
     type: 'website',
+    images: ['/images/ui/xerodirt-hero-cleaning-team.png'],
   },
 }
 
@@ -25,15 +33,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/xerodirt-favicon.ico" />
+        <link rel="icon" href="/brand/xerodirt-logo-icon.svg" />
       </head>
 
-      <body>
+      <body className={plusJakartaSans.variable}>
         <CartProvider>
           <Navbar />
           <main>{children}</main>
           <Footer />
-          <WhatsAppButton />
           <RevealOnScroll />
         </CartProvider>
 

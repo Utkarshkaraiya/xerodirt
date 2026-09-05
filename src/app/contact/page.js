@@ -33,7 +33,7 @@ export default function ContactPage() {
                 <div className="contact-info-card">
                   <div className="contact-info-card-icon">📞</div>
                   <h4>Phone</h4>
-                  <p><a href="tel:7987788640">79877 88640</a></p>
+                  <p><a href="tel:8467942643">84679 42643</a></p>
                 </div>
                 <div className="contact-info-card">
                   <div className="contact-info-card-icon">💬</div>
@@ -43,7 +43,7 @@ export default function ContactPage() {
                 <div className="contact-info-card">
                   <div className="contact-info-card-icon">📧</div>
                   <h4>Email</h4>
-                  <p><a href="mailto:xerodirt06@gmail.com">xerodirt06@gmail.com</a></p>
+                  <p><a href="mailto:info@xerodirt.com">info@xerodirt.com</a></p>
                 </div>
                 <div className="contact-info-card">
                   <div className="contact-info-card-icon">📍</div>

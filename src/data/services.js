@@ -3,7 +3,7 @@ export const services = [
     id: 'bathroom-cleaning',
     name: 'Bathroom Cleaning',
     shortDesc: 'Sparkling clean bathrooms with professional deep cleaning.',
-    startingPrice: 189,
+    startingPrice: 289,
     unit: '',
     image: '/images/toilet1.jpg',
     heroImage: '/images/ws1.png',
@@ -11,7 +11,7 @@ export const services = [
     tiers: [
 
       {
-        name: 'Deep Bathroom Cleaning', price: 289, description: 'Machine-assisted deep cleaning to remove stains, grime, and bacteria for complete sanitation.',
+        name: 'Deep Bathroom Cleaning', price: 389, description: 'Machine-assisted deep cleaning to remove stains, grime, and bacteria for complete sanitation.',
         subdescription: 'Machine-based deep cleaning.',
 
         details: {
@@ -31,7 +31,7 @@ export const services = [
         }
       },
       {
-        name: 'Basic Bathroom Cleaning', price: 189, description: 'Surface cleaning, mopping, mirror cleaning, fixture polishing',
+        name: 'Basic Bathroom Cleaning', price: 289, description: 'Surface cleaning, mopping, mirror cleaning, fixture polishing',
         subdescription: 'Quick and essential cleaning without machines.',
         details: {
           pros: [

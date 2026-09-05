@@ -1,54 +1,79 @@
-'use client';
-import { useState, useEffect } from 'react';
+﻿'use client';
+
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import styles from './navbar.module.css';
+
+const navLinks = [
+  { href: '/#home', label: 'Home' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#why-us', label: 'Why Us' },
+  { href: '/#reviews', label: 'Reviews' },
+  { href: '/#faq', label: 'FAQ' },
+  { href: '/blog', label: 'Blog' },
+];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
-      <div className="container">
-        <div className="navbar-inner">
-          <Link href="/" className="navbar-logo">XERODIRT</Link>
+    <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+      <div className={styles.container}>
+        <Link href="/" className={styles.logoWrap} aria-label="Xerodirt home">
+          <img src="/brand/Xerodirt-Logo-177E73.svg" width="100" height="auto" alt="" className={styles.logoImage} />
+          {/*<span className={styles.logoSub}>PROFESSIONAL HOME CLEANING</span>*/}
+        </Link>
 
-          <div className="navbar-links">
-            <Link href="/">Home</Link>
+        <nav className={styles.desktopNav} aria-label="Main navigation">
+          {navLinks.map((item) => (
+            <Link key={item.href} href={item.href} className={styles.navLink}>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
 
-            <Link href="/about">About</Link>
-            <Link href="/blog">Blog</Link>
-            <Link href="/contact">Contact</Link>
-            <Link href="/book" className="navbar-cta">Book Now</Link>
-            {/* Download App Button */}
-
-            {/*<Link href="/myorders">My Orders</Link>*/}
-          </div>
-
+        <div className={styles.actions}>
+          <Link href="/book" className={styles.bookCta}>
+            Book Now
+            <span aria-hidden="true" className={styles.arrow}>-&gt;</span>
+          </Link>
           <button
-            className="navbar-mobile-toggle"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+            type="button"
+            className={styles.menuButton}
+            aria-label="Toggle mobile menu"
+            onClick={() => setMenuOpen((prev) => !prev)}
           >
-            {mobileOpen ? '✕' : '☰'}
+            {menuOpen ? 'X' : 'Menu'}
           </button>
         </div>
-
-        <div className={`navbar-mobile-menu ${mobileOpen ? 'open' : ''}`}>
-          <Link href="/" onClick={() => setMobileOpen(false)}>Home</Link>
-          {/*<Link href="/services" onClick={() => setMobileOpen(false)}>Services</Link>*/}
-          <Link href="/about" onClick={() => setMobileOpen(false)}>About</Link>
-          <Link href="/blog" onClick={() => setMobileOpen(false)}>Blog</Link>
-          <Link href="/contact" onClick={() => setMobileOpen(false)}>Contact</Link>
-          <Link href="/book" onClick={() => setMobileOpen(false)}>Book Now</Link>
-          
-        </div>
       </div>
-    </nav>
+
+      {menuOpen && (
+        <div className={styles.mobileMenu}>
+          {navLinks.map((item) => (
+            <Link key={item.href} href={item.href} className={styles.mobileLink} onClick={() => setMenuOpen(false)}>
+              {item.label}
+            </Link>
+          ))}
+          <Link href="/book" className={styles.mobileBook} onClick={() => setMenuOpen(false)}>
+            Book Now
+          </Link>
+        </div>
+      )}
+    </header>
   );
 }

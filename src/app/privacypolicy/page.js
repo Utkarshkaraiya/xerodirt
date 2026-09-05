@@ -55,7 +55,7 @@ export default function PrivacyPolicyPage() {
                  </p>    
                 <p>
                     7. Data Deletion Policy:
-                    If you wish to delete your data (Name, Phone Number, Address), email us at: xerodirt06@gmail.com Subject: Data Deletion Request.
+                    If you wish to delete your data (Name, Phone Number, Address), email us at: info@xerodirt.com Subject: Data Deletion Request.
                  
                     We will process within 7 business days.
                  </p>    
@@ -69,7 +69,7 @@ export default function PrivacyPolicyPage() {
                  </p>    
                 <p>
                     10. Contact:
-                    Email: xerodirt06@gmail.com
+                    Email: info@xerodirt.com
               </p>
             </div>
             
