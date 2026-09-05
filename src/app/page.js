@@ -177,7 +177,7 @@ export default function HomePage() {
             </div>
 
             <div className={styles.heroVisualWrap}>
-              <Image src="/images/ui/xerodirt-hero-cleaning-team.png" width={1024} height={1536} priority alt="Two Xerodirt cleaning professionals at work in a home" className={styles.heroVisual} />
+              <Image src="/images/ui/xerodirt-her-mobile-app.png" width={1024} height={1536} priority alt="Two Xerodirt cleaning professionals at work in a home" className={styles.heroVisual} />
               <img src="/brand/xerodirt-logo-white.svg" width="220" height="46" alt="Xerodirt" className={styles.phoneLogo} />
               <div className={styles.heroMetricCard}>
                 <div>

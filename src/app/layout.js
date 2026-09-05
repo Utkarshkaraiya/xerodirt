@@ -24,7 +24,7 @@ export const metadata = {
     title: 'Xerodirt — Professional Cleaning Services in Pune',
     description: 'On-demand washroom, kitchen, flat, and home cleaning services in Pune.',
     type: 'website',
-    images: ['/images/ui/xerodirt-hero-cleaning-team.png'],
+    images: ['/images/ui/xerodirt-her-mobile-app.png'],
   },
 }
 
