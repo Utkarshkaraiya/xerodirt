@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -378,6 +378,9 @@ export default function HomePage() {
               <Link href="/book" className={styles.whiteBtn}>
                 Book Now <FaArrowRight />
               </Link>
+
+              
+
               <a
                 href="https://wa.me/917559337336?text=Hi%20Xerodirt!%20I%20would%20like%20to%20know%20more%20about%20your%20services."
                 target="_blank"
