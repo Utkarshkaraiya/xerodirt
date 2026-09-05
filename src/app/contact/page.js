@@ -33,7 +33,7 @@ export default function ContactPage() {
                 <div className="contact-info-card">
                   <div className="contact-info-card-icon">📞</div>
                   <h4>Phone</h4>
-                  <p><a href="tel:7987788640">79877 88640</a></p>
+                  <p><a href="tel:"></a></p>
                 </div>
                 <div className="contact-info-card">
                   <div className="contact-info-card-icon">💬</div>
