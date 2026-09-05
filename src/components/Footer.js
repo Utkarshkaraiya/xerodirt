@@ -35,10 +35,12 @@ export default function Footer() {
             <h4 className={styles.title}>Company</h4>
             <div className={styles.links}>
               <Link href="/about">About Us</Link>
+              <Link href="/contact">Contact Us</Link>
               <Link href="/app-terms-and-conditions">Terms and Conditions</Link>
               <Link href="/app-privacy-policy">Privacy Policy</Link>
               <Link href="/app-refund-and-cancellation">Refund and Cancellation</Link>
               <Link href="/blog">Blog</Link>
+
             </div>
           </div>
 

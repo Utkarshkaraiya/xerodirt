@@ -12,6 +12,7 @@ const navLinks = [
   { href: '/#reviews', label: 'Reviews' },
   { href: '/#faq', label: 'FAQ' },
   { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contact Us' },
 ];
 
 export default function Navbar() {
