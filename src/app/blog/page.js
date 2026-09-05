@@ -130,7 +130,7 @@ export default function BlogPage() {
             </div>
             <div className="blog-service-cta-visual">
               <img
-                src="/images/ui/service-washroom-3d.svg"
+                src="/images/ui/service-washroom-3d.jpg"
                 alt="Xerodirt washroom cleaning service"
               />
             </div>

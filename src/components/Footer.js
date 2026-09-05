@@ -17,7 +17,7 @@ export default function Footer() {
         <div className={styles.grid}>
           <div>
             <Link href="/" className={styles.brand} aria-label="Xerodirt home">
-              <img src="/brand/xerodirt-logo-white.svg" width="170" height="35" alt="" />
+              <img src="/brand/Xerodirt-Logo-177E73.svg" width="170" height="35" alt="" />
             </Link>
             <p className={styles.brandText}>
               Professional home cleaning services in Pune. We make your home cleaner,
@@ -35,8 +35,9 @@ export default function Footer() {
             <h4 className={styles.title}>Company</h4>
             <div className={styles.links}>
               <Link href="/about">About Us</Link>
-              <Link href="/termsofservice">Terms of Service</Link>
-              <Link href="/privacypolicy">Privacy Policy</Link>
+              <Link href="/app-terms-and-conditions">Terms and Conditions</Link>
+              <Link href="/app-privacy-policy">Privacy Policy</Link>
+              <Link href="/app-refund-and-cancellation">Refund and Cancellation</Link>
               <Link href="/blog">Blog</Link>
             </div>
           </div>

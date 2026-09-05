@@ -17,7 +17,7 @@ export const metadata = {
   title: 'Xerodirt — Professional Cleaning Services in Pune',
   description: 'On-demand washroom, kitchen, flat, and home cleaning services in Pune. Affordable, professional, and reliable. Book now starting at ₹49!',
   icons: {
-    icon: '/brand/xerodirt-logo-icon.svg',
+    icon: '/xerodirt-favicon.ico',
   },
   keywords: 'cleaning services pune, washroom cleaning, flat cleaning, kitchen cleaning, home cleaning pune, xerodirt',
   openGraph: {
@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/brand/xerodirt-logo-icon.svg" />
+        <link rel="icon" href="/xerodirt-favicon.ico" />
       </head>
 
       <body className={plusJakartaSans.variable}>

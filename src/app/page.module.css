@@ -1,4 +1,4 @@
-﻿.container {
+.container {
   width: min(1200px, calc(100% - 48px));
   margin: 0 auto;
 }
@@ -302,9 +302,10 @@
 }
 
 .stepCard img {
+  display: block;
+  margin: 0 auto 8px auto;
   width: 88px;
   height: 88px;
-  margin-bottom: 8px;
 }
 
 .stepCard strong {
@@ -342,6 +343,7 @@
   padding: 24px 18px;
   background: var(--bg-white);
   border-right: 1px solid var(--border-light);
+  text-align: center;
 }
 
 .trustCard:last-child {
@@ -349,14 +351,14 @@
 }
 
 .trustIcon {
-  width: 42px;
-  height: 42px;
+  width: 50px;
+  height: 50px;
   border-radius: var(--radius-control);
   display: grid;
   place-items: center;
   background: var(--primary-bg);
   color: var(--primary-dark);
-  margin-bottom: 12px;
+  margin: 0 auto 12px auto;
 }
 
 .trustCard h3 {
@@ -365,7 +367,7 @@
 }
 
 .trustCard p {
-  margin: 10px 0 0;
+  margin: 10px auto 0;
   color: var(--text-secondary);
   font-size: 14px;
   line-height: 1.6;

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -22,31 +22,31 @@ const serviceCards = [
   {
     name: 'Washroom Cleaning',
     description: 'Deep cleaning and sanitation for a hygienic washroom.',
-    image: '/images/ui/service-washroom-3d.svg',
+    image: '/images/ui/service-washroom-3d.jpg',
     href: '/category/bathroom-cleaning',
   },
   {
     name: 'Kitchen Cleaning',
     description: 'Degreasing and disinfecting for a spotless kitchen.',
-    image: '/images/ui/service-kitchen-3d.svg',
+    image: '/images/ui/service-kitchen-3d.jpg',
     href: '/category/kitchen-cleaning',
   },
   {
     name: 'Flat Cleaning',
     description: 'Complete home cleaning for a fresh start.',
-    image: '/images/ui/service-flat-3d.svg',
+    image: '/images/ui/service-flat-3d.jpg',
     href: '/category/flat-cleaning',
   },
   {
     name: 'Mini Services',
     description: 'AC, fridge, chimney and more cleaned to perfection.',
-    image: '/images/ui/service-appliance-3d.svg',
+    image: '/images/ui/service-appliance-3d.jpg',
     href: '/category/mini-services',
   },
   {
     name: 'Subscription Plans',
     description: 'Regular cleaning plans that fit your lifestyle.',
-    image: '/images/ui/service-subscription-3d.svg',
+    image: '/images/ui/service-subscription-3d.jpg',
     href: '/category/subscription',
   },
 ];
@@ -55,17 +55,17 @@ const steps = [
   {
     title: 'Choose Your Service',
     description: 'Select the cleaning service you need.',
-    icon: '/images/ui/how-choose-3d.svg',
+    icon: '/images/ui/how-choose-3d.jpg',
   },
   {
     title: 'Schedule and Confirm',
     description: 'Pick a date and time that works for you.',
-    icon: '/images/ui/how-schedule-3d.svg',
+    icon: '/images/ui/how-schedule-3d.jpg',
   },
   {
     title: 'Sit Back and Relax',
     description: 'Our experts will take care of the rest.',
-    icon: '/images/ui/how-relax-3d.svg',
+    icon: '/images/ui/how-relax-3d.jpg',
   },
 ];
 
@@ -233,7 +233,7 @@ export default function HomePage() {
                 <p>{step.description}</p>
               </article>
             ))}
-            <img src="/images/ui/cta-kit-3d.svg" alt="Cleaning kit" className={styles.stepKit} />
+            <img src="/images/ui/cta-kit-3d.jpg" alt="Cleaning kit" className={styles.stepKit} />
           </div>
         </div>
       </section>
@@ -280,28 +280,53 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className={styles.reviewGrid}>
-            {testimonials.map((item) => (
-              <article key={item.name} className={styles.reviewCard}>
-                <div className={styles.reviewStars}>{'*'.repeat(5)}</div>
-                <p>"{item.quote}"</p>
-                <div className={styles.reviewMeta}>
-                  <div className={styles.reviewAvatar}>{item.name[0]}</div>
-                  <div>
-                    <strong>{item.name}</strong>
-                    <span>{item.location}</span>
+            <div className="testimonial-carousel-wrapper">
+              <div className="fade-left"></div>
+              <div className="fade-right"></div>
+              <div className="track-top">
+                {[...testimonials, ...testimonials].map((t, i) => (
+                  <div key={i} className="testimonial-card">
+                    <div className="testimonial-stars">
+                      {'★'.repeat(5)}
+                    </div>
+                    <p className="testimonial-text">
+                      &ldquo;{t.quote.length > 100 ? t.quote.slice(0, 110) + "..." : t.quote}&rdquo;
+                    </p>
+                    <div className="testimonial-author">
+                      <div className="testimonial-avatar">{t.name.charAt(0)}</div>
+                      <div>
+                        <div className="testimonial-author-name">{t.name}</div>
+                        <div className="testimonial-author-date">{t.location}</div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </article>
-            ))}
-          </div>
+                ))}
+              </div>
+            </div>
 
-          <div className={styles.reviewDots}>
-            <span className={styles.dotActive} />
-            <span />
-            <span />
-            <span />
-          </div>
+            <div className="testimonial-carousel-wrapper">
+              <div className="fade-left"></div>
+              <div className="fade-right"></div>
+              <div className="track-bottom">
+                {[...testimonials, ...testimonials].map((t, i) => (
+                  <div key={i} className="testimonial-card">
+                    <div className="testimonial-stars">
+                      {'★'.repeat(5)}
+                    </div>
+                    <p className="testimonial-text">
+                      &ldquo;{t.quote.length > 100 ? t.quote.slice(0, 110) + "..." : t.quote}&rdquo;
+                    </p>
+                    <div className="testimonial-author">
+                      <div className="testimonial-avatar">{t.name.charAt(0)}</div>
+                      <div>
+                        <div className="testimonial-author-name">{t.name}</div>
+                        <div className="testimonial-author-date">{t.location}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
         </div>
       </section>
 
