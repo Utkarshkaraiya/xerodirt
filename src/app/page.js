@@ -139,6 +139,7 @@ const faqs = [
 
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState(0);
+  const [showAppModal, setShowAppModal] = useState(false);
 
   return (
     <>
@@ -161,9 +162,9 @@ export default function HomePage() {
               </p>
 
               <div className={styles.heroActions}>
-                <Link href="/book" className={styles.primaryBtn}>
+                <button onClick={() => setShowAppModal(true)} className={styles.primaryBtn}>
                   Book via App <FaAppStore />
-                </Link>
+                </button>
                 <a href="tel:8467942643" className={styles.secondaryBtn}>
                   <FaPhoneAlt /> Call Us
                 </a>
@@ -389,6 +390,76 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ===== APP DOWNLOAD MODAL ===== */}
+      {showAppModal && (
+        <div className="app-download-overlay" onClick={(e) => { if (e.target === e.currentTarget) setShowAppModal(false); }}>
+          <div className="app-download-modal">
+            {/* Header */}
+            <div className="app-download-modal-header">
+              <button className="app-modal-close" onClick={() => setShowAppModal(false)}>✕</button>
+              <div className="app-modal-phone-icon">📱</div>
+              <h2>Book via the Xerodirt App</h2>
+              <p>For a seamless booking experience, download our app and place your order in seconds.</p>
+            </div>
+
+            {/* Body */}
+            <div className="app-download-modal-body">
+              {/* Benefits */}
+              <div className="app-modal-benefits">
+                <div className="app-modal-benefit">
+                  <div className="app-modal-benefit-icon">⚡</div>
+                  <span>Faster booking with saved details</span>
+                </div>
+                <div className="app-modal-benefit">
+                  <div className="app-modal-benefit-icon">🔔</div>
+                  <span>Real-time order tracking & notifications</span>
+                </div>
+                <div className="app-modal-benefit">
+                  <div className="app-modal-benefit-icon">🎁</div>
+                  <span>App-exclusive offers & discounts</span>
+                </div>
+              </div>
+
+              {/* Store Buttons */}
+              <div className="app-store-buttons">
+                <a href="https://play.google.com/store/apps/details?id=com.xerodirt.xerodirt_app" target="_blank" rel="noopener noreferrer" className="app-store-btn app-store-btn-playstore">
+                  <div className="app-store-btn-icon">
+                    <img width="96" height="96" src="https://img.icons8.com/fluency/96/google-play-store-new.png" alt="google-play-store-new" />
+                  </div>
+                  <div className="app-store-btn-text">
+                    <span className="app-store-btn-label">GET IT ON</span>
+                    <span className="app-store-btn-name">Google Play</span>
+                  </div>
+                  <span className="app-store-btn-arrow">→</span>
+                </a>
+
+                <a href="https://apps.apple.com/in/app/xerodirt/id6764423738" target="_blank" rel="noopener noreferrer" className="app-store-btn app-store-btn-appstore">
+                  <div className="app-store-btn-icon">
+                    <img
+                      width="96"
+                      height="96"
+                      src="https://img.icons8.com/fluency/96/apple-app-store.png"
+                      alt="apple-app-store"
+                      className="store-icon"
+                    />
+                  </div>
+                  <div className="app-store-btn-text">
+                    <span className="app-store-btn-label">DOWNLOAD ON THE</span>
+                    <span className="app-store-btn-name">App Store</span>
+                  </div>
+                  <span className="app-store-btn-arrow">→</span>
+                </a>
+              </div>
+
+              {/* Footer */}
+              <div className="app-modal-footer">
+                <button onClick={() => setShowAppModal(false)}>Continue browsing</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
