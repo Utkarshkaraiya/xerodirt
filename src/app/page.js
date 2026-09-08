@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -22,31 +22,31 @@ const serviceCards = [
   {
     name: 'Washroom Cleaning',
     description: 'Deep cleaning and sanitation for a hygienic washroom.',
-    image: '/images/ui/service-washroom-3d.jpg',
+    image: '/images/ui/washroom-service-image.png',
     href: '/category/bathroom-cleaning',
   },
   {
     name: 'Kitchen Cleaning',
     description: 'Degreasing and disinfecting for a spotless kitchen.',
-    image: '/images/ui/service-kitchen-3d.jpg',
+    image: '/images/ui/kitchen-service-image.png',
     href: '/category/kitchen-cleaning',
   },
   {
     name: 'Flat Cleaning',
     description: 'Complete home cleaning for a fresh start.',
-    image: '/images/ui/service-flat-3d.jpg',
+    image: '/images/ui/flat-service-image.png',
     href: '/category/flat-cleaning',
   },
   {
     name: 'Mini Services',
     description: 'AC, fridge, chimney and more cleaned to perfection.',
-    image: '/images/ui/service-appliance-3d.jpg',
+    image: '/images/ui/mini-service-image.png',
     href: '/category/mini-services',
   },
   {
     name: 'Subscription Plans',
     description: 'Regular cleaning plans that fit your lifestyle.',
-    image: '/images/ui/service-subscription-3d.jpg',
+    image: '/images/ui/subscription-service-image.png',
     href: '/category/subscription',
   },
 ];
@@ -281,53 +281,53 @@ export default function HomePage() {
             </div>
           </div>
 
-            <div className="testimonial-carousel-wrapper">
-              <div className="fade-left"></div>
-              <div className="fade-right"></div>
-              <div className="track-top">
-                {[...testimonials, ...testimonials].map((t, i) => (
-                  <div key={i} className="testimonial-card">
-                    <div className="testimonial-stars">
-                      {'★'.repeat(5)}
-                    </div>
-                    <p className="testimonial-text">
-                      &ldquo;{t.quote.length > 100 ? t.quote.slice(0, 110) + "..." : t.quote}&rdquo;
-                    </p>
-                    <div className="testimonial-author">
-                      <div className="testimonial-avatar">{t.name.charAt(0)}</div>
-                      <div>
-                        <div className="testimonial-author-name">{t.name}</div>
-                        <div className="testimonial-author-date">{t.location}</div>
-                      </div>
+          <div className="testimonial-carousel-wrapper">
+            <div className="fade-left"></div>
+            <div className="fade-right"></div>
+            <div className="track-top">
+              {[...testimonials, ...testimonials].map((t, i) => (
+                <div key={i} className="testimonial-card">
+                  <div className="testimonial-stars">
+                    {'★'.repeat(5)}
+                  </div>
+                  <p className="testimonial-text">
+                    &ldquo;{t.quote.length > 100 ? t.quote.slice(0, 110) + "..." : t.quote}&rdquo;
+                  </p>
+                  <div className="testimonial-author">
+                    <div className="testimonial-avatar">{t.name.charAt(0)}</div>
+                    <div>
+                      <div className="testimonial-author-name">{t.name}</div>
+                      <div className="testimonial-author-date">{t.location}</div>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div className="testimonial-carousel-wrapper">
-              <div className="fade-left"></div>
-              <div className="fade-right"></div>
-              <div className="track-bottom">
-                {[...testimonials, ...testimonials].map((t, i) => (
-                  <div key={i} className="testimonial-card">
-                    <div className="testimonial-stars">
-                      {'★'.repeat(5)}
-                    </div>
-                    <p className="testimonial-text">
-                      &ldquo;{t.quote.length > 100 ? t.quote.slice(0, 110) + "..." : t.quote}&rdquo;
-                    </p>
-                    <div className="testimonial-author">
-                      <div className="testimonial-avatar">{t.name.charAt(0)}</div>
-                      <div>
-                        <div className="testimonial-author-name">{t.name}</div>
-                        <div className="testimonial-author-date">{t.location}</div>
-                      </div>
+          <div className="testimonial-carousel-wrapper">
+            <div className="fade-left"></div>
+            <div className="fade-right"></div>
+            <div className="track-bottom">
+              {[...testimonials, ...testimonials].map((t, i) => (
+                <div key={i} className="testimonial-card">
+                  <div className="testimonial-stars">
+                    {'★'.repeat(5)}
+                  </div>
+                  <p className="testimonial-text">
+                    &ldquo;{t.quote.length > 100 ? t.quote.slice(0, 110) + "..." : t.quote}&rdquo;
+                  </p>
+                  <div className="testimonial-author">
+                    <div className="testimonial-avatar">{t.name.charAt(0)}</div>
+                    <div>
+                      <div className="testimonial-author-name">{t.name}</div>
+                      <div className="testimonial-author-date">{t.location}</div>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
+          </div>
         </div>
       </section>
 
@@ -379,7 +379,7 @@ export default function HomePage() {
                 Book Now <FaArrowRight />
               </Link>
 
-              
+
 
               <a
                 href="https://wa.me/917559337336?text=Hi%20Xerodirt!%20I%20would%20like%20to%20know%20more%20about%20your%20services."
