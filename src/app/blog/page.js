@@ -19,9 +19,9 @@ export default function BlogPage() {
         <div className="container">
           <div className="cat-page-hero-inner blog-service-hero-inner">
             <div className="cat-hero-text blog-service-hero-text">
-          <span className="cat-hero-label">OUR BLOG</span>
-          <h1>Smart Cleaning Tips for Modern Indian Homes</h1>
-          <p>Expert advice from Pune&apos;s trusted cleaning professionals. Stay informed, stay clean.</p>
+              <span className="cat-hero-label">OUR BLOG</span>
+              <h1>Smart Cleaning Tips for Modern Indian Homes</h1>
+              <p>Expert advice from Pune&apos;s trusted cleaning professionals. Stay informed, stay clean.</p>
             </div>
             <div className="cat-hero-image blog-service-hero-image">
               <img
@@ -114,23 +114,23 @@ export default function BlogPage() {
           <div className="cta-content blog-service-cta-card reveal">
             <div className="blog-service-cta-copy">
               <span className="cat-hero-label">BOOK A SERVICE</span>
-            <h2>Need Professional Cleaning?</h2>
-            <p>Put these tips into practice — or let our experts handle it for you.</p>
-            <div className="cta-buttons">
-              <Link href="/book" className="btn btn-primary btn-lg">Book Now →</Link>
-              <a
-                href="https://wa.me/917559337336?text=Hi%20Xerodirt!%20I%20read%20your%20blog%20and%20would%20like%20to%20know%20more."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-outline-white btn-lg"
-              >
-                💬 WhatsApp Us
-              </a>
-            </div>
+              <h2>Need Professional Cleaning?</h2>
+              <p>Put these tips into practice — or let our experts handle it for you.</p>
+              <div className="cta-buttons">
+                <Link href="/book" className="btn btn-primary btn-lg">Book Now →</Link>
+                <a
+                  href="https://wa.me/917559337336?text=Hi%20Xerodirt!%20I%20read%20your%20blog%20and%20would%20like%20to%20know%20more."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline-white btn-lg"
+                >
+                  💬 WhatsApp Us
+                </a>
+              </div>
             </div>
             <div className="blog-service-cta-visual">
               <img
-                src="/images/ui/service-washroom-3d.jpg"
+                src="/images/ui/washroom-123.png"
                 alt="Xerodirt washroom cleaning service"
               />
             </div>
