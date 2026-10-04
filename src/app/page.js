@@ -19,10 +19,10 @@ export default function HomePage() {
           <div className="hero-content">
             <div className="hero-text">
               <div className="hero-badge animate-fade-in-up">
-                ✨ Trusted by 5000+ homes in Pune
+                ✨ Trusted by 5000+ homes in Pune & Bangalore
               </div>
               <h1 className="animate-fade-in-up delay-1">
-                Professional <span>Cleaning</span> Services in Pune
+                Professional <span>Cleaning</span> Services in Pune & Bangalore
               </h1>
               <p className="hero-description animate-fade-in-up delay-2">
                 On-demand washroom &amp; home cleaning to empower urban households. Affordable pricing, trained professionals, and 100% satisfaction guaranteed.
@@ -190,7 +190,7 @@ export default function HomePage() {
           <div className="section-header reveal">
             <span className="section-label">Testimonials</span>
             <h2 className="section-title">What Our Customers Say</h2>
-            <p className="section-subtitle">Trusted by homeowners across Pune.</p>
+            <p className="section-subtitle">Trusted by homeowners across Pune & Bangalore.</p>
           
 
               <div className="google-rating-badge">

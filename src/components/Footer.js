@@ -19,16 +19,16 @@ export default function Footer() {
           <div>
             <div className="footer-brand-name">XERODIRT</div>
             <p className="footer-brand-desc">
-              Professional washroom &amp; home cleaning services in Pune. On-demand cleaning to empower urban households with spotless living spaces.
-            
+              Professional washroom &amp; home cleaning services in Pune & Bangalore. On-demand cleaning to empower urban households with spotless living spaces.
+
               ⭐ 4.9 Rated Service ✅
-              </p>
-              
-              
-            
+            </p>
+
+
+
             <div className="footer-social">
 
-              
+
               <a
                 href="https://wa.me/917559337336"
                 target="_blank"
@@ -117,8 +117,8 @@ export default function Footer() {
                 <FaPhoneAlt />
               </span>
 
-              <a href="tel:">
-                
+              <a href="tel:+918467942643">
+                +91 84679 42643
               </a>
             </div>
 
@@ -158,7 +158,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} Xerodirt. All rights reserved.</p>
-          <p>Professional Cleaning Services in Pune</p>
+          <p>Professional Cleaning Services in Pune & Bangalore</p>
         </div>
       </div>
     </footer>

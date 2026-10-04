@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'About Us — Xerodirt Professional Cleaning',
-  description: 'Learn about Xerodirt, Pune\'s trusted professional cleaning service provider. Our mission, values, and commitment to cleanliness.',
+  description: 'Learn about Xerodirt, Pune & Bangalore\'s trusted professional cleaning service provider. Our mission, values, and commitment to cleanliness.',
 };
 
 export default function AboutPage() {
@@ -19,12 +19,12 @@ export default function AboutPage() {
           <div className="about-content reveal">
             <div>
               <span className="section-label">Our Mission</span>
-              <h2>Making Pune&apos;s Homes Sparkle, One at a Time</h2>
+              <h2>Making Pune & Bangalore&apos;s Homes Sparkle, One at a Time</h2>
               <p>
                 Xerodirt was born from a simple observation — finding reliable, professional cleaning services shouldn&apos;t be hard. We started with washroom cleaning and quickly expanded to cover everything a modern household needs.
               </p>
               <p>
-                Today, we serve over 5000 homes across Pune with a team of 50+ trained professionals. Our commitment to quality, transparency, and customer satisfaction has earned us a 4.9★ rating on Google.
+                Today, we serve over 5000 homes across Pune & Bangalore with a team of 50+ trained professionals. Our commitment to quality, transparency, and customer satisfaction has earned us a 4.9★ rating on Google.
               </p>
               <p>
                 From a single washroom clean to full apartment makeovers, from plumbing fixes to fresh paint jobs — Xerodirt is your one-stop solution for a cleaner, happier home.
