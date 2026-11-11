@@ -860,7 +860,7 @@ export const faqs = [
   },
   {
     question: 'What is your cancellation and refund policy?',
-    answer: 'You can cancel or reschedule your booking up to 4 hours before the scheduled time at no charge. If you\'re not satisfied with our service, contact us within 24 hours and we\'ll arrange a re-clean at no extra cost.',
+    answer: 'Bookings cancelled by the customer are strictly non-refundable, regardless of when the cancellation is made. If your booking is cancelled by Xerodirt, a full refund of your paid amount will be issued.',
   },
 ];
 
